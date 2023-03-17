@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BeneficiariesService } from 'src/app/services/beneficiaries.service';
 
 @Component({
   selector: 'app-table',
@@ -8,18 +7,4 @@ import { BeneficiariesService } from 'src/app/services/beneficiaries.service';
 })
 export class TableComponent {
 
-  listBeneficiaries: any[] = [];
-
-  constructor (private _BeneficiariesService: BeneficiariesService) {}
-
-  ngOnInit(): void {
-  this.getListBeneficiaries();
-  }
-
-   getListBeneficiaries() {
-    this._BeneficiariesService.getBeneficiaries().subscribe((data: any[]) => {
-      this.listBeneficiaries = data;
-      console.log(this.listBeneficiaries)
-    })
-  }
 }
