@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
 import { BenficiariesInscriptionComponent } from './components/form/benficiaries-inscription/benficiaries-inscription.component';
 import { BirthInformationComponent } from './components/form/birth-information/birth-information.component';
@@ -17,6 +21,7 @@ import { SideBarComponent } from './components/navigation/side-bar/side-bar.comp
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
 import { TableComponent } from './components/navigation/table/table.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { DataComponent } from './components/navigation/data/data.component';
 
 @NgModule({
   declarations: [
@@ -35,10 +40,13 @@ import { LoginComponent } from './components/auth/login/login.component';
     MainViewComponent,
     TableComponent,
     LoginComponent,
+    DataComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
