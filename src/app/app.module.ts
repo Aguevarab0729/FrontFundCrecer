@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
@@ -22,6 +23,7 @@ import { MainViewComponent } from './components/pages/main-view/main-view.compon
 import { TableComponent } from './components/navigation/table/table.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { DataComponent } from './components/navigation/data/data.component';
+import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
 
 @NgModule({
   declarations: [
@@ -41,12 +43,14 @@ import { DataComponent } from './components/navigation/data/data.component';
     TableComponent,
     LoginComponent,
     DataComponent,
+    ModalWindowComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
