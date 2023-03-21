@@ -6,6 +6,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
@@ -23,6 +25,8 @@ import { MainViewComponent } from './components/pages/main-view/main-view.compon
 import { TableComponent } from './components/navigation/table/table.component';
 import { DataComponent } from './components/navigation/data/data.component';
 import { StartLoginComponent } from './components/pages/start-login/start-login.component';
+import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
+import { ImportComponent } from './components/navigation/import/import.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,8 @@ import { StartLoginComponent } from './components/pages/start-login/start-login.
     TableComponent,
     DataComponent,
     StartLoginComponent
+    ModalWindowComponent,
+    ImportComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,9 @@ import { StartLoginComponent } from './components/pages/start-login/start-login.
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

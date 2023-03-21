@@ -20,8 +20,11 @@
     "@angular/router": "^15.0.0",
     "@mongodb-js/charts-embed-dom": "^3.0.0",
     "@types/animejs": "^3.1.7",
+    "@ng-bootstrap/ng-bootstrap": "^14.0.1",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.12.0"
   },
   "devDependencies": {
