@@ -45,7 +45,7 @@ import { ImportComponent } from './components/navigation/import/import.component
     MainViewComponent,
     TableComponent,
     DataComponent,
-    StartLoginComponent
+    StartLoginComponent,
     ModalWindowComponent,
     ImportComponent,
   ],
