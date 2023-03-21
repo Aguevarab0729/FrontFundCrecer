@@ -1,1 +1,93 @@
-<p>basic-information works!</p>
+<div class="form-container">
+  <form class="form-modal" [formGroup]="basicInformationForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="numDoc">Número de documento:</label>
+      <input type="text" id="numDoc" name="numDoc" required>
+    </div>
+
+    <div class="form-group">
+      <label for="curState">Estado actual:</label>
+      <select id="curState" name="curState" required>
+        <option value="">Selecciona un estado</option>
+        <option value="true">Activo</option>
+        <option value="false">Inactivo</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="joinDate">Fecha de ingreso:</label>
+      <input type="date" id="joinDate" name="joinDate" required>
+    </div>
+
+    <div class="form-group">
+      <label for="exitDate">Fecha de salida:</label>
+      <input type="date" id="exitDate" name="exitDate">
+    </div>
+
+    <div class="form-group">
+      <label for="enterBy">Ingresado por:</label>
+      <input type="text" id="enterBy" name="enterBy">
+    </div>
+
+    <div class="form-group">
+      <label for="reasonForExit">Motivo de salida:</label>
+      <input type="text" id="reasonForExit" name="reasonForExit">
+    </div>
+
+    <div class="form-group">
+      <label for="otherExitReason">Otro motivo de salida:</label>
+      <input type="text" id="otherExitReason" name="otherExitReason">
+    </div>
+
+    <div class="form-group">
+      <label for="unityName">Nombre de la unidad:</label>
+      <input type="text" id="unityName" name="unityName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="duoName">Nombre del DUO:</label>
+      <input type="text" id="duoName" name="duoName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="teachers">Profesores:</label>
+      <input type="text" id="teachers" name="teachers">
+    </div>
+
+    <div class="form-group">
+      <label for="documentType">Tipo de documento:</label>
+      <input type="text" id="documentType" name="documentType" required>
+    </div>
+
+    <div class="form-group">
+      <label for="firstName">Primer nombre:</label>
+      <input type="text" id="firstName" name="firstName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="secondName">Segundo nombre:</label>
+      <input type="text" id="secondName" name="secondName">
+    </div>
+
+    <div class="form-group">
+      <label for="firstLastName">Primer apellido:</label>
+      <input type="text" id="firstLastName" name="firstLastName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="secondLastName">Segundo apellido:</label>
+      <input type="text" id="secondLastName" name="secondLastName">
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Género:</label>
+      <select id="gender" name="gender" required>
+        <option value="">Selecciona un género</option>
+        <option value="MASCULINO">Masculino</option>
+        <option value="FEMENINO">Femenino</option>
+      </select>
+    </div>
+    <button class="submit" type="submit">Siguiente</button>
+  </form>
+</div>

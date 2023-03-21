@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -22,9 +23,10 @@ import { BasicInformationComponent } from './components/form/basic-information/b
 import { SideBarComponent } from './components/navigation/side-bar/side-bar.component';
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
 import { TableComponent } from './components/navigation/table/table.component';
-import { LoginComponent } from './components/auth/login/login.component';
 import { DataComponent } from './components/navigation/data/data.component';
+import { StartLoginComponent } from './components/pages/start-login/start-login.component';
 import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
+import { ImportComponent } from './components/navigation/import/import.component';
 
 @NgModule({
   declarations: [
@@ -42,15 +44,18 @@ import { ModalWindowComponent } from './components/navigation/modal-window/modal
     SideBarComponent,
     MainViewComponent,
     TableComponent,
-    LoginComponent,
     DataComponent,
+    StartLoginComponent,
     ModalWindowComponent,
+    ImportComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule
   ],
