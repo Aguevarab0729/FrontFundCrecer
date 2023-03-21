@@ -1,1 +1,38 @@
-<p>disability-information works!</p>
+<form class="form-modal" [formGroup]="disabilityForm">
+  <div class="form-group">
+    <label for="disability">¿Tiene alguna discapacidad?</label>
+    <select id="disability" formControlName="disability">
+      <option value="">Seleccione una opción</option>
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="certifiedDisability">¿Ha sido certificado como discapacitado?</label>
+    <select id="certifiedDisability" formControlName="certifiedDisability" required>
+      <option value="">Seleccione una opción</option>
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="entityCertifiesDisability">Entidad que certifica la discapacidad:</label>
+    <input type="text" id="entityCertifiesDisability" formControlName="entityCertifiesDisability" required>
+  </div>
+  <div class="form-group">
+    <label for="disabilityCategory">Categoría de discapacidad:</label>
+    <input type="text" id="disabilityCategory" formControlName="disabilityCategory">
+  </div>
+  <div class="form-group">
+    <label for="specifiedDisability">Discapacidad específica:</label>
+    <input type="text" id="specifiedDisability" formControlName="specifiedDisability">
+  </div>
+  <div class="form-group">
+    <label for="disabilityRegistryEnrollment">¿Está inscrito en el registro de discapacidades?</label>
+    <select id="disabilityRegistryEnrollment" formControlName="disabilityRegistryEnrollment">
+      <option value="false">No</option>
+      <option value="true">Sí</option>
+    </select>
+  </div>
+  <button class="submit" type="submit">Siguiente</button>
+</form>

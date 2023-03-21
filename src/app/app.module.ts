@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -20,8 +21,8 @@ import { BasicInformationComponent } from './components/form/basic-information/b
 import { SideBarComponent } from './components/navigation/side-bar/side-bar.component';
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
 import { TableComponent } from './components/navigation/table/table.component';
-import { LoginComponent } from './components/auth/login/login.component';
 import { DataComponent } from './components/navigation/data/data.component';
+import { StartLoginComponent } from './components/pages/start-login/start-login.component';
 
 @NgModule({
   declarations: [
@@ -39,14 +40,16 @@ import { DataComponent } from './components/navigation/data/data.component';
     SideBarComponent,
     MainViewComponent,
     TableComponent,
-    LoginComponent,
     DataComponent,
+    StartLoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
