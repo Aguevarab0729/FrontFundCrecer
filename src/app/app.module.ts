@@ -25,6 +25,7 @@ import { TableComponent } from './components/navigation/table/table.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { DataComponent } from './components/navigation/data/data.component';
 import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
+import { ImportComponent } from './components/navigation/import/import.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ModalWindowComponent } from './components/navigation/modal-window/modal
     LoginComponent,
     DataComponent,
     ModalWindowComponent,
+    ImportComponent,
   ],
   imports: [
     BrowserModule,
