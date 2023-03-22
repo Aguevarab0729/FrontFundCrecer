@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms'; 
 
 
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
@@ -54,7 +55,8 @@ import { ImportComponent } from './components/navigation/import/import.component
     HttpClientModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
