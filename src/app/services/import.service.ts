@@ -16,7 +16,9 @@ export class ImportService {
     this.myApiUrl = 'import';
   }
 
-  importBeneficiaries(formData: FormData): Observable<any> {
-    return this.http.post<any>(`${this.myAppUrl}${this.myApiUrl}`, formData);
+  importData(excelRoute: string): Observable<any> {
+    const url = `${this.myAppUrl}${this.myApiUrl}`;
+    const body = { path: excelRoute };
+    return this.http.post<any>(url, body);
   }
 }
