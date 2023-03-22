@@ -20,6 +20,7 @@ import { ParentInformationComponent } from './components/form/parent-information
 import { ResidencyInformationComponent } from './components/form/residency-information/residency-information.component';
 import { SocialInformationComponent } from './components/form/social-information/social-information.component';
 import { BasicInformationComponent } from './components/form/basic-information/basic-information.component';
+
 import { SideBarComponent } from './components/navigation/side-bar/side-bar.component';
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
 import { TableComponent } from './components/navigation/table/table.component';

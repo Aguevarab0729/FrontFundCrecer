@@ -25,7 +25,7 @@ export class StartLoginComponent implements OnInit{
   }
 
   //  getters and setters
-  get email(){
+  /* get email(){
     return this.formLogin.get('email');
   }
 
@@ -43,7 +43,7 @@ export class StartLoginComponent implements OnInit{
       console.table(this.formLogin.value);
       this.formLogin.reset();
     }
-  }
+  } */
 }
 
 

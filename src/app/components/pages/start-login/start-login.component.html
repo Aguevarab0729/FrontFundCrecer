@@ -1,4 +1,28 @@
-<form [formGroup]="formLogin" (submit)="sendForm()">
+
+<body>
+  <div class="login">
+    <div class="avatar">
+      <img src="/src/assets/icons/logo.svg" width="auto" height="auto"/>
+    </div>
+    <h2>Login</h2>
+    <h3>Fundación Crecer</h3>
+
+    <form class="login-form">
+      <div class="textbox">
+        <input type="email" placeholder="Username" />
+        <span class="material-symbols-outlined"> account_circle </span>
+      </div>
+      <div class="textbox">
+        <input type="password" placeholder="Password" />
+        <span class="material-symbols-outlined"> lock </span>
+      </div>
+      <button type="submit">LOGIN</button>
+      <a href="https://website.com">Forgot your credentials?</a>
+    </form>
+  </div>
+</body>
+
+<!-- <form [formGroup]="formLogin" (submit)="sendForm()">
   <label for="email">Email</label>
   <input type="email" formControlName="email" />
   <div *ngIf="email?.errors?.['required'] && email?.touched">
@@ -8,7 +32,7 @@
   <input name="password" type="password" formControlName="password"/>
   <button [disabled]="!formLogin.valid" type="submit" formControlName="submit">SUBMIT</button>
 </form>
-
+ -->
 
 <!--
 <form [formGroup]="miFormulario">

@@ -3,12 +3,23 @@
 
     <div class="form-group">
       <label for="numDoc">Número de documento:</label>
-      <input type="text" id="numDoc" name="numDoc" required>
+      <input type="number" id="numDoc" class="form-control" formControlName="numDoc" required>
+      <!-- <div class="alert alert-danger" *ngIf="numDoc.invalid && (numDoc.dirty || name.touched)">
+        <div *ngIf="name.errors?.['required']">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </div>
+        <div *ngIf="name.errors?.['forbiddenName']">
+          Name cannot be Bob.
+        </div>
+      </div> -->
     </div>
 
     <div class="form-group">
       <label for="curState">Estado actual:</label>
-      <select id="curState" name="curState" required>
+      <select id="curState" formControlName="curState" required>
         <option value="">Selecciona un estado</option>
         <option value="true">Activo</option>
         <option value="false">Inactivo</option>
