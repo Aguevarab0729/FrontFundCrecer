@@ -10,7 +10,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
 import { BenficiariesInscriptionComponent } from './components/form/benficiaries-inscription/benficiaries-inscription.component';
 import { BirthInformationComponent } from './components/form/birth-information/birth-information.component';

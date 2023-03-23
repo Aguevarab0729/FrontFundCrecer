@@ -1,4 +1,4 @@
-<div>
-  <input type="file" #fileInput (change)="onFileSelected($event)">
-  <button (click)="onImport()">Importar</button>
-</div>
+<form #formulario="ngForm" (ngSubmit)="cargarArchivo()">
+  <input type="file" (change)="seleccionarArchivo($event)" #archivoInput accept=".xls,.xlsx,.xlsm,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+  <button type="submit" [disabled]="!archivoSeleccionado">Cargar archivo</button>
+</form>
