@@ -16,9 +16,9 @@ export class ImportService {
     this.myApiUrl = 'import';
   }
 
-  importData(excelRoute: string): Observable<any> {
-    const url = `${this.myAppUrl}${this.myApiUrl}`;
-    const body = { path: excelRoute };
-    return this.http.post<any>(url, body);
+  importarArchivo(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('file', file, file.name); // add the file to the formData object with the correct name
+    return this.http.post<any>(`${this.myAppUrl}${this.myApiUrl}`, formData);
   }
 }

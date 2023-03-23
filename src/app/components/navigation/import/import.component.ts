@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ImportService } from 'src/app/services/import.service';
-
 
 @Component({
   selector: 'app-import',
@@ -8,22 +7,38 @@ import { ImportService } from 'src/app/services/import.service';
   styleUrls: ['./import.component.scss']
 })
 export class ImportComponent {
-  ruta_del_archivo: string;
 
-  constructor(private importService: ImportService) {
-    this.ruta_del_archivo = '';
+  @ViewChild('fileInput') fileInput!: ElementRef;
+  
+  selectedFile: File | null = null;
+
+  constructor(private importService: ImportService) {}
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile)
   }
 
-  importarDatos() {
-    this.importService.importData(this.ruta_del_archivo).subscribe(
-      response => {
-        console.log(response);
-        // hacer algo con la respuesta, si es necesario
+  onImport() {
+    if (!this.selectedFile) {
+      return;
+    }
+
+    this.importService.importarArchivo(this.selectedFile).subscribe(
+      () => {
+        this.selectedFile = null;
+        this.fileInput.nativeElement.value = '';
+        alert('Archivo importado correctamente');
       },
-      error => {
-        console.error(error);
-        // manejar el error, si es necesario
+      (error) => {
+        console.log(error);
+        alert('Ocurrió un error al importar el archivo');
       }
     );
   }
 }
+
+
+
+ 
+ 

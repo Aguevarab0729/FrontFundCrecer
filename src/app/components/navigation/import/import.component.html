@@ -1,11 +1,4 @@
 <div>
-    <h2>Importar datos</h2>
-    <form (submit)="importarDatos()">
-      <label>
-        Ruta del archivo:
-        <input type="text" [(ngModel)]="ruta_del_archivo" name="ruta_del_archivo">
-      </label>
-      <button type="submit">Importar</button>
-    </form>
-  </div>
-  
+  <input type="file" #fileInput (change)="onFileSelected($event)">
+  <button (click)="onImport()">Importar</button>
+</div>
