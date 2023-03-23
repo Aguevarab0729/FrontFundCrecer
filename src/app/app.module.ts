@@ -8,8 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms'; 
-
 
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
 import { BenficiariesInscriptionComponent } from './components/form/benficiaries-inscription/benficiaries-inscription.component';
@@ -29,6 +27,7 @@ import { DataComponent } from './components/navigation/data/data.component';
 import { StartLoginComponent } from './components/pages/start-login/start-login.component';
 import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
 import { ImportComponent } from './components/navigation/import/import.component';
+import { ModalFormsComponent } from './components/navigation/modal-forms/modal-forms.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +49,7 @@ import { ImportComponent } from './components/navigation/import/import.component
     StartLoginComponent,
     ModalWindowComponent,
     ImportComponent,
+    ModalFormsComponent,
   ],
   imports: [
     BrowserModule,
