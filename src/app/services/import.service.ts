@@ -2,23 +2,30 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
 @Injectable({
   providedIn: 'root'
 })
-export class ImportService {
+export class importService {
 
   private myAppUrl: String ;
   private myApiUrl: String;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { 
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'import';
   }
 
-  importData(excelRoute: string): Observable<any> {
-    const url = `${this.myAppUrl}${this.myApiUrl}`;
-    const body = { path: excelRoute };
-    return this.http.post<any>(url, body);
+  importarArchivo(file: File): any {
+    const formData = new FormData();
+    // const url = `${this.myAppUrl}${this.myApiUrl}`;
+    formData.append('archivo', file);
+    console.log(formData.get('archivo'))
+    const url = 'http://localhost:3000/import';
+    const body = formData ;
+
+    this.http.post(url, body).subscribe((response) => {
+  console.log(response);
+});
+    // return this.http.post<any>('http://localhost:3000/import', formData);
   }
 }
