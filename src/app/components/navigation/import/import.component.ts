@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ImportService } from 'src/app/services/import.service';
+import { importService } from 'src/app/services/import.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -8,22 +9,17 @@ import { ImportService } from 'src/app/services/import.service';
   styleUrls: ['./import.component.scss']
 })
 export class ImportComponent {
-  ruta_del_archivo: string;
+  archivoSeleccionado: File|any;
 
-  constructor(private importService: ImportService) {
-    this.ruta_del_archivo = '';
+  constructor(private importDataService: importService) { 
+    this.archivoSeleccionado = null;
   }
 
-  importarDatos() {
-    this.importService.importData(this.ruta_del_archivo).subscribe(
-      response => {
-        console.log(response);
-        // hacer algo con la respuesta, si es necesario
-      },
-      error => {
-        console.error(error);
-        // manejar el error, si es necesario
-      }
-    );
+  seleccionarArchivo(event: any): void {
+    this.archivoSeleccionado = event.target.files[0];
+  }
+
+  cargarArchivo(): void {
+    this.importDataService.importarArchivo(this.archivoSeleccionado);
   }
 }
