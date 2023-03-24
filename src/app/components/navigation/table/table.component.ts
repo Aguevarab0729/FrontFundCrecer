@@ -14,6 +14,7 @@ export class TableComponent {
   beneficiariesToShow: any[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 25;
+  showInactive: boolean = false;;
 
   constructor(
     private _BeneficiariesService: BeneficiariesService,
@@ -23,9 +24,16 @@ export class TableComponent {
   ngOnInit(): void {
     this.getListBeneficiaries();
   }
+  
   getListBeneficiaries() {
     this._BeneficiariesService.getBeneficiaries().subscribe((data: any[]) => {
-      this.listBeneficiaries = data;
+      this.listBeneficiaries = data.filter(beneficiary => {
+        if (this.showInactive) {
+          return true;
+        } else {
+          return beneficiary.basicinfo.curState;
+        }
+      });
       this.updateBeneficiariesToShow();
       console.log(this.listBeneficiaries)
     });
@@ -62,6 +70,11 @@ export class TableComponent {
   
   get totalPages() {
     return Math.ceil(this.totalBeneficiaries / this.itemsPerPage);
+  }
+
+  toggleInactive() {
+    this.showInactive = !this.showInactive;
+    this.getListBeneficiaries();
   }
 
   openModal(beneficiary: any) {
