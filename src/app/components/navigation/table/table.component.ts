@@ -14,7 +14,12 @@ export class TableComponent {
   beneficiariesToShow: any[] = [];
   currentPage: number = 1;
   itemsPerPage: number = 25;
-  showInactive: boolean = false;;
+  showInactive: boolean = false;
+  selectedDupla: string = "";
+  duplas: string[] = [];
+  filteredBeneficiaries: any[] = [];
+  
+
 
   constructor(
     private _BeneficiariesService: BeneficiariesService,
@@ -23,37 +28,73 @@ export class TableComponent {
 
   ngOnInit(): void {
     this.getListBeneficiaries();
+    console.log(this.duplas);
   }
   
   getListBeneficiaries() {
     this._BeneficiariesService.getBeneficiaries().subscribe((data: any[]) => {
-      this.listBeneficiaries = data.filter(beneficiary => {
-        if (this.showInactive) {
-          return true;
-        } else {
-          return beneficiary.basicinfo.curState;
-        }
-      });
+      if (this.showInactive) {
+        // Si el checkbox está activado, mostrar todos los beneficiarios inactivos
+        this.listBeneficiaries = data.filter(beneficiary => !beneficiary.basicinfo.curState);
+      } else {
+        // Si el checkbox está desactivado, mostrar solo los beneficiarios activos
+        this.listBeneficiaries = data.filter(beneficiary => beneficiary.basicinfo.curState);
+      }
+      this.filteredBeneficiaries = this.listBeneficiaries.slice(); // Inicializa el arreglo de beneficiarios filtrados
+      this.getDuplas();
       this.updateBeneficiariesToShow();
-      console.log(this.listBeneficiaries)
+      console.log(this.listBeneficiaries);
     });
   }
+
   updateBeneficiariesToShow() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.beneficiariesToShow = this.listBeneficiaries.slice(startIndex, endIndex);
+    this.beneficiariesToShow = this.filteredBeneficiaries.slice(startIndex, endIndex);
   }
+
+  getDuplas() {
+    const duplasSet = new Set(this.listBeneficiaries.map(beneficiary => beneficiary.basicinfo.duoName));
+    this.duplas = Array.from(duplasSet);
+  }
+
+  filterByDupla() {
+    if (this.selectedDupla && this.selectedDupla.trim() !== "") {
+      this.filteredBeneficiaries = this.listBeneficiaries.filter(beneficiary => beneficiary.basicinfo.duoName === this.selectedDupla);
+    } else {
+      this.filteredBeneficiaries = this.showInactive ? 
+        this.listBeneficiaries.filter(beneficiary => !beneficiary.basicinfo.curState) :
+        this.listBeneficiaries.filter(beneficiary => beneficiary.basicinfo.curState);
+    }
+    this.currentPage = 1;
+    this.updateBeneficiariesToShow();
+  }
+
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
       this.updateBeneficiariesToShow();
     }}
-  nextPage() {
-    if (this.currentPage < this.totalPages) {
-      this.currentPage++;
-      this.updateBeneficiariesToShow();
+
+    nextPage() {
+      const nextPage = this.currentPage + 1;
+      const startIndex = (nextPage - 1) * this.itemsPerPage;
+      const nextPageBeneficiaries = this.filteredBeneficiaries.slice(startIndex, startIndex + this.itemsPerPage);
+    
+      if (nextPage <= this.totalPages && nextPageBeneficiaries.length > 0) {
+        this.currentPage = nextPage;
+        this.updateBeneficiariesToShow();
+      } else {
+        // Si la lista de beneficiarios filtrados está vacía, no hacer nada.
+        console.log("No hay más beneficiarios para mostrar.");
+      }
     }
+
+  toggleInactive() {
+    this.showInactive = !this.showInactive;
+    this.getListBeneficiaries();
   }
+
 
   get totalBeneficiaries() {
     return this.listBeneficiaries.length;
@@ -72,11 +113,7 @@ export class TableComponent {
     return Math.ceil(this.totalBeneficiaries / this.itemsPerPage);
   }
 
-  toggleInactive() {
-    this.showInactive = !this.showInactive;
-    this.getListBeneficiaries();
-  }
-
+  
   openModal(beneficiary: any) {
     const modalRef = this.modalService.open(ModalWindowComponent);
     modalRef.componentInstance.beneficiary = beneficiary;

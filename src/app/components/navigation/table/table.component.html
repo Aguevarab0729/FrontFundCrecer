@@ -3,7 +3,14 @@
   <div class="form-check form-switch mt-3 ml-auto">
     <input class="form-check-input" type="checkbox" id="showInactive" [(ngModel)]="showInactive" (click)="toggleInactive()">
     <label class="form-check-label" for="showInactive">Mostrar inactivos</label>
-    </div>
+  </div>
+  <div class="form-group">
+    <label for="selectDupla">Filtrar por Dupla:</label>
+    <select id="selectDupla" class="form-control" [(ngModel)]="selectedDupla" (change)="filterByDupla()">
+      <option value="">Todos</option>
+      <option *ngFor="let dupla of duplas" [value]="dupla">{{dupla}}</option>
+    </select>
+  </div>
   <div class="mb-3 mt-3">
     <div class="img-container">
     <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario">
@@ -37,7 +44,7 @@
       </table>
       <div class="d-flex justify-content-between mb-3">
         <button class="btn btn-primary" [disabled]="currentPage === 1" (click)="prevPage()">Anterior</button>
-        <span>Mostrando {{startIndex}} - {{endIndex}} de {{totalBeneficiaries}} beneficiarios</span>
+        <span>Mostrando {{startIndex}} - {{endIndex}}</span>
         <button class="btn btn-primary" [disabled]="currentPage === totalPages" (click)="nextPage()">Siguiente</button>
       </div>
       </div>
