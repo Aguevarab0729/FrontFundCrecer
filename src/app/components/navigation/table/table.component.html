@@ -1,23 +1,25 @@
 <app-side-bar></app-side-bar>
 <div class="container">
-  <div class="form-check form-switch mt-3 ml-auto">
+  <div class="form-check form-switch mt-1 mb-3 ml-auto">
     <input class="form-check-input" type="checkbox" id="showInactive" [(ngModel)]="showInactive" (click)="toggleInactive()">
     <label class="form-check-label" for="showInactive">Mostrar inactivos</label>
   </div>
-  <div class="form-group">
-    <label for="selectDupla">Filtrar por Dupla:</label>
-    <select id="selectDupla" class="form-control" [(ngModel)]="selectedDupla" (change)="filterByDupla()">
-      <option value="">Todos</option>
-      <option *ngFor="let dupla of duplas" [value]="dupla">{{dupla}}</option>
-    </select>
-  </div>
-  <div class="mb-3 mt-3">
+
+  <div class="mb-3 mt-1">
     <div class="img-container">
-    <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario">
-    <label for="exampleFormControlInput1" class="form-label"></label>
+      <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario">
+      
+        <label class="dupla-filter" for="selectDupla">Filtrar por Dupla: <i class="fas fa-angle-down"></i> </label>
+        <select id="selectDupla" class="form-control" [(ngModel)]="selectedDupla" (change)="filterByDupla()">
+          <option value="">Todas las duplas</option>
+          <option *ngFor="let dupla of duplas" [value]="dupla">{{dupla}}</option>
+        </select>
+      
+      <label for="exampleFormControlInput1" class="form-label"></label>
     </div>
     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Busqueda de beneficiarios">
-</div>
+  </div>
+
 
 
   <div class="row">

@@ -86,7 +86,7 @@ export class TableComponent {
         this.updateBeneficiariesToShow();
       } else {
         // Si la lista de beneficiarios filtrados está vacía, no hacer nada.
-        console.log("No hay más beneficiarios para mostrar.");
+        
       }
     }
 
