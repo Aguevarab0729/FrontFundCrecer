@@ -41,6 +41,7 @@
             <th scope="col" class="col-5">Nombre</th>
             <th scope="col" class="col-3">Dupla</th>
             <th scope="col" class="col-2">Unidad</th>
+            <th scope="col" class="col-2">Mercado</th>
           </tr>
         </thead>
         <tbody class="data" *ngFor="let beneficiary of beneficiariesToShow" (click)="openModal($event, beneficiary)">
@@ -69,6 +70,10 @@
           (click)="nextPage()"
         >
           Siguiente
+        </button>
+        
+        <button class="btn btn-success" (click)="saveSelection()">
+          Seleccionar Beneficiario
         </button>
       </div>
     </div>
