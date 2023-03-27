@@ -1,8 +1,6 @@
 <div class="form-container">
   <form class="form-modal" [formGroup]="birthInformationForm" (ngSubmit)="onSubmit()">
 
-    <h2>Datos de nacimiento</h2>
-
     <div class="form-group">
       <label for="birthCountry">País de nacimiento:</label>
       <input type="text" id="birthCountry" formControlName="birthCountry" required>
@@ -22,6 +20,5 @@
       <label for="birthDate">Fecha de nacimiento:</label>
       <input type="date" id="birthDate" formControlName="birthDate" required>
     </div>
-    <button class="submit" type="submit">Siguiente</button>
   </form>
 </div>
