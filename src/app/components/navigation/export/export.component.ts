@@ -76,19 +76,19 @@ export class ExportComponent {
     this._ExportService.downloadExcel(newEntry.data,newEntry.beneficiaries);
     localStorage.clear();
     // Limpiamos el objeto data y el array beneficiaries para poder agregar más datos
-    // this.data = {
-    //   regional_ciudad: '',
-    //   centro_zonal: '',
-    //   municipio: '',
-    //   modalidad: '',
-    //   servicio: '',
-    //   mes_entrega: '',
-    //   unidad: '',
-    //   dupla: '',
-    //   direccion_punto_entrega: '',
-    //   codigo_punto_entrega: ''
-    // };
-    // this.beneficiaries = [];
+    this.data = {
+      regional_ciudad: '',
+      centro_zonal: '',
+      municipio: '',
+      modalidad: '',
+      servicio: '',
+      mes_entrega: '',
+      unidad: '',
+      dupla: '',
+      direccion_punto_entrega: '',
+      codigo_punto_entrega: ''
+    };
+    this.beneficiaries = [];
   }
 }
 

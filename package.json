@@ -21,6 +21,7 @@
     "@mongodb-js/charts-embed-dom": "^3.0.0",
     "@ng-bootstrap/ng-bootstrap": "^14.0.1",
     "@types/animejs": "^3.1.7",
+    "animejs": "^3.2.1",
     "ngx-pagination": "^6.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
