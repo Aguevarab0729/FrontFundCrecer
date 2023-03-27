@@ -154,10 +154,10 @@ export class TableComponent {
   }
    
 
-  exportToExcel(modalService: NgbModal, ExportComponent: any, beneficiariesToExport: any[]) {
-    const modalRef = modalService.open(ExportComponent);
-    modalRef.componentInstance.beneficiaries = beneficiariesToExport;
-  }
+  // exportToExcel(modalService: NgbModal, ExportComponent: any, beneficiariesToExport: any[]) {
+  //   const modalRef = modalService.open(ExportComponent);
+  //   modalRef.componentInstance.beneficiaries = beneficiariesToExport;
+  // }
 
  calculateAge(birthDate: string): number {
     const birth = new Date(birthDate);

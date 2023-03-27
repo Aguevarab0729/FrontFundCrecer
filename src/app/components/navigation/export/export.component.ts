@@ -8,9 +8,12 @@ import { Component } from '@angular/core';
 })
 export class ExportComponent {
   
-  constructor(private _ExportService: ExportService){}
+  private exportObject: {};
+  
+  constructor(private _ExportService: ExportService){
+    this.exportObject = {};
+  }
 
-  public dataArray: any[] = [];
 
   public data: {
     regional_ciudad: string,
@@ -39,7 +42,7 @@ export class ExportComponent {
   public beneficiaries: any[] = [];
 
   public onSubmit() {
-    const newData = {
+    const data = {
       regional_ciudad: this.data.regional_ciudad,
       centro_zonal: this.data.centro_zonal,
       municipio: this.data.municipio,
@@ -53,35 +56,39 @@ export class ExportComponent {
     };
   
     // Obtenemos los valores de Beneficiaries almacenados en localStorage
-    const beneficiaries = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
+    const beneficiariesJSON = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
   
     // Asignamos los valores de Beneficiaries al array beneficiaries
-    this.beneficiaries = beneficiaries;
+    this.beneficiaries = beneficiariesJSON;
+
+    const beneficiaries = this.beneficiaries;
   
     // Agregamos el objeto data y el array beneficiaries al objeto newEntry
     const newEntry = {
-      data: newData,
+      data: data,
       beneficiaries: [...this.beneficiaries]
     };
   
     // Agregamos el objeto newEntry al array dataArray
-    this.dataArray.push(newEntry);
-    console.log(this.dataArray);
-  
+    
+    console.log(this.exportObject)
+    
+    this._ExportService.downloadExcel(newEntry.data,newEntry.beneficiaries);
+    localStorage.clear();
     // Limpiamos el objeto data y el array beneficiaries para poder agregar más datos
-    this.data = {
-      regional_ciudad: '',
-      centro_zonal: '',
-      municipio: '',
-      modalidad: '',
-      servicio: '',
-      mes_entrega: '',
-      unidad: '',
-      dupla: '',
-      direccion_punto_entrega: '',
-      codigo_punto_entrega: ''
-    };
-    this.beneficiaries = [];
+    // this.data = {
+    //   regional_ciudad: '',
+    //   centro_zonal: '',
+    //   municipio: '',
+    //   modalidad: '',
+    //   servicio: '',
+    //   mes_entrega: '',
+    //   unidad: '',
+    //   dupla: '',
+    //   direccion_punto_entrega: '',
+    //   codigo_punto_entrega: ''
+    // };
+    // this.beneficiaries = [];
   }
 }
 

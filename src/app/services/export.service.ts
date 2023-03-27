@@ -16,10 +16,10 @@ export class ExportService {
     this.myApiUrl = 'export';
   }
 
-  downloadExcel(data: any) {
+  downloadExcel(data: any, beneficiaries:any) {
     const url = `${this.myAppUrl}${this.myApiUrl}`;
     const params = { /* ... */ };
-    const beneficiaries = this.selectBeneficiaries;
+    // const beneficiaries = this.selectBeneficiaries;
     this.http.post(url, { data, beneficiaries }, { responseType: 'blob' })
       .subscribe(response => {
         const blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
