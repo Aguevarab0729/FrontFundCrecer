@@ -266,8 +266,10 @@ export class TableComponent {
   }
 
   
-  openModal(beneficiary: any) {
-    const modalRef = this.modalService.open(ModalWindowComponent);
-    modalRef.componentInstance.beneficiary = beneficiary;
+  openModal(event: any, beneficiary: any) {
+    if (event.target.tagName !== 'INPUT') {
+      const modalRef = this.modalService.open(ModalWindowComponent);
+      modalRef.componentInstance.beneficiary = beneficiary;
+    }
   }
 }

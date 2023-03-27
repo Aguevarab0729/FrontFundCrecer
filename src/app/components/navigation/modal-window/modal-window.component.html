@@ -61,4 +61,90 @@
       <p><strong>Existe documento de justificación :</strong>{{ beneficiary.socialInformation.justificationDocumentExists }}</p>
     </ng-template>
   </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Información de los padres </ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Edad :</strong> {{ beneficiary.parent.ageFather }}</p>
+      <p><strong>Ciudad:</strong> {{ beneficiary.parent.fatherBirthCity }}</p>
+      <p><strong>País :</strong> {{ beneficiary.parent.fatherBirthCountry}}</p>
+      <p><strong>Departamento :</strong> {{ beneficiary.parent.fatherBirthDepartment}}</p>
+      <p><strong>Fecha de Nacimiento :</strong> {{ beneficiary.parent.fatherBirthdate }}</p>
+      <p><strong>Numero de Documento :</strong> {{ beneficiary.parent.fatherDocumentNumber }}</p>
+      <p><strong>Tipo de Documento:</strong> {{ beneficiary.parent.fatherDocumentType }}</p>
+      <p><strong>Primer Nombre :</strong> {{ beneficiary.parent.fatherFirstName }}</p>
+      <p><strong>Segundo Nombre :</strong> {{ beneficiary.parent.fatherSecondName }}</p>
+      <p><strong>Primer Apellido :</strong> {{ beneficiary.parent.fatherFirstLastname }}</p>
+      <p><strong>Segundo Apellido :</strong> {{ beneficiary.parent.fatherSecondLastname }}</p>
+      <p><strong>Edad :</strong> {{ beneficiary.parent.ageMother }}</p>
+      <p><strong>Ciudad :</strong> {{ beneficiary.parent.motherBirthCity }}</p>
+      <p><strong>País :</strong> {{ beneficiary.parent.motherBirthCountry }}</p>
+      <p><strong>Departamento :</strong> {{ beneficiary.parent.motherBirthDepartment }}</p>
+      <p><strong>Fecha de Nacimiento :</strong> {{ beneficiary.parent.motherBirthdate }}</p>
+      <p><strong>Numero de Documento: </strong> {{ beneficiary.parent.motherDocumentNumber}}</p>
+      <p><strong>Tipo de Documento :</strong> {{ beneficiary.parent.motherDocumentType }}</p>
+      <p><strong>Primer Nombre :</strong> {{ beneficiary.parent.motherFirstLastname }}</p>
+      <p><strong>Segundo Nombre:</strong> {{ beneficiary.parent.motherFirstName }}</p>
+      <p><strong>Primer Apellido :</strong> {{ beneficiary.parent.motherSecondLastname }}</p>
+      <p><strong>Segundo Apellido :</strong> {{ beneficiary.parent.motherSecondName }}</p>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Información Discapacidad </ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Certificado de discapacidad:</strong> {{ beneficiary.disabilityInfo.certifiedDisability }}</p>
+      <p><strong>Discapaciad :</strong> {{ beneficiary.disabilityInfo.disability }}</p>
+      <p><strong>Categoria de la discapacidad :</strong> {{ beneficiary.disabilityInfo.disabilityCategory }}</p>
+      <p><strong>Registro de discapacidad :</strong> {{ beneficiary.disabilityInfo.disabilityRegistryEnrollment }}</p>
+      <p><strong>Entidad que cerifica  :</strong> {{ beneficiary.disabilityInfo.entityCertifiesDisability }}</p>
+      <p><strong>Discpacidad especifica:</strong> {{ beneficiary.disabilityInfo.specifiedDisability }}</p>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Información de asistencia</ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Información sobre interdicción:</strong> {{ beneficiary.assistanceInformation.hasInterdictionProcess }}</p>
+      <p><strong>Información sobre interdicción soporte técnico:</strong> {{ beneficiary.assistanceInformation.hasTechSupport }}</p>
+      <p><strong>Información sobre terapia:</strong> {{ beneficiary.assistanceInformation.receivesTherapy }}</p>
+      <p><strong>Información sobre asistencia:</strong> {{ beneficiary.assistanceInformation.requiresAssistance }}</p>
+      <p><strong>Información de soporte ténico:</strong> {{ beneficiary.assistanceInformation.requiresTechSupport }}</p>
+      <p><strong>Requiere terapia:</strong> {{ beneficiary.assistanceInformation.requiresTherapy }}</p>
+   </ng-template>
+  </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Información del tutor</ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Ciudad:</strong> {{ beneficiary.guardianInfo.guardianBirthCity }}</p>
+      <p><strong>País:</strong> {{ beneficiary.guardianInfo.guardianBirthCountry }}</p>
+      <p><strong>Departamento:</strong> {{ beneficiary.guardianInfo.guardianBirthDepartment }}</p>
+      <p><strong>Numero de documento: </strong> {{ beneficiary.guardianInfo.guardianDocumentNumber }}</p>
+      <p><strong>Tipo de documento:</strong> {{ beneficiary.guardianInfo.guardianDocumentType }}</p>
+      <p><strong>Tipo de tutor:</strong> {{ beneficiary.guardianInfo.guardianPersonType }}</p>
+      <p><strong>Nombre:</strong> {{ beneficiary.guardianInfo.guardianFirstName }}</p>
+      <p><strong>Segundo nombre:</strong> {{ beneficiary.guardianInfo.guardianSecondName }}</p>
+      <p><strong>Apellido:</strong> {{ beneficiary.guardianInfo.guardianFirstLastName }}</p>
+      <p><strong>Segundo apellido:</strong> {{ beneficiary.guardianInfo.guardianSecondLastName }}</p>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Información de Salud</ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Perimetro Cefálico:</strong> {{ beneficiary.healthInfo.cefalicProfil }}</p>
+      <p><strong>EPS:</strong> {{ beneficiary.healthInfo.eps }}</p>
+      <p><strong>Duración de lactancia materna exclusiva:</strong> {{ beneficiary.healthInfo.exclusiveBreastfeedingDuration }}</p>
+      <p><strong>Semanas de gestación:</strong> {{ beneficiary.healthInfo.gestationWeeks }}</p>
+      <p><strong>Edad gestacional al nacer:</strong> {{ beneficiary.healthInfo.gestationalAgeAtBirth }}</p>
+      <p><strong>Control de crecimiento:</strong> {{ beneficiary.healthInfo.growthDevelopmentControlsReceived }}</p>
+      <p><strong>Carnet de crecimiento y desarrollo:</strong> {{ beneficiary.healthInfo.hasGrowthAndDevelopmentCard }}</p>
+      <p><strong>Carnet de vacunación:</strong> {{ beneficiary.healthInfo.hasVaccinationCard }}</p>
+      <p><strong>Talla al nacer:</strong> {{ beneficiary.healthInfo.heightAtBirth }}</p>
+      <p><strong>Antecedentes de prematurez:</strong> {{ beneficiary.healthInfo.prematurenessBackground }}</p>
+      <p><strong>Regimen:</strong> {{ beneficiary.healthInfo.regime }}</p>
+      <p><strong>Numero de tickete:</strong> {{ beneficiary.healthInfo.ticketNumber }}</p>
+      <p><strong>Duración lactancia materna:</strong> {{ beneficiary.healthInfo.totalBreastfeedingDuration }}</p>
+      <p><strong>Semanas:</strong> {{ beneficiary.healthInfo.under40Weeks }}</p>
+      <p><strong>Actualziacion del carnet de vacunación:</strong> {{ beneficiary.healthInfo.vaccinationCardUpToDate }}</p>
+      <p><strong>Fecha de vacunación:</strong> {{ beneficiary.healthInfo.vaccinationVerificationDate }}</p>
+      <p><strong>Peso al nacer:</strong> {{ beneficiary.healthInfo.weightAtBirth }}</p>
+    </ng-template>
+  </ngb-panel>
 </ngb-accordion>
