@@ -1,0 +1,57 @@
+/* Variables para colores y tamaño de fuente */
+$primary-color: #007bff;
+$font-size: 16px;
+
+/* Estilo para el formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  /* Estilo para el input de archivo */
+//   input[type="file"] {
+//     display: none;
+//   }
+
+  label {
+    cursor: pointer;
+    color: $primary-color;
+    font-size: $font-size;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  /* Estilo para el botón */
+  button[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: $font-size;
+    background-color: $primary-color;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
+/* Estilo para la barra lateral */
+app-side-bar {
+  width: 250px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: 1px 0px 5px rgba(0, 0, 0, 0.2);
+}

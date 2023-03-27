@@ -9,6 +9,7 @@ export class ExportService {
   private myAppUrl: String;
   private myApiUrl: String;
   private selectBeneficiaries = [];
+  private exportInfo = {};
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
