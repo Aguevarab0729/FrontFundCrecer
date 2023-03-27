@@ -20,6 +20,12 @@ export class ModalWindowComponent {
   }
 
    
-  
+  calculateAge(birthDate: string): number {
+    const birth = new Date(birthDate);
+    const ageInMs = Date.now() - birth.getTime();
+    const ageInYears = Math.floor(ageInMs / 1000 / 60 / 60 / 24 / 365.25);
+    return ageInYears;
+  }
+
 
 }

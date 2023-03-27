@@ -27,6 +27,7 @@ import { DataComponent } from './components/navigation/data/data.component';
 import { StartLoginComponent } from './components/pages/start-login/start-login.component';
 import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
 import { ImportComponent } from './components/navigation/import/import.component';
+import { ExportComponent } from './components/navigation/export/export.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ImportComponent } from './components/navigation/import/import.component
     StartLoginComponent,
     ModalWindowComponent,
     ImportComponent,
+    ExportComponent,
   ],
   imports: [
     BrowserModule,

@@ -32,6 +32,8 @@
 
 .form-control#exampleFormControlInput1{
   border-radius: 20px;
+  margin: 0 auto;
+  width: 500px;
 }
 
 .form-check-input:checked + .form-check-label::before {
@@ -45,6 +47,15 @@
 .form-check-label::after {
   margin-left: 0.5rem;
   border-color: #fff;
+}
+
+.form-check-label{
+  margin-left: 0.7rem;
+}
+
+.filter-select {
+  width: 200px; /* Cambia el valor según lo que desees */
+  margin-left: 3.5rem;
 }
 
 thead {
@@ -73,5 +84,9 @@ tr:hover {
 }
 
 .dupla-filter{
+  margin-left: 10px;
+}
+
+.unique-filter{
   margin-left: 40px;
 }

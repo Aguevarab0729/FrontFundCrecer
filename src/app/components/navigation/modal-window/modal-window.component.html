@@ -1,60 +1,64 @@
 <ngb-accordion>
-    <ngb-panel class="panel-default">
-        <ng-template ngbPanelTitle>
-          Datos Básicos
-        </ng-template>
-        <ng-template ngbPanelContent>
-            <p><strong>Documento :</strong> {{beneficiary.basicinfo.numDoc}}</p>
-            <p><strong>Estado Actual:</strong> {{beneficiary.basicinfo.curState ? 'Activo' : 'Inactivo'}}</p>
-            <p><strong>Tipo de Documento :</strong> {{beneficiary.basicinfo.documentType}}</p>
-            <p><strong>Nombres :</strong> {{beneficiary.basicinfo.firstName}} {{beneficiary.basicinfo.secondName}}</p>
-            <p><strong>Apellidos :</strong> {{beneficiary.basicinfo.firstLastName}} {{beneficiary.basicinfo.secondLastName}}</p>
-            <p><strong>Género :</strong> {{beneficiary.basicinfo.gender}}</p>
-            <p><strong>Unidad :</strong> {{beneficiary.basicinfo.unityName}}</p>
-            <p><strong>Duo :</strong> {{beneficiary.basicinfo.duoName}}</p>
-            <p><strong>Profesores :</strong></p>
-              <ul>
-                <li *ngFor="let teacher of beneficiary.basicinfo.teachers">{{teacher}}</li>
-              </ul>
-            <p><strong>Fecha de Ingreso :</strong> {{beneficiary.basicinfo.joinDate}}</p>
-            <p><strong>Fecha de Salida :</strong> {{beneficiary.basicinfo.exitDate}}</p>
-            <p><strong>Razón de Salida :</strong> {{beneficiary.basicinfo.reasonForExit || 'data faltante'}}</p>
-            <p><strong>Otra Razón de Salida :</strong> {{beneficiary.basicinfo.otherExitReason || 'data faltante'}}</p>
-            <p><strong>Persona que Ingresó :</strong> {{beneficiary.basicinfo.enterBy || 'data faltante'}}</p>
-          </ng-template>
-      </ngb-panel>
-    <ngb-panel class="panel-default">
-      <ng-template ngbPanelTitle>
-        Información de Residencia
-      </ng-template>
-      <ng-template ngbPanelContent>
-        <p><strong>País de residencia:</strong> {{beneficiary.residencyInformation.countryOfResidence || 'Dato faltante'}}</p>
-        <p><strong>Departamento de residencia:</strong> {{beneficiary.residencyInformation.residenceDepartment || 'Dato faltante'}}</p>
-        <p><strong>Zona de ubicación:</strong> {{beneficiary.residencyInformation.locationZone || 'Dato faltante'}}</p>
-        <p><strong>Tipo de cabecera:</strong> {{beneficiary.residencyInformation.headerType || 'Dato faltante'}}</p>
-        <p><strong>Nombre de la localidad:</strong> {{beneficiary.residencyInformation.localityName || 'Dato faltante'}}</p>
-        <p><strong>Barrio:</strong> {{beneficiary.residencyInformation.neighborhood || 'Dato faltante'}}</p>
-        <p><strong>Zona foránea:</strong> {{beneficiary.residencyInformation.foreignZoneName || 'Dato faltante'}}</p>
-        <p><strong>Dirección:</strong> {{beneficiary.residencyInformation.address || 'Dato faltante'}}</p>
-        <p><strong>Teléfono primario:</strong> {{beneficiary.residencyInformation.primaryPhone || 'Dato faltante'}}</p>
-        <p><strong>Teléfono secundario:</strong> {{beneficiary.residencyInformation.secondaryPhone || 'Dato faltante'}}</p>
-        <p><strong>Estrato socioeconómico:</strong> {{beneficiary.residencyInformation.householdStratum || 'Dato faltante'}}</p>
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel class="panel-default">
-        <ng-template ngbPanelTitle>
-          Información Social
-        </ng-template>
-        <ng-template ngbPanelContent>
-            <p><strong>Etnia :</strong> {{beneficiary.socialInformation.groupEthnicity}} </p>
-            <p><strong>Sisbenizado :</strong> {{beneficiary.socialInformation.beneficiarySisbenized}}</p>
-            <p><strong>Puntaje Sisben :</strong> {{beneficiary.socialInformation.sisbenScore }}</p>
-            <p><strong>Pertenece a Familias en Acción :</strong> {{beneficiary.socialInformation.belongsToFamiliesInAction}}</p>
-            <p><strong>Afectado directamente por conflicto armado :</strong> {{beneficiary.socialInformation.directlyAffectedByArmedConflict}}</p>
-            <p><strong>Criterio de focalización :</strong> {{beneficiary.socialInformation.focusingCriteria }}</p>
-            <p><strong>Existe documento de justificación :</strong> {{beneficiary.socialInformation.justificationDocumentExists}}</p>
-          </ng-template>
-      </ngb-panel>
-  </ngb-accordion>
-  
-  
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Datos Básicos </ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Documento :</strong> {{ beneficiary.basicinfo.numDoc }}</p>
+      <p><strong>Estado Actual:</strong> {{ beneficiary.basicinfo.curState ? "Activo" : "Inactivo" }}</p>
+      <p><strong>Tipo de Documento :</strong>{{ beneficiary.basicinfo.documentType }}</p>
+      <p><strong>Nombres :</strong> {{ beneficiary.basicinfo.firstName }}{{ beneficiary.basicinfo.secondName }}</p>
+      <p><strong>Apellidos :</strong> {{ beneficiary.basicinfo.firstLastName }}{{ beneficiary.basicinfo.secondLastName }}</p>
+      <p><strong>Género :</strong> {{ beneficiary.basicinfo.gender }}</p>
+      <p><strong>Unidad :</strong> {{ beneficiary.basicinfo.unityName }}</p>
+      <p><strong>Duo :</strong> {{ beneficiary.basicinfo.duoName }}</p>
+      <p><strong>Profesores :</strong></p>
+      <ul>
+        <li *ngFor="let teacher of beneficiary.basicinfo.teachers">
+          {{ teacher }}
+        </li>
+      </ul>
+      <p><strong>Fecha de Ingreso :</strong> {{ beneficiary.basicinfo.joinDate }}</p>
+      <p><strong>Fecha de Salida :</strong> {{ beneficiary.basicinfo.exitDate }}</p>
+      <p><strong>Razón de Salida :</strong> {{ beneficiary.basicinfo.reasonForExit || "data faltante" }}</p>
+      <p><strong>Otra Razón de Salida :</strong> {{ beneficiary.basicinfo.otherExitReason || "data faltante" }}</p>
+      <p><strong>Persona que Ingresó :</strong> {{ beneficiary.basicinfo.enterBy || "data faltante" }}</p>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Informacion de nacimiento </ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Pais de Nacimiento :</strong> {{ beneficiary.birthinformation.birthCountry }}</p>
+      <p><strong>Departamento :</strong> {{ beneficiary.birthinformation.birthDepartment }}</p>
+      <p><strong>Munucipio :</strong> {{ beneficiary.birthinformation.birthMunicipality }}</p>
+      <p><strong>Edad :</strong> {{ calculateAge(beneficiary.birthinformation.birthDate) }} Años</p>
+      <p><strong>Fecha de nacimiento :</strong> {{ beneficiary.birthinformation.birthDate }} </p>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Información de Residencia </ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>País de residencia:</strong> {{beneficiary.residencyInformation.countryOfResidence || "Dato faltante"}}</p>
+      <p><strong>Departamento de residencia:</strong> {{beneficiary.residencyInformation.residenceDepartment || "Dato faltante"}}</p>
+      <p><strong>Zona de ubicación:</strong> {{ beneficiary.residencyInformation.locationZone || "Dato faltante" }}</p>
+      <p><strong>Tipo de cabecera:</strong> {{ beneficiary.residencyInformation.headerType || "Dato faltante" }}</p>
+      <p><strong>Nombre de la localidad:</strong> {{ beneficiary.residencyInformation.localityName || "Dato faltante" }}</p>
+      <p><strong>Barrio:</strong> {{ beneficiary.residencyInformation.neighborhood || "Dato faltante" }}</p>
+      <p><strong>Zona foránea:</strong> {{beneficiary.residencyInformation.foreignZoneName || "Dato faltante"}}</p>
+      <p><strong>Dirección:</strong> {{ beneficiary.residencyInformation.address || "Dato faltante" }}</p>
+      <p><strong>Teléfono primario:</strong> {{ beneficiary.residencyInformation.primaryPhone || "Dato faltante" }}</p>
+      <p><strong>Teléfono secundario:</strong> {{ beneficiary.residencyInformation.secondaryPhone || "Dato faltante" }}</p>
+      <p><strong>Estrato socioeconómico:</strong> {{ beneficiary.residencyInformation.householdStratum || "Dato faltante" }}</p>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel class="panel-default">
+    <ng-template ngbPanelTitle> Información Social </ng-template>
+    <ng-template ngbPanelContent>
+      <p><strong>Etnia :</strong> {{ beneficiary.socialInformation.groupEthnicity }}</p>
+      <p><strong>Sisbenizado :</strong> {{ beneficiary.socialInformation.beneficiarySisbenized }}</p>
+      <p><strong>Puntaje Sisben :</strong> {{ beneficiary.socialInformation.sisbenScore }}</p>
+      <p><strong>Pertenece a Familias en Acción :</strong> {{ beneficiary.socialInformation.belongsToFamiliesInAction }}</p>
+      <p><strong>Afectado directamente por conflicto armado :</strong> {{ beneficiary.socialInformation.directlyAffectedByArmedConflict }}</p>
+      <p><strong>Criterio de focalización :</strong> {{ beneficiary.socialInformation.focusingCriteria }}</p>
+      <p><strong>Existe documento de justificación :</strong>{{ beneficiary.socialInformation.justificationDocumentExists }}</p>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
