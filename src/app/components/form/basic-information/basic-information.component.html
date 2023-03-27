@@ -4,17 +4,6 @@
     <div class="form-group">
       <label for="numDoc">Número de documento:</label>
       <input type="number" id="numDoc" class="form-control" formControlName="numDoc" required>
-      <!-- <div class="alert alert-danger" *ngIf="numDoc.invalid && (numDoc.dirty || name.touched)">
-        <div *ngIf="name.errors?.['required']">
-          Name is required.
-        </div>
-        <div *ngIf="name.errors?.['minlength']">
-          Name must be at least 4 characters long.
-        </div>
-        <div *ngIf="name.errors?.['forbiddenName']">
-          Name cannot be Bob.
-        </div>
-      </div> -->
     </div>
 
     <div class="form-group">
@@ -52,17 +41,17 @@
     </div>
 
     <div class="form-group">
-      <label for="unityName">Nombre de la unidad:</label>
+      <label for="unityName">Unidad:</label>
       <input type="text" id="unityName" name="unityName" required>
     </div>
 
     <div class="form-group">
-      <label for="duoName">Nombre del DUO:</label>
+      <label for="duoName">Dupla:</label>
       <input type="text" id="duoName" name="duoName" required>
     </div>
 
     <div class="form-group">
-      <label for="teachers">Profesores:</label>
+      <label for="teachers">Docentes:</label>
       <input type="text" id="teachers" name="teachers">
     </div>
 
@@ -99,6 +88,5 @@
         <option value="FEMENINO">Femenino</option>
       </select>
     </div>
-    <button class="submit" type="submit">Siguiente</button>
   </form>
 </div>

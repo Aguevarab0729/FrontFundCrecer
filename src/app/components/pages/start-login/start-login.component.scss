@@ -93,12 +93,12 @@ body {
   margin: 0;
 }
 
-.textbox {
+.form-group {
   width: 100%;
   position: relative;
 }
 
-.textbox span {
+.form-group span {
   position: absolute;
   top: 50%;
   left: 16px;
@@ -147,6 +147,11 @@ body {
   font-size: 16px;
   text-align: left;
   text-decoration: none;
+}
+
+
+input.ng-invalid.ng-touched {
+  border-color: red;
 }
 /* @import url('https://rsms.me/inter/inter-ui.css');
 ::selection {

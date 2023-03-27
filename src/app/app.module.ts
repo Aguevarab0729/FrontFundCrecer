@@ -23,11 +23,12 @@ import { BasicInformationComponent } from './components/form/basic-information/b
 import { SideBarComponent } from './components/navigation/side-bar/side-bar.component';
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
 import { TableComponent } from './components/navigation/table/table.component';
-import { DataComponent } from './components/navigation/data/data.component';
 import { StartLoginComponent } from './components/pages/start-login/start-login.component';
 import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
 import { ImportComponent } from './components/navigation/import/import.component';
 import { ModalFormsComponent } from './components/navigation/modal-forms/modal-forms.component';
+import { ChartsComponent } from './components/navigation/charts/charts.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -45,11 +46,12 @@ import { ModalFormsComponent } from './components/navigation/modal-forms/modal-f
     SideBarComponent,
     MainViewComponent,
     TableComponent,
-    DataComponent,
     StartLoginComponent,
     ModalWindowComponent,
     ImportComponent,
     ModalFormsComponent,
+    ChartsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
