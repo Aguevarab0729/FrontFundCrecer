@@ -36,6 +36,7 @@
       <table class="table mx-auto">
         <thead class="text-center">
           <tr>
+            <th scope="col" class="col-1"></th> <!-- Nueva columna para el campo de selección -->
             <th scope="col" class="col-2">Documento</th>
             <th scope="col" class="col-5">Nombre</th>
             <th scope="col" class="col-3">Dupla</th>
@@ -44,10 +45,9 @@
             <th scope="col" class="col-2">Mercado</th>
           </tr>
         </thead>
-        <tbody
-          class="data" *ngFor="let beneficiary of beneficiariesToShow" (click)="openModal(beneficiary)"
-        >
+        <tbody class="data" *ngFor="let beneficiary of beneficiariesToShow">
           <tr>
+            <td class="col-1"><input type="checkbox" [(ngModel)]="beneficiary.isSelected"></td> <!-- Campo de selección -->
             <td class="col-2">{{ beneficiary.basicinfo.numDoc }}</td>
             <td class="col-5">{{ beneficiary.basicinfo.fullName }}</td>
             <td class="col-3">{{ beneficiary.basicinfo.duoName }}</td>
@@ -73,6 +73,7 @@
         >
           Siguiente
         </button>
+        <button class="btn btn-success" (click)="saveSelection()">Guardar selección</button>
       </div>
     </div>
   </div>

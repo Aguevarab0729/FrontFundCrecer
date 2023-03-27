@@ -26,7 +26,9 @@ export class TableComponent {
   duplas: string[] = [];
   unitys: string [] = [];
   filteredBeneficiaries: any[] = [];
-  beneficiariesToExport: any[] = [];
+  Beneficiaries: any[] = [];
+  
+  
   
 
 
@@ -77,7 +79,15 @@ export class TableComponent {
         beneficiary.marketType = market ? market.type : 'MAYOR DE EDAD';
         console.log(`foodsToPrepare - Beneficiary ${beneficiary.basicinfo.fullName}:`, market.foodsToPrepare);
         console.log(`nutritionalFoods - Beneficiary ${beneficiary.basicinfo.fullName}:`, market.nutritionalFoods);
-
+      });
+  
+      // Recorre cada beneficiario y agrega un objeto al array Beneficiaries con numDoc y isChecked
+      this.Beneficiaries = [];
+      this.listBeneficiaries.forEach(beneficiary => {
+        this.Beneficiaries.push({
+          numDoc: beneficiary.basicinfo.numDoc,
+          isChecked: false
+        });
       });
   
       this.filteredBeneficiaries = this.listBeneficiaries.slice(); // Inicializa el arreglo de beneficiarios filtrados
@@ -87,6 +97,62 @@ export class TableComponent {
       console.log(this.listBeneficiaries);
     });
   }
+
+  saveSelection() {
+    const Beneficiaries = [];
+    let selectedCount = 0;
+    let sameDupla = true;
+    let sameUnity = true;
+    let sameMarketType = true;
+  
+    // Obtener los beneficiarios seleccionados
+    for (const beneficiary of this.listBeneficiaries) {
+      if (beneficiary.isSelected) {
+        Beneficiaries.push(beneficiary);
+        if (selectedCount === 0) {
+          // Primer beneficiario seleccionado
+          this.selectedDupla = beneficiary.basicinfo.duoName;
+          this.selectedUnity = beneficiary.basicinfo.unityName;
+          this.selectedMarket = beneficiary.marketType;
+        } else {
+          // Verificar si la dupla, unidad y tipo de mercado son iguales para todos los beneficiarios seleccionados
+          if (beneficiary.basicinfo.duoName !== this.selectedDupla) {
+            sameDupla = false;
+          }
+          if (beneficiary.basicinfo.unityName !== this.selectedUnity) {
+            sameUnity = false;
+          }
+          if (beneficiary.marketType !== this.selectedMarket) {
+            sameMarketType = false;
+          }
+        }
+        selectedCount++;
+      }
+    }
+  
+    // Si se seleccionaron menos de 17 beneficiarios, mostrar alerta y no guardar selección
+    if (selectedCount < 1) {
+      alert('Debe seleccionar al menos un beneficiario');
+      return;
+    }
+    if (selectedCount > 17) {
+      alert('Solo puede seleccionar hasta 17 beneficiarios');
+      return;
+    }
+  
+    // Si los beneficiarios seleccionados no tienen la misma dupla, unidad y tipo de mercado, mostrar alerta y no guardar selección
+    if (!sameDupla || !sameUnity || !sameMarketType) {
+      alert('Solo puede seleccionar beneficiarios con la misma dupla, unidad y tipo de mercado');
+      return;
+    }
+  
+    // Obtener los números de documento de los beneficiarios seleccionados
+    const selectedBeneficiaries = Beneficiaries.map(beneficiary => beneficiary.basicinfo.numDoc);
+  
+    // Guardar el array de números de documento de beneficiarios seleccionados en el LocalStorage
+    localStorage.setItem('Beneficiaries', JSON.stringify(selectedBeneficiaries));
+  }
+   
 
   exportToExcel(modalService: NgbModal, ExportComponent: any, beneficiariesToExport: any[]) {
     const modalRef = modalService.open(ExportComponent);
