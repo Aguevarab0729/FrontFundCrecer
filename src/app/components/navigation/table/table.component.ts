@@ -4,6 +4,7 @@ import { NgbModal} from '@ng-bootstrap/ng-bootstrap'
 import { ModalWindowComponent } from '../modal-window/modal-window.component';
 import { MarketService } from 'src/app/services/market.service';
 import { forkJoin } from 'rxjs';
+import { ExportComponent } from '../export/export.component';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class TableComponent {
   duplas: string[] = [];
   unitys: string [] = [];
   filteredBeneficiaries: any[] = [];
+  beneficiariesToExport: any[] = [];
   
 
 
@@ -86,7 +88,10 @@ export class TableComponent {
     });
   }
 
-
+  exportToExcel(modalService: NgbModal, ExportComponent: any, beneficiariesToExport: any[]) {
+    const modalRef = modalService.open(ExportComponent);
+    modalRef.componentInstance.beneficiaries = beneficiariesToExport;
+  }
 
  calculateAge(birthDate: string): number {
     const birth = new Date(birthDate);
