@@ -1,5 +1,5 @@
-/* import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, AbstractControlOptions, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-start-login',
@@ -7,33 +7,46 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./start-login.component.scss']
 })
 export class StartLoginComponent {
-  formLogin = this.formBuilder.group({
+
+  loginForm = this.formBuilder.group({
       email: ['', { validators: [Validators.required, Validators.email], updateOn: 'blur'}] ,
       password: ['', [Validators.required, Validators.minLength(10)]]
     });
 
   constructor(private formBuilder: FormBuilder){};
 
-  login(){
-
+  onSubmit() {
+    this.validateForm().then( result => {
+      if (result) {
+        console.log("Login exitosamente");
+      }
+      else{
+        console.log("No puede iniciar sesión, credenciales erroneas");
+      }
+    })
   }
-  get email(){
-    return this.formLogin.get('email');
+
+  validateForm(): Promise<boolean> {
+    return new Promise<boolean>((resolve, reject) => {
+      const email = this.loginForm.get('email')?.value;
+      const password = this.loginForm.get('password')?.value;
+
+    })
   }
 
-  get password(){
-    return this.formLogin.get('password');
+  resetForm(){
+    this.loginForm.reset();
   }
-} */
+}
 
-import { Component } from '@angular/core';
+/* import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-start-login',
   templateUrl: './start-login.component.html',
   styleUrls: ['./start-login.component.scss'],
-  /* providers: [LoginService] */
+
 })
 export class StartLoginComponent {
   title = 'Fundación Crecer';
@@ -72,7 +85,7 @@ export class StartLoginComponent {
     this.loginForm.reset();
   }
 }
-
+ */
 /* function createPasswordStrengthValidator(): any | string {
   throw new Error('Function not implemented.');
 } */

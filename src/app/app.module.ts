@@ -29,6 +29,7 @@ import { ImportComponent } from './components/navigation/import/import.component
 import { ModalFormsComponent } from './components/navigation/modal-forms/modal-forms.component';
 import { ChartsComponent } from './components/navigation/charts/charts.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { AuthLoginComponent } from './components/auth/auth-login/auth-login.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { LoginComponent } from './components/pages/login/login.component';
     ModalFormsComponent,
     ChartsComponent,
     LoginComponent,
+    AuthLoginComponent,
   ],
   imports: [
     BrowserModule,
