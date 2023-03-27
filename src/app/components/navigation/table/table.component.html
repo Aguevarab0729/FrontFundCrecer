@@ -36,23 +36,20 @@
       <table class="table mx-auto">
         <thead class="text-center">
           <tr>
-            <th scope="col" class="col-1"></th> <!-- Nueva columna para el campo de selección -->
+            <th scope="col" class="col-2">Seleccionar</th>
             <th scope="col" class="col-2">Documento</th>
             <th scope="col" class="col-5">Nombre</th>
             <th scope="col" class="col-3">Dupla</th>
             <th scope="col" class="col-2">Unidad</th>
-            <th scope="col" class="col-2">Localidad</th>
-            <th scope="col" class="col-2">Mercado</th>
           </tr>
         </thead>
-        <tbody class="data" *ngFor="let beneficiary of beneficiariesToShow">
+        <tbody class="data" *ngFor="let beneficiary of beneficiariesToShow" (click)="openModal($event, beneficiary)">
           <tr>
-            <td class="col-1"><input type="checkbox" [(ngModel)]="beneficiary.isSelected"></td> <!-- Campo de selección -->
+            <td class="col-1"><input type="checkbox" [(ngModel)]="beneficiary.isSelected"></td>
             <td class="col-2">{{ beneficiary.basicinfo.numDoc }}</td>
             <td class="col-5">{{ beneficiary.basicinfo.fullName }}</td>
             <td class="col-3">{{ beneficiary.basicinfo.duoName }}</td>
             <td class="col-2">{{ beneficiary.basicinfo.unityName }}</td>
-            <td class="col-2">{{ beneficiary.residencyInformation.localityName }}</td>
             <td class="col-2">{{ beneficiary.marketType }}</td>
           </tr>
         </tbody>
@@ -73,7 +70,6 @@
         >
           Siguiente
         </button>
-        <button class="btn btn-success" (click)="saveSelection()">Guardar selección</button>
       </div>
     </div>
   </div>

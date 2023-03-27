@@ -36,37 +36,27 @@ export class ExportComponent {
   public beneficiaries: any[] = [];
 
   public onSubmit() {
-    const newData = {
-      regional_ciudad: this.data.regional_ciudad,
-      centro_zonal: this.data.centro_zonal,
-      municipio: this.data.municipio,
-      modalidad: this.data.modalidad,
-      servicio: this.data.servicio,
-      mes_entrega: this.data.mes_entrega,
-      unidad: this.data.unidad,
-      dupla: this.data.dupla,
-      direccion_punto_entrega: this.data.direccion_punto_entrega,
-      codigo_punto_entrega: this.data.codigo_punto_entrega
-    };
-  
     // Obtenemos los valores de Beneficiaries almacenados en localStorage
     const beneficiaries = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
+    console.log(beneficiaries);
   
     // Asignamos los valores de Beneficiaries al array beneficiaries
     this.beneficiaries = beneficiaries;
+    console.log(beneficiaries);
   
-    // Agregamos el objeto data y el array beneficiaries al objeto newEntry
-    const newEntry = {
-      data: newData,
-      beneficiaries: [...this.beneficiaries]
+    // Creamos un nuevo objeto que contenga tanto data como beneficiaries
+    const newData = {
+      data: this.data,
+      beneficiaries: this.beneficiaries
+      
     };
-  
-    // Agregamos el objeto newEntry al array dataArray
-    this.dataArray.push(newEntry);
+    
+    // Agregamos el objeto newData al array dataArray
+    this.dataArray.push(newData);
     console.log(this.dataArray);
   
     // Limpiamos el objeto data y el array beneficiaries para poder agregar más datos
-    this.data = {
+   /* this.data = {
       regional_ciudad: '',
       centro_zonal: '',
       municipio: '',
@@ -79,8 +69,14 @@ export class ExportComponent {
       codigo_punto_entrega: ''
     };
     this.beneficiaries = [];
-  }
-}
+    console.log(this.beneficiaries)*/
+  
+    // Convertimos newData a una cadena JSON y la mostramos en la consola
+    const jsonData = JSON.stringify(newData);
+    console.log(jsonData);
+  }}
+
+
 
 
 
