@@ -17,9 +17,8 @@
       <input type="text" id="locationZone" formControlName="locationZone" required>
     </div>
 
-   <!-- revision -->
     <div class="form-group">
-      <label for="headerType">Tipo de Cabecera</label>
+      <label for="headerType">Tipo de Encabezado</label>
       <select id="headerType" formControlName="headerType">
         <option value="">Seleccionar</option>
         <option value="a">A</option>
@@ -29,7 +28,7 @@
     </div>
 
     <div class="form-group">
-      <label for="localityName">Nombre localidad / comunas / zona de resto</label>
+      <label for="localityName">Nombre de Localidad</label>
       <input type="text" id="localityName" formControlName="localityName">
     </div>
 
@@ -39,7 +38,7 @@
     </div>
 
     <div class="form-group">
-      <label for="foreignZoneName">Nombre de la Zona Resto</label>
+      <label for="foreignZoneName">Nombre de la Zona Extranjera</label>
       <input type="text" id="foreignZoneName" formControlName="foreignZoneName">
     </div>
 
@@ -62,11 +61,14 @@
       <label for="householdStratum">Estrato del Hogar</label>
       <select id="householdStratum" formControlName="householdStratum">
         <option value="">Seleccionar</option>
-        <option value="1">0</option>
-        <option value="2">1</option>
-        <option value="3">2</option>
-        <option value="4">3</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
   </form>
 </div>
