@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { importService } from 'src/app/services/import.service';
 import { NgForm } from '@angular/forms';
 
-
 @Component({
   selector: 'app-import',
   templateUrl: './import.component.html',
@@ -23,3 +22,8 @@ export class ImportComponent {
     this.importDataService.importarArchivo(this.archivoSeleccionado);
   }
 }
+
+
+
+ 
+ 
