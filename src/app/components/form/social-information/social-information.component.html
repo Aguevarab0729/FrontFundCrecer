@@ -1,7 +1,5 @@
 <div class="form-container">
   <form class="form-modal" [formGroup]="socialInformationForm" (ngSubmit)="onSubmit()">
-    <h2>Información Social</h2>
-
     <div class="form-group">
       <label for="groupEthnicity">Pertenece a un grupo étnico</label>
       <select id="groupEthnicity" formControlName="groupEthnicity">
@@ -39,7 +37,7 @@
     </div>
 
     <div class="form-group">
-      <label for="directlyAffectedByArmedConflict">Afectado directamente por el conflicto armado</label>
+      <label for="directlyAffectedByArmedConflict">El beneficiario ha sido victima directa a conflicto armado</label>
       <select id="directlyAffectedByArmedConflict" formControlName="directlyAffectedByArmedConflict">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
@@ -53,13 +51,12 @@
     </div>
 
     <div class="form-group">
-      <label for="justificationDocumentExists">Existe documento de justificación</label>
+      <label for="justificationDocumentExists">¿ Si no cumple con ningun criterio, cuenta con acta de justificación que justifique la atención ?</label>
       <select id="justificationDocumentExists" formControlName="justificationDocumentExists">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
         <option value="false">No</option>
       </select>
     </div>
-    <button class="submit" type="submit">Siguiente</button>
   </form>
 </div>

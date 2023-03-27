@@ -1,133 +1,154 @@
-@import url('https://rsms.me/inter/inter-ui.css');
-::selection {
-  background: #2D2F36;
+* {
+  box-sizing: border-box;
 }
-::-webkit-selection {
-  background: #2D2F36;
+
+html,
+body,
+.wrapper {
+  height: 100%;
 }
-::-moz-selection {
-  background: #2D2F36;
+
+@keyframes gradient {
+  100% {
+    background-size: 4000px 1000px;
+  }
 }
+
+
 body {
-  background: white;
-  font-family: 'Inter UI', sans-serif;
+  display: grid;
+  place-items: center;
   margin: 0;
-  padding: 20px;
+  padding: 0 24px;
+  background-color: #157ae1;
+  background-size: 2000px 1000px;
+  background-position: -500px 0;
+  color: #f9f9f9;
+  font-family: "Euclid Circular A";
+  animation: gradient 10s infinite alternate linear;
 }
-.page {
-  background: #e2e2e5;
-  display: flex;
-  flex-direction: column;
-  height: calc(100% - 40px);
-  position: absolute;
-  place-content: center;
-  width: calc(100% - 40px);
-}
-@media (max-width: 767px) {
-  .page {
-    height: auto;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+
+@media (width >= 500px) {
+  body {
+    padding: 0;
   }
 }
-.container {
-  display: flex;
-  height: 320px;
-  margin: 0 auto;
-  width: 640px;
-}
-@media (max-width: 767px) {
-  .container {
-    flex-direction: column;
-    height: 630px;
-    width: 320px;
-  }
-}
-.left {
-  background: white;
-  height: calc(100% - 40px);
-  top: 20px;
-  position: relative;
-  width: 50%;
-}
-@media (max-width: 767px) {
-  .left {
-    height: 100%;
-    left: 20px;
-    width: calc(100% - 40px);
-    max-height: 270px;
-  }
-}
+
 .login {
-  font-size: 50px;
-  font-weight: 900;
-  margin: 50px 40px 40px;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 90%;
+  padding: 70px 30px 44px;
+  border-radius: 22px;
+  background: #161616;
+  text-align: center;
 }
-.eula {
-  color: #999;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 40px;
-}
-.right {
-  background: #474A59;
-  box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
-  color: #F1F1F2;
-  position: relative;
-  width: 50%;
-}
-@media (max-width: 767px) {
-  .right {
-    flex-shrink: 0;
-    height: 100%;
-    width: 100%;
-    max-height: 350px;
+
+@media (width >= 450px) {
+  .login {
+    width: 380px;
   }
 }
-svg {
-  position: absolute;
-  width: 320px;
+
+.avatar {
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(-45deg, #157ae1, #c7a1ff);
+  padding: 2px;
+  width: 120px;
+  height: 120px;
 }
-path {
-  fill: none;
-  stroke: url(#linearGradient);;
-  stroke-width: 4;
-  stroke-dasharray: 240 1386;
-}
-.form {
-  margin: 40px;
-  position: absolute;
-}
-label {
-  color:  #c2c2c5;
-  display: block;
-  font-size: 14px;
-  height: 16px;
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-input {
-  background: transparent;
-  border: 0;
-  color: #f2f2f2;
-  font-size: 20px;
-  height: 30px;
-  line-height: 30px;
-  outline: none !important;
+
+.avatar > img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+
+  border: 4px solid #161616;
 }
-input::-moz-focus-inner {
+
+.login > h2 {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.login > h3 {
+  color: rgba(255, 255, 255, 0.38);
+  margin: 0 0 30px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+  place-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+.form-group {
+  width: 100%;
+  position: relative;
+}
+
+.form-group span {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  translate: 0 -50%;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.login-form input,
+.login-form button {
+  width: 100%;
+  height: 60px;
+  outline: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.login-form input {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 18px;
+  padding: 0 20px 0 50px;
+  color: inherit;
+}
+
+.login-form input:focus {
+  border-color: #157ae1;
+}
+
+.login-form input:focus ~ span {
+  color: #157ae1;
+}
+
+.login-form button {
+  cursor: pointer;
+  background: #157ae1;
+  color: #f9f9f9;
   border: 0;
+  font-weight: 600;
+  letter-spacing: 2px;
 }
-#submit {
-  color: #707075;
-  margin-top: 40px;
-  transition: color 300ms;
+
+.login-form a {
+  color: #157ae1;
+  font-size: 16px;
+  text-align: left;
+  text-decoration: none;
 }
-#submit:focus {
-  color: #f2f2f2;
+
+
+input.ng-invalid.ng-touched {
+  border-color: red;
 }
-#submit:active {
-  color: #d0d0d2;
-}
- 
