@@ -1,7 +1,7 @@
 <div class="form-container">
   <form class="form-modal" [formGroup]="guardianForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="guardian-personType">Tipo de Responsable</label>
+      <label for="guardian-personType">Tipo de persona Acudiente:</label>
       <!-- <select id="guardian-personType" formControlName="guardianPersonType"> -->
       <select id="guardian-personType" formControlName="guardianPersonType">
         <option value="">Seleccione una opción</option>
@@ -14,12 +14,12 @@
     </div>
 
     <div class="form-group">
-      <label for="guardian-documentType">Tipo de documento Acudiente</label>
+      <label for="guardian-documentType">Tipo de documento del Acudiente:</label>
       <input type="text" id="guardian-documentType" formControlName="guardianDocumentType">
     </div>
 
     <div class="form-group">
-      <label for="guardian-documentNumber">Número de documento del Acudiente</label>
+      <label for="guardian-documentNumber">Número de documento del Acudiente:</label>
       <input type="text" id="guardian-documentNumber" formControlName="guardianDocumentNumber">
       <span *ngIf="guardianForm.get('guardian-personType')?.hasError('required') && guardianForm.get('guardian-personType')?.touched">
         Campo requerido
@@ -27,43 +27,44 @@
     </div>
 
     <div class="form-group">
-      <label for="guardian-firstName">Primer nombre del Acudiente</label>
+      <label for="guardian-firstName">Primer nombre del Acudiente:</label>
       <input type="text" id="guardian-firstName" formControlName="guardianFirstName">
     </div>
 
     <div class="form-group">
-      <label for="guardian-secondName">Segundo nombre del Acudiente</label>
+      <label for="guardian-secondName">Segundo nombre del Acudiente:</label>
       <input type="text" id="guardian-secondName" formControlName="guardianSecondName">
     </div>
 
     <div class="form-group">
-      <label for="guardian-firstLastName">Primer apellido Acudiente</label>
+      <label for="guardian-firstLastName">Primer apellido del Acudiente:</label>
       <input type="text" id="guardian-firstLastName" formControlName="guardianFirstLastName">
     </div>
 
     <div class="form-group">
-      <label for="guardian-secondLastName">Segundo apellido Acudiente</label>
+      <label for="guardian-secondLastName">Segundo apellido del Acudiente:</label>
       <input type="text" id="guardian-secondLastName" formControlName="guardianSecondLastName">
     </div>
 
     <div class="form-group">
-      <label for="guardian-birthdate">Fecha de nacimiento del Acudiente</label>
+      <label for="guardian-birthdate">Fecha de nacimiento del Acudiente:</label>
       <input type="date" id="guardian-birthdate" formControlName="guardianBirthdate">
     </div>
 
     <div class="form-group">
-      <label for="guardian-birthCountry">País de nacimiento del Acudiente</label>
+      <label for="guardian-birthCountry">País de nacimiento del Acudiente:</label>
       <input type="text" id="guardian-birthCountry" formControlName="guardianBirthCountry">
     </div>
 
     <div class="form-group">
-      <label for="guardian-birthDepartment">Departamento de nacimiento del Acudiente</label>
+      <label for="guardian-birthDepartment">Departamento de nacimiento del Acudiente:</label>
       <input type="text" id="guardian-birthDepartment" formControlName="guardianBirthDepartment">
     </div>
 
     <div class="form-group">
-      <label for="guardian-birthCity">Municipio de nacimiento del Acudiente</label>
+      <label for="guardian-birthCity">Ciudad de nacimiento del Acudiente:</label>
       <input type="text" id="guardian-birthCity" formControlName="guardianBirthCity">
     </div>
+    <button class="submit" type="submit">Siguiente</button>
   </form>
 </div>

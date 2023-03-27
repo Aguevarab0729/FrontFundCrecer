@@ -1,99 +1,33 @@
-
-import { Component } from '@angular/core';
-import { FormBuilder, AbstractControlOptions, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start-login',
   templateUrl: './start-login.component.html',
   styleUrls: ['./start-login.component.scss']
 })
-export class StartLoginComponent {
-
-  loginForm = this.formBuilder.group({
-      email: ['', { validators: [Validators.required, Validators.email], updateOn: 'blur'}] ,
-      password: ['', [Validators.required, Validators.minLength(10)]]
-    });
+export class StartLoginComponent implements OnInit{
+  formLogin: FormGroup = new FormGroup({});
 
   constructor(private formBuilder: FormBuilder,
     private router: Router){};
 
-  onSubmit() {
-    this.validateForm().then( result => {
-      if (result) {
-        console.log("Login exitosamente");
+  ngOnInit(): void {
+    this.formLogin = this.formBuilder.group(
+      {
+        email: ['', Validators.compose([Validators.required, Validators.email])],
+        password: ['', Validators.compose([Validators.required, Validators.pattern('[a-zA-Z0-9*')])],
+        check: [false, Validators.requiredTrue]
       }
-      else{
-        console.log("No puede iniciar sesión, credenciales erroneas");
-      }
+    )
+    this.formLogin.valueChanges.subscribe(data => {
+      console.log(data);
     })
   }
-
-  validateForm(): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
-      const email = this.loginForm.get('email')?.value;
-      const password = this.loginForm.get('password')?.value;
-
-    })
-  }
-
-  resetForm(){
-    this.loginForm.reset();
-  }
-}
-
-/* import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-
-@Component({
-  selector: 'app-start-login',
-  templateUrl: './start-login.component.html',
-  styleUrls: ['./start-login.component.scss'],
-
-})
-export class StartLoginComponent {
-  title = 'Fundación Crecer';
-  loginForm: FormGroup;
-  email: string = '';
-  password: string = '';
-
-  constructor(formBuilder: FormBuilder){
-    this.loginForm = formBuilder.group({
-      emailId: ['', Validators.required, Validators.email],
-      userPassword: ['', Validators.required, Validators.minLength(10)],
-      NgForm
-    });
-  };
-
-  onSubmit() {
-    this.validateForm().then( result => {
-      if (result) {
-        console.log("Login exitosamente");
-      }
-      else{
-        console.log("failed to login");
-      }
-    })
-  }
-
-  validateForm(): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
-      const email = this.loginForm.get('email')?.value;
-      const password = this.loginForm.get('password')?.value;
-
-    })
-  }
-
-  resetForm(){
-    this.loginForm.reset();
-  }
-}
- */
-/* function createPasswordStrengthValidator(): any | string {
-  throw new Error('Function not implemented.');
-} */
 
   //  getters and setters
-  /* get email(){
+  get email(){
     return this.formLogin.get('email');
   }
 
@@ -111,7 +45,7 @@ export class StartLoginComponent {
       console.table(this.formLogin.value);
       this.formLogin.reset();
     }
-  } */
-
+  }
+}
 
 

@@ -2,7 +2,7 @@
   <form class="form-modal" [formGroup]="healtInformationForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
-      <label for="regime">Régimen</label>
+      <label for="regime">Régimen:</label>
       <select id="regime" formControlName="regime" required>
         <option value="" disabled selected>Selecciona una opción</option>
         <option value="SUBSIDIADO">Subsidiado</option>
@@ -13,40 +13,28 @@
     </div>
 
     <div class="form-group">
-      <label for="eps">EPS :</label>
+      <label for="eps">EPS:</label>
       <input type="text" id="eps" formControlName="eps" required>
     </div>
 
     <div class="form-group">
-      <label for="hasVaccinationCard">¿Tiene carné de vacunación?</label>
-      <select id="hasVaccinationCard" formControlName="hasVaccinationCard" required>
-        <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
-      </select>
+      <label for="hasVaccinationCard">¿Tiene carné de vacunación?:</label>
+      <input type="checkbox" id="hasVaccinationCard" formControlName="hasVaccinationCard" required>
     </div>
 
     <div class="form-group">
-      <label for="vaccinationVerificationDate">Fecha de verificación de vacunación</label>
+      <label for="vaccinationVerificationDate">Fecha de verificación de vacunación:</label>
       <input type="date" id="vaccinationVerificationDate" formControlName="vaccinationVerificationDate">
     </div>
 
     <div class="form-group">
-      <label for="vaccinationCardUpToDate">¿ Carné de vacunación al día ?</label>
-      <select id="vaccinationCardUpToDate" formControlName="vaccinationCardUpToDate" required>
-        <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
-      </select>
+      <label for="vaccinationCardUpToDate">¿Carné de vacunación al día?:</label>
+      <input type="checkbox" id="vaccinationCardUpToDate" formControlName="vaccinationCardUpToDate">
     </div>
 
     <div class="form-group">
       <label for="hasGrowthAndDevelopmentCard">¿Tiene carné de crecimiento y desarrollo?:</label>
-      <select id="hasGrowthAndDevelopmentCard" formControlName="hasGrowthAndDevelopmentCard" required>
-        <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
-      </select>
+      <input type="checkbox" id="hasGrowthAndDevelopmentCard" formControlName="hasGrowthAndDevelopmentCard" required>
     </div>
 
     <div class="form-group">
@@ -56,29 +44,12 @@
 
     <div class="form-group">
       <label for="prematurenessBackground">¿Antecedentes de prematuridad?:</label>
-      <select id="prematurenessBackground" formControlName="prematurenessBackground">
-        <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
-      </select>
+      <input type="checkbox" id="prematurenessBackground" formControlName="prematurenessBackground">
     </div>
 
     <div class="form-group">
       <label for="under40Weeks">¿Menos de 40 semanas de gestación?:</label>
-      <select id="under40Weeks" formControlName="under40Weeks">
-        <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="under40Weeks">¿Menos de 40 semanas de gestación?:</label>
-      <select id="under40Weeks" formControlName="under40Weeks">
-        <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
-      </select>
+      <input type="checkbox" id="under40Weeks" formControlName="under40Weeks">
     </div>
 
     <div class="form-group">
@@ -102,21 +73,17 @@
     </div>
 
     <div class="form-group">
-      <label for="exclusivelyBreastfeeding">¿ Esta siendo alimentado(a) exclusivamente con leche materna ? (menores de 6 meses)</label>
-      <select id="exclusivelyBreastfeeding" formControlName="exclusivelyBreastfeeding">
-        <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
-      </select>
+      <label for="exclusivelyBreastfeeding">¿Fue alimentado(a) exclusivamente con leche materna?:</label>
+      <input type="checkbox" id="exclusivelyBreastfeeding" formControlName="exclusivelyBreastfeeding" value="yes">
     </div>
 
     <div class="form-group">
-      <label for="exclusiveBreastfeedingDuration">¿ Por cuánto tiempo recibió lactancia materna ? (meses)</label>
+      <label for="exclusiveBreastfeedingDuration">¿Por cuánto tiempo?:</label>
       <input type="number" id="exclusiveBreastfeedingDuration" formControlName="exclusiveBreastfeedingDuration">
     </div>
 
     <div class="form-group">
-      <label for="totalBreastfeedingDuration">¿ Por cuánto tiempo recibió lactancia materna en total ? (meses)</label>
+      <label for="totalBreastfeedingDuration">¿Por cuánto tiempo recibió lactancia materna?:</label>
       <input type="number" id="totalBreastfeedingDuration" formControlName="totalBreastfeedingDuration">
     </div>
 
@@ -129,5 +96,6 @@
       <label for="ticketNumber">Número de ticket:</label>
       <input type="text" id="ticketNumber" formControlName="ticketNumber">
     </div>
+    <button class="submit" type="submit">Siguiente</button>
   </form>
 </div>

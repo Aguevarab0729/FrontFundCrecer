@@ -3,12 +3,12 @@
 
     <div class="form-group">
       <label for="numDoc">Número de documento:</label>
-      <input type="number" id="numDoc" class="form-control" formControlName="numDoc" required>
+      <input type="text" id="numDoc" name="numDoc" required>
     </div>
 
     <div class="form-group">
       <label for="curState">Estado actual:</label>
-      <select id="curState" formControlName="curState" required>
+      <select id="curState" name="curState" required>
         <option value="">Selecciona un estado</option>
         <option value="true">Activo</option>
         <option value="false">Inactivo</option>
@@ -41,17 +41,17 @@
     </div>
 
     <div class="form-group">
-      <label for="unityName">Unidad:</label>
+      <label for="unityName">Nombre de la unidad:</label>
       <input type="text" id="unityName" name="unityName" required>
     </div>
 
     <div class="form-group">
-      <label for="duoName">Dupla:</label>
+      <label for="duoName">Nombre del DUO:</label>
       <input type="text" id="duoName" name="duoName" required>
     </div>
 
     <div class="form-group">
-      <label for="teachers">Docentes:</label>
+      <label for="teachers">Profesores:</label>
       <input type="text" id="teachers" name="teachers">
     </div>
 
@@ -88,5 +88,6 @@
         <option value="FEMENINO">Femenino</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
   </form>
 </div>

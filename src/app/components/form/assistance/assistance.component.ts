@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-assistance',
@@ -8,24 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./assistance.component.scss']
 })
 
-export class AssistanceComponent {
-  assistanceForm = this.formBuilder.group({
-    requiresAssistance: ['', { validators: [Validators.required]}],
-    requiresTechSupport: ['', { validators: [Validators.required]}],
-    hasTechSupport: ['', { validators: [Validators.required]}],
-    requiresTherapy: ['', { validators: [Validators.required]}],
-    receivesTherapy: ['', { validators: [Validators.required]}],
-    hasInterdictionProcess: ['', { validators: [Validators.required]}],
-  });
-  constructor(private formBuilder: FormBuilder){
-
-  }
-  onSubmit = () => {
-    console.warn(this.assistanceForm.value);
-  }
-}
-
-/* export class AssistanceComponent implements OnInit {
+export class AssistanceComponent implements OnInit {
 
   assistanceForm: FormGroup = new FormGroup({});
 
@@ -54,4 +37,4 @@ export class AssistanceComponent {
     console.warn(this.assistanceForm.value);
   }
 
-} */
+}
