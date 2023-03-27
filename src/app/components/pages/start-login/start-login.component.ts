@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { FormBuilder, AbstractControlOptions, Validators } from '@angular/forms';
 
@@ -13,7 +14,8 @@ export class StartLoginComponent {
       password: ['', [Validators.required, Validators.minLength(10)]]
     });
 
-  constructor(private formBuilder: FormBuilder){};
+  constructor(private formBuilder: FormBuilder,
+    private router: Router){};
 
   onSubmit() {
     this.validateForm().then( result => {

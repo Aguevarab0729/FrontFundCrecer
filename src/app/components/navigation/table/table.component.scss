@@ -1,8 +1,92 @@
-thead{
-    background-color: #9DBCE4;
+.container {
+  margin-right: 2rem;
+  padding: 20px;
+  border-radius: 5px;
 }
 
+.form-group label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.adduser {
+  cursor: pointer;
+}
+
+.adduser:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.form-control {
+  border-radius: 4px;
+  width: 500px;
+  margin-left: 1rem;
+  margin-right: 5rem;
+}
+
+.disabled-button {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-control#exampleFormControlInput1{
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.form-check-input:checked + .form-check-label::before {
+  background-color: #007bff;
+}
+
+.form-check-label::before {
+  border-color: #007bff;
+}
+
+.form-check-label::after {
+  margin-left: 0.5rem;
+  border-color: #fff;
+}
+
+.form-check-label{
+  margin-left: 0.7rem;
+}
+
+.filter-select {
+  width: 200px; /* Cambia el valor según lo que desees */
+  margin-left: 3.5rem;
+}
+
+thead {
+  background-color: #9DBCE4;
+}
 
 tr:hover {
-    background-color: #e1e7ee;
+  background-color: #e1e7ee;
+}
+
+.adduser {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.mb-3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.img-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.dupla-filter{
+  margin-left: 10px;
+}
+
+.unique-filter{
+  margin-left: 40px;
 }

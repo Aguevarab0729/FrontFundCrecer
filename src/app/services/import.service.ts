@@ -17,10 +17,10 @@ export class importService {
 
   importarArchivo(file: File): any {
     const formData = new FormData();
-    // const url = `${this.myAppUrl}${this.myApiUrl}`;
+    // const url = ;
     formData.append('archivo', file);
     console.log(formData.get('archivo'))
-    const url = 'http://localhost:3000/import';
+    const url = `${this.myAppUrl}${this.myApiUrl}`;
     const body = formData ;
 
     this.http.post(url, body).subscribe((response) => {

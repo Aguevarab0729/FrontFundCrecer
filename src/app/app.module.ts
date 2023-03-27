@@ -30,6 +30,8 @@ import { ModalFormsComponent } from './components/navigation/modal-forms/modal-f
 import { ChartsComponent } from './components/navigation/charts/charts.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { AuthLoginComponent } from './components/auth/auth-login/auth-login.component';
+import { ExportComponent } from './components/navigation/export/export.component';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import { AuthLoginComponent } from './components/auth/auth-login/auth-login.comp
     ChartsComponent,
     LoginComponent,
     AuthLoginComponent,
+    ExportComponent,
   ],
   imports: [
     BrowserModule,
