@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import * as anime from 'animejs';
 
 @Component({
   selector: 'app-start-login',
@@ -11,7 +12,61 @@ export class StartLoginComponent implements OnInit{
   formLogin: FormGroup = new FormGroup({});
 
   constructor(private formBuilder: FormBuilder,
-    private router: Router){};
+    private router: Router){
+
+      let current: anime.AnimeInstance | null = null;
+
+document.querySelector<HTMLInputElement>('#email')?.addEventListener('focus', (e) => {
+  if (current) current.pause();
+  current = anime({
+    targets: 'path',
+    strokeDashoffset: {
+      value: 0,
+      duration: 700,
+      easing: 'easeOutQuart',
+    },
+    strokeDasharray: {
+      value: '240 1386',
+      duration: 700,
+      easing: 'easeOutQuart',
+    },
+  });
+});
+
+document.querySelector<HTMLInputElement>('#password')?.addEventListener('focus', (e) => {
+  if (current) current.pause();
+  current = anime({
+    targets: 'path',
+    strokeDashoffset: {
+      value: -336,
+      duration: 700,
+      easing: 'easeOutQuart',
+    },
+    strokeDasharray: {
+      value: '240 1386',
+      duration: 700,
+      easing: 'easeOutQuart',
+    },
+  });
+});
+
+document.querySelector<HTMLInputElement>('#submit')?.addEventListener('focus', (e) => {
+  if (current) current.pause();
+  current = anime({
+    targets: 'path',
+    strokeDashoffset: {
+      value: -730,
+      duration: 700,
+      easing: 'easeOutQuart',
+    },
+    strokeDasharray: {
+      value: '530 1386',
+      duration: 700,
+      easing: 'easeOutQuart',
+    },
+  });
+});
+    };
 
   ngOnInit(): void {
     this.formLogin = this.formBuilder.group(

@@ -10,7 +10,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'main', component: TableComponent},
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: StartLoginComponent},
   { path: 'import', component: ImportComponent},
   { path: 'export', component: ExportComponent},
   { path: 'charts', component: DataComponent},
