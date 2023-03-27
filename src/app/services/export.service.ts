@@ -14,21 +14,12 @@ export class ExportService {
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'export';
   }
-  
-  exportSelectBeneficiaries() {
-    const formData = new FormData();
-    const url = `${this.myAppUrl}${this.myApiUrl}`;
-    const body = formData ;
-    this.http.post(url, body).subscribe((response) => {
-      console.log(response);
-    });
-  }
 
-  downloadExcel() {
+  downloadExcel(data: any) {
     const url = `${this.myAppUrl}${this.myApiUrl}`;
     const params = { /* ... */ };
-    const docNumbers = this.selectBeneficiaries;
-    this.http.post(url, { params, docNumbers }, { responseType: 'blob' })
+    const beneficiaries = this.selectBeneficiaries;
+    this.http.post(url, { data, beneficiaries }, { responseType: 'blob' })
       .subscribe(response => {
         const blob = new Blob([response], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
         const url = URL.createObjectURL(blob);
