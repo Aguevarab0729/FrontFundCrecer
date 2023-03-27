@@ -1,1 +1,54 @@
-<p>export works!</p>
+<app-side-bar></app-side-bar>
+<div class="container mt-3">
+    <form >
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Regional/Ciudad:</label>
+            <input type="text" [(ngModel)]="data.regional_ciudad" name="regional_ciudad" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Centro Zonal:</label>
+            <input type="text" [(ngModel)]="data.centro_zonal" name="centro_zonal" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Municipio:</label>
+            <input type="text" [(ngModel)]="data.municipio" name="municipio" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Modalidad:</label>
+            <input type="text" [(ngModel)]="data.modalidad" name="modalidad" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Servicio:</label>
+            <input type="text" [(ngModel)]="data.servicio" name="servicio" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Mes de entrega:</label>
+            <input type="text" [(ngModel)]="data.mes_entrega" name="mes_entrega" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Unidad:</label>
+            <input type="text" [(ngModel)]="data.unidad" name="unidad" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Dupla:</label>
+            <input type="text" [(ngModel)]="data.dupla" name="dupla" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Dirección de punto de entrega:</label>
+            <input type="text" [(ngModel)]="data.direccion_punto_entrega" name="direccion_punto_entrega" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Código de punto de entrega:</label>
+            <input type="text" [(ngModel)]="data.codigo_punto_entrega" name="codigo_punto_entrega" class="form-control">
+          </div>
+        </div>
+      </div>
+      <button (click)="onSubmit()" class="btn btn-primary mb-3">Enviar</button>
+    </form>
+  </div>
