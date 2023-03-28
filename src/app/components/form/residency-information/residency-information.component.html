@@ -1,1 +1,72 @@
-<p>residency-information works!</p>
+<div class="form-container">
+
+  <form class="form-modal" [formGroup]="residencyInformationForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="countryOfResidence">País de Residencia</label>
+      <input type="text" id="countryOfResidence" formControlName="countryOfResidence" required>
+    </div>
+
+    <div class="form-group">
+      <label for="residenceDepartment">Departamento de Residencia</label>
+      <input type="text" id="residenceDepartment" formControlName="residenceDepartment" required>
+    </div>
+
+    <div class="form-group">
+      <label for="locationZone">Zona de Ubicación</label>
+      <input type="text" id="locationZone" formControlName="locationZone" required>
+    </div>
+
+   <!-- revision -->
+    <div class="form-group">
+      <label for="headerType">Tipo de Cabecera</label>
+      <select id="headerType" formControlName="headerType">
+        <option value="">Seleccionar</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="localityName">Nombre localidad / comunas / zona de resto</label>
+      <input type="text" id="localityName" formControlName="localityName">
+    </div>
+
+    <div class="form-group">
+      <label for="neighborhood">Barrio</label>
+      <input type="text" id="neighborhood" formControlName="neighborhood">
+    </div>
+
+    <div class="form-group">
+      <label for="foreignZoneName">Nombre de la Zona Resto</label>
+      <input type="text" id="foreignZoneName" formControlName="foreignZoneName">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Dirección</label>
+      <input type="text" id="address" formControlName="address" required>
+    </div>
+
+    <div class="form-group">
+      <label for="primaryPhone">Teléfono Principal</label>
+      <input type="text" id="primaryPhone" formControlName="primaryPhone">
+    </div>
+
+    <div class="form-group">
+      <label for="secondaryPhone">Teléfono Secundario</label>
+      <input type="text" id="secondaryPhone" formControlName="secondaryPhone">
+    </div>
+
+    <div class="form-group">
+      <label for="householdStratum">Estrato del Hogar</label>
+      <select id="householdStratum" formControlName="householdStratum">
+        <option value="">Seleccionar</option>
+        <option value="1">0</option>
+        <option value="2">1</option>
+        <option value="3">2</option>
+        <option value="4">3</option>
+      </select>
+    </div>
+  </form>
+</div>

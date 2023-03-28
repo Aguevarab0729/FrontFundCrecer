@@ -1,1 +1,123 @@
-<p>parent-information works!</p>
+<div class="form-container">
+  <form class="form-modal" [formGroup]="parentInformationForm" (ngSubmit)="onSubmit()">
+    <!-- Father Information -->
+    <div class="parent-info-section">
+      <h2>Información del Padre</h2>
+
+      <div class="form-group">
+        <label for="fatherDocumentType">Tipo de documento:</label>
+        <select id="fatherDocumentType" formControlName="fatherDocumentType">
+          <option value=""></option>
+          <option value="CC">Cédula de Ciudadanía</option>
+          <option value="CE">Cédula de Extranjería</option>
+          <option value="PPN">Pasaporte</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="fatherDocumentNumber">Número de documento:</label>
+        <input type="number" id="fatherDocumentNumber" formControlName="fatherDocumentNumber">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherFirstName">Primer nombre:</label>
+        <input type="text" id="fatherFirstName" formControlName="fatherFirstName">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherSecondName">Segundo nombre:</label>
+        <input type="text" id="fatherSecondName" formControlName="fatherSecondName">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherFirstLastname">Primer apellido:</label>
+        <input type="text" id="fatherFirstLastname" formControlName="fatherFirstLastname">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherSecondLastname">Segundo apellido:</label>
+        <input type="text" id="fatherSecondLastname" formControlName="fatherSecondLastname">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherBirthdate">Fecha de nacimiento:</label>
+        <input type="date" id="fatherBirthdate" formControlName="fatherBirthdate">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherBirthCountry">País de nacimiento:</label>
+        <input type="text" id="fatherBirthCountry" formControlName="fatherBirthCountry">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherBirthDepartment">Departamento de nacimiento:</label>
+        <input type="text" id="fatherBirthDepartment" formControlName="fatherBirthDepartment">
+      </div>
+
+      <div class="form-group">
+        <label for="fatherBirthCity">Ciudad de nacimiento:</label>
+        <input type="text" id="fatherBirthCity" formControlName="fatherBirthCity">
+      </div>
+    </div>
+
+    <div>
+      <h3>Informacion de la Madre</h3>
+      <div class="form-group">
+        <label for="motherDocumentType">Tipo de documento</label>
+        <select id="motherDocumentType" formControlName="motherDocumentType" required>
+          <option value="">Seleccionar</option>
+          <option value="CC">Cédula de ciudadanía</option>
+          <option value="CE">Cédula de extranjería</option>
+          <option value="PA">Pasaporte</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="motherDocumentNumber">Número de documento</label>
+        <input type="number" id="motherDocumentNumber" formControlName="motherDocumentNumber" required>
+      </div>
+
+      <div class="form-group">
+        <label for="motherFirstName">Primer nombre</label>
+        <input type="text" id="motherFirstName" formControlName="motherFirstName" required>
+      </div>
+
+      <div class="form-group">
+        <label for="motherSecondName">Segundo nombre</label>
+        <input type="text" id="motherSecondName" formControlName="motherSecondName">
+      </div>
+
+      <div class="form-group">
+        <label for="motherFirstLastname">Primer apellido</label>
+        <input type="text" id="motherFirstLastname" formControlName="motherFirstLastname" required>
+      </div>
+
+      <div class="form-group">
+        <label for="motherSecondLastname">Segundo apellido</label>
+        <input type="text" id="motherSecondLastname" formControlName="motherSecondLastname">
+      </div>
+
+      <div class="form-group">
+        <label for="motherBirthdate">Fecha de nacimiento</label>
+        <input type="date" id="motherBirthdate" formControlName="motherBirthdate" required>
+      </div>
+
+      <div class="form-group">
+        <label for="motherBirthCountry">País de nacimiento</label>
+        <input type="text" id="motherBirthCountry" formControlName="motherBirthCountry" required>
+      </div>
+
+      <div class="form-group">
+        <label for="motherBirthDepartment">Departamento de nacimiento</label>
+        <input type="text" id="motherBirthDepartment" formControlName="motherBirthDepartment" required>
+      </div>
+
+      <div class="form-group">
+        <label for="motherBirthCity">Ciudad de nacimiento</label>
+        <input type="text" id="motherBirthCity" formControlName="motherBirthCity" required>
+      </div>
+    </div>
+  </form>
+</div>
+
+

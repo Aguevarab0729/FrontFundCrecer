@@ -1,0 +1,81 @@
+
+<body>
+  <div class="login">
+    <div class="avatar">
+      <img src="" width="auto" height="auto"/>
+    </div>
+    <h2>Fundación Crecer</h2>
+    <h3>Login</h3>
+
+    <form class="login-form" [formGroup]="loginForm" >
+      <div class="form-group">
+        <input type="email" placeholder="email" formControlName="emailId"/>
+        <span class="material-symbols-outlined"> account_circle </span>
+        <div ngFor="loginForm.control['emailId'].hasError(required)">
+          <span></span>
+        </div>
+
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Password" formControlName="userPassword"/>
+        <span class="material-symbols-outlined"> lock </span>
+      </div>
+      <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+    </form>
+  </div>
+</body>
+
+<!-- <form [formGroup]="formLogin" (submit)="sendForm()">
+  <label for="email">Email</label>
+  <input type="email" formControlName="email" />
+  <div *ngIf="email?.errors?.['required'] && email?.touched">
+    <p *ngStyle="{color: 'red'}">Campo requerido</p>
+  </div>
+  <label for="password">Password</label>
+  <input name="password" type="password" formControlName="password"/>
+  <button [disabled]="!formLogin.valid" type="submit" formControlName="submit" routerLink="/main">Login</button>
+</form>
+ -->
+
+<!--
+<form [formGroup]="miFormulario">
+  previsualizacion de los valores del formulario
+  <h2>Datos en vivo del fromulario</h2>
+  utilizando un pipe de angular de tipo json para pasar el objeto a un json y mostrarlo
+  <p>{{ miFormulario.value | json }}</p>
+  campos de formulario
+  <label for="email">Email</label>
+  <input name="email" type="text" formControlName="email">
+  <label for="password">Password</label>
+  <input name="password" type="password" formControlName="password">
+  <button type="submit">SUBMIT</button>
+</form> -->
+
+
+<!--
+  <div class="form" [formGroup]="form">
+    <label for="email">Email</label>
+    <input name="email" type="text" formControlName="email">
+    <div class="errors">
+      <span *ngIf="form.get('email').hasError('required')">Email is Required</span>
+      <span *ngIf="form.get('email').hasError('email')">Email is mailformed</span>
+    </div>
+    <label for="password">Password</label>
+    <input name="password" type="password" formControlName="password">
+    <div class="errors">
+      <span *ngIf="form.get('password').hasError('required')">Password is Required</span>
+    </div>
+    <label for="confirmation">Password Confirmation</label>
+    <input name="confirmation" type="password" formControlName="confirmation">
+    <div class="errors">
+      <span *ngIf="form.get('confirmation').hasError('required')">Password confirmation is Required</span>
+    </div>
+    <button [disabled]="!form.valid" type="submit">SUBMIT</button>
+  </div>
+
+
+  <div *ngIf="email?.errors?.['required'] && email?.touched">
+    <p *ngStyle="{color: 'red'}">Campo requerido</p>
+  </div>
+ -->
+

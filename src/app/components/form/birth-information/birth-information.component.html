@@ -1,1 +1,24 @@
-<p>birth-information works!</p>
+<div class="form-container">
+  <form class="form-modal" [formGroup]="birthInformationForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="birthCountry">País de nacimiento:</label>
+      <input type="text" id="birthCountry" formControlName="birthCountry" required>
+    </div>
+
+    <div class="form-group">
+      <label for="birthDepartment">Departamento de nacimiento:</label>
+      <input type="text" id="birthDepartment" formControlName="birthDepartment" required>
+    </div>
+
+    <div class="form-group">
+      <label for="birthMunicipality">Municipio de nacimiento:</label>
+      <input type="text" id="birthMunicipality" formControlName="birthMunicipality" required>
+    </div>
+
+    <div class="form-group">
+      <label for="birthDate">Fecha de nacimiento:</label>
+      <input type="date" id="birthDate" formControlName="birthDate" required>
+    </div>
+  </form>
+</div>

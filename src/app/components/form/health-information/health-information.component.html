@@ -1,1 +1,133 @@
-<p>health-information works!</p>
+<div class="form-container">
+  <form class="form-modal" [formGroup]="healtInformationForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="regime">Régimen</label>
+      <select id="regime" formControlName="regime" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        <option value="SUBSIDIADO">Subsidiado</option>
+        <option value="CONTRIBUTIVO">Contributivo</option>
+        <option value="ESPECIAL">Especial</option>
+        <option value="NO_AFILIADO">No afiliado</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="eps">EPS :</label>
+      <input type="text" id="eps" formControlName="eps" required>
+    </div>
+
+    <div class="form-group">
+      <label for="hasVaccinationCard">¿Tiene carné de vacunación?</label>
+      <select id="hasVaccinationCard" formControlName="hasVaccinationCard" required>
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="vaccinationVerificationDate">Fecha de verificación de vacunación</label>
+      <input type="date" id="vaccinationVerificationDate" formControlName="vaccinationVerificationDate">
+    </div>
+
+    <div class="form-group">
+      <label for="vaccinationCardUpToDate">¿ Carné de vacunación al día ?</label>
+      <select id="vaccinationCardUpToDate" formControlName="vaccinationCardUpToDate" required>
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hasGrowthAndDevelopmentCard">¿Tiene carné de crecimiento y desarrollo?:</label>
+      <select id="hasGrowthAndDevelopmentCard" formControlName="hasGrowthAndDevelopmentCard" required>
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="growthDevelopmentControlsReceived">Número de controles de crecimiento y desarrollo recibidos:</label>
+      <input type="number" id="growthDevelopmentControlsReceived" formControlName="growthDevelopmentControlsReceived">
+    </div>
+
+    <div class="form-group">
+      <label for="prematurenessBackground">¿Antecedentes de prematuridad?:</label>
+      <select id="prematurenessBackground" formControlName="prematurenessBackground">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="under40Weeks">¿Menos de 40 semanas de gestación?:</label>
+      <select id="under40Weeks" formControlName="under40Weeks">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="under40Weeks">¿Menos de 40 semanas de gestación?:</label>
+      <select id="under40Weeks" formControlName="under40Weeks">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="cefalicProfile">Perfil cefálico:</label>
+      <input type="text" id="cefalicProfile" formControlName="cefalicProfile">
+    </div>
+
+    <div class="form-group">
+      <label for="gestationalAgeAtBirth">Edad gestacional al nacer:</label>
+      <input type="number" id="gestationalAgeAtBirth" formControlName="gestationalAgeAtBirth">
+    </div>
+
+    <div class="form-group">
+      <label for="weightAtBirth">Peso al nacer:</label>
+      <input type="number" id="weightAtBirth" formControlName="weightAtBirth">
+    </div>
+
+    <div class="form-group">
+      <label for="heightAtBirth">Talla al nacer:</label>
+      <input type="number" id="heightAtBirth" formControlName="heightAtBirth">
+    </div>
+
+    <div class="form-group">
+      <label for="exclusivelyBreastfeeding">¿ Esta siendo alimentado(a) exclusivamente con leche materna ? (menores de 6 meses)</label>
+      <select id="exclusivelyBreastfeeding" formControlName="exclusivelyBreastfeeding">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="exclusiveBreastfeedingDuration">¿ Por cuánto tiempo recibió lactancia materna ? (meses)</label>
+      <input type="number" id="exclusiveBreastfeedingDuration" formControlName="exclusiveBreastfeedingDuration">
+    </div>
+
+    <div class="form-group">
+      <label for="totalBreastfeedingDuration">¿ Por cuánto tiempo recibió lactancia materna en total ? (meses)</label>
+      <input type="number" id="totalBreastfeedingDuration" formControlName="totalBreastfeedingDuration">
+    </div>
+
+    <div class="form-group">
+      <label for="gestationWeeks">Semanas de gestación:</label>
+      <input type="number" id="gestationWeeks" formControlName="gestationWeeks">
+    </div>
+
+    <div class="form-group">
+      <label for="ticketNumber">Número de ticket:</label>
+      <input type="text" id="ticketNumber" formControlName="ticketNumber">
+    </div>
+  </form>
+</div>

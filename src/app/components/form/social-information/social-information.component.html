@@ -1,1 +1,62 @@
-<p>social-information works!</p>
+<div class="form-container">
+  <form class="form-modal" [formGroup]="socialInformationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="groupEthnicity">Pertenece a un grupo étnico</label>
+      <select id="groupEthnicity" formControlName="groupEthnicity">
+        <option value="">Seleccione una opción</option>
+        <option value="Afrodescendiente">Afrodescendiente</option>
+        <option value="Indígena">Indígena</option>
+        <option value="Rom">Rom</option>
+        <option value="Palenquero">Palenquero</option>
+        <option value="Raizal">Raizal</option>
+        <option value="Ninguno">Ninguno</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="beneficiarySisbenized">Beneficiario del Sisbén</label>
+      <select id="beneficiarySisbenized" formControlName="beneficiarySisbenized">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sisbenScore">Puntaje Sisbén</label>
+      <input type="number" id="sisbenScore" formControlName="sisbenScore">
+    </div>
+
+    <div class="form-group">
+      <label for="belongsToFamiliesInAction">Pertenece a Familias en Acción</label>
+      <select id="belongsToFamiliesInAction" formControlName="belongsToFamiliesInAction">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="directlyAffectedByArmedConflict">El beneficiario ha sido victima directa a conflicto armado</label>
+      <select id="directlyAffectedByArmedConflict" formControlName="directlyAffectedByArmedConflict">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="focusingCriteria">Criterio de focalización</label>
+      <input type="text" id="focusingCriteria" formControlName="focusingCriteria">
+    </div>
+
+    <div class="form-group">
+      <label for="justificationDocumentExists">¿ Si no cumple con ningun criterio, cuenta con acta de justificación que justifique la atención ?</label>
+      <select id="justificationDocumentExists" formControlName="justificationDocumentExists">
+        <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+  </form>
+</div>
