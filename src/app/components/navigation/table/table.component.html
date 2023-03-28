@@ -26,8 +26,9 @@
       <option *ngFor="let unity of unitys" [value]="unity">
           {{ unity }}
       </option>
-    </select> 
-    <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario"/>
+    </select>
+    <img class="adduser" src="assets/icons/export.svg" alt="AExportar usuarios" (click)="saveSelection()"/>
+   
     </div>
    <!-- -->
   </div>
@@ -71,11 +72,7 @@
         >
           Siguiente
         </button>
-        
-        <button class="btn btn-success" (click)="saveSelection()">
-          Seleccionar Beneficiario
-        </button>
-      </div>
+       </div>
     </div>
   </div>
 </div>

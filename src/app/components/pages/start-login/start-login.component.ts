@@ -1,7 +1,14 @@
+<<<<<<< HEAD
+
+import { Component } from '@angular/core';
+import { FormBuilder, AbstractControlOptions, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+=======
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as anime from 'animejs';
+>>>>>>> a80c7bfa4f769c664fe891cb85c11a548a384001
 
 @Component({
   selector: 'app-start-login',

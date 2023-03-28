@@ -5,7 +5,7 @@ import { ExportComponent } from './components/navigation/export/export.component
 import { ImportComponent } from './components/navigation/import/import.component';
 import { TableComponent } from './components/navigation/table/table.component';
 import { StartLoginComponent } from './components/pages/start-login/start-login.component';
-import { LoginComponent } from './components/auth/login/login.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
