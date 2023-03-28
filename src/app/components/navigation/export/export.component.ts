@@ -1,3 +1,4 @@
+import { ExportService } from './../../../services/export.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,8 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./export.component.scss']
 })
 export class ExportComponent {
+  
+  private exportObject: {};
+  
+  constructor(private _ExportService: ExportService){
+    this.exportObject = {};
+  }
 
-  public dataArray: any[] = [];
 
   public data: {
     regional_ciudad: string,
@@ -36,27 +42,41 @@ export class ExportComponent {
   public beneficiaries: any[] = [];
 
   public onSubmit() {
+    const data = {
+      regional_ciudad: this.data.regional_ciudad,
+      centro_zonal: this.data.centro_zonal,
+      municipio: this.data.municipio,
+      modalidad: this.data.modalidad,
+      servicio: this.data.servicio,
+      mes_entrega: this.data.mes_entrega,
+      unidad: this.data.unidad,
+      dupla: this.data.dupla,
+      direccion_punto_entrega: this.data.direccion_punto_entrega,
+      codigo_punto_entrega: this.data.codigo_punto_entrega
+    };
+  
     // Obtenemos los valores de Beneficiaries almacenados en localStorage
-    const beneficiaries = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
-    console.log(beneficiaries);
+    const beneficiariesJSON = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
   
     // Asignamos los valores de Beneficiaries al array beneficiaries
-    this.beneficiaries = beneficiaries;
-    console.log(beneficiaries);
+    this.beneficiaries = beneficiariesJSON;
+
+    const beneficiaries = this.beneficiaries;
   
-    // Creamos un nuevo objeto que contenga tanto data como beneficiaries
-    const newData = {
-      data: this.data,
-      beneficiaries: this.beneficiaries
-      
+    // Agregamos el objeto data y el array beneficiaries al objeto newEntry
+    const newEntry = {
+      data: data,
+      beneficiaries: [...this.beneficiaries]
     };
-    
-    // Agregamos el objeto newData al array dataArray
-    this.dataArray.push(newData);
-    console.log(this.dataArray);
   
+    // Agregamos el objeto newEntry al array dataArray
+    
+    console.log(this.exportObject)
+    
+    this._ExportService.downloadExcel(newEntry.data,newEntry.beneficiaries);
+    localStorage.clear();
     // Limpiamos el objeto data y el array beneficiaries para poder agregar más datos
-   /* this.data = {
+    /* this.data = {
       regional_ciudad: '',
       centro_zonal: '',
       municipio: '',
@@ -72,8 +92,6 @@ export class ExportComponent {
     console.log(this.beneficiaries)*/
   
     // Convertimos newData a una cadena JSON y la mostramos en la consola
-    const jsonData = JSON.stringify(newData);
-    console.log(jsonData);
   }}
 
 

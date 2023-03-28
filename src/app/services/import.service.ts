@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class importService {
 
-  private myAppUrl: String ;
+  private myAppUrl: String;
   private myApiUrl: String;
 
   constructor(private http: HttpClient) { 
