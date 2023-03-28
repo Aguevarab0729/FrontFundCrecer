@@ -1,6 +1,7 @@
 
 import { Component } from '@angular/core';
 import { FormBuilder, AbstractControlOptions, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start-login',

@@ -20,7 +20,7 @@
         <input type="password" placeholder="Password" formControlName="userPassword"/>
         <span class="material-symbols-outlined"> lock </span>
       </div>
-      <button type="submit" [disabled]="!loginForm.valid">LOGIN</button>
+      <button type="submit" [disabled]="!loginForm.valid" routerLink="/main">LOGIN</button>
     </form>
   </div>
 </body>
