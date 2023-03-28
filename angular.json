@@ -32,7 +32,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": ["node_modules/jquery/dist/jquery.min.js", "node_modules/animejs/lib/anime.min.js"]
           },
           "configurations": {
             "production": {

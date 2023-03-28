@@ -31,7 +31,7 @@ import { ChartsComponent } from './components/navigation/charts/charts.component
 import { LoginComponent } from './components/pages/login/login.component';
 import { AuthLoginComponent } from './components/auth/auth-login/auth-login.component';
 import { ExportComponent } from './components/navigation/export/export.component';
-
+import { MarketComponent } from './components/navigation/market/market.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +57,7 @@ import { ExportComponent } from './components/navigation/export/export.component
     LoginComponent,
     AuthLoginComponent,
     ExportComponent,
+    MarketComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,7 @@ import { ExportComponent } from './components/navigation/export/export.component
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
