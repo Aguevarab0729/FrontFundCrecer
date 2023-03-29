@@ -1,5 +1,16 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="basicInformationForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="basicInformationForm" ><!-- (ngSubmit)="onSubmit()" -->
+
+
+    <div class="form-group">
+      <label for="documentType">Tipo de documento:</label>
+      <select id="documentType" formControlName="documentType">
+        <option value=""></option>
+        <option value="CC">Cédula de Ciudadanía</option>
+        <option value="CE">Cédula de Extranjería</option>
+        <option value="PPN">Pasaporte</option>
+      </select>
+    </div>
 
     <div class="form-group">
       <label for="numDoc">Número de documento:</label>
@@ -17,76 +28,84 @@
 
     <div class="form-group">
       <label for="joinDate">Fecha de ingreso:</label>
-      <input type="date" id="joinDate" name="joinDate" required>
+      <input type="date" id="joinDate" formControlName="joinDate" required>
     </div>
 
     <div class="form-group">
       <label for="exitDate">Fecha de salida:</label>
-      <input type="date" id="exitDate" name="exitDate">
+      <input type="date" id="exitDate" formControlName="exitDate">
     </div>
 
     <div class="form-group">
       <label for="enterBy">Ingresado por:</label>
-      <input type="text" id="enterBy" name="enterBy">
+      <input type="text" id="enterBy" formControlName="enterBy">
     </div>
 
     <div class="form-group">
       <label for="reasonForExit">Motivo de salida:</label>
-      <input type="text" id="reasonForExit" name="reasonForExit">
+      <input type="text" id="reasonForExit" formControlName="reasonForExit">
     </div>
 
     <div class="form-group">
       <label for="otherExitReason">Otro motivo de salida:</label>
-      <input type="text" id="otherExitReason" name="otherExitReason">
+      <input type="text" id="otherExitReason" formControlName="otherExitReason">
     </div>
 
     <div class="form-group">
       <label for="unityName">Unidad:</label>
-      <input type="text" id="unityName" name="unityName" required>
+      <input type="text" id="unityName" formControlName="unityName">
     </div>
 
     <div class="form-group">
       <label for="duoName">Dupla:</label>
-      <input type="text" id="duoName" name="duoName" required>
+      <input type="text" id="duoName" formControlName="duoName">
     </div>
 
     <div class="form-group">
       <label for="teachers">Docentes:</label>
-      <input type="text" id="teachers" name="teachers">
-    </div>
-
-    <div class="form-group">
-      <label for="documentType">Tipo de documento:</label>
-      <input type="text" id="documentType" name="documentType" required>
+      <ng-container formArrayName="teachers">
+        <div *ngFor="let control of teachers.controls; index as i">
+          <input type="text" id="teachers" [formControlName]="i" />
+          <button (click)="removeMember(i)">Remove member {{ i + 1 }}</button>
+        </div>
+        <button (click)="addMember()">Add member</button>
+      </ng-container>
     </div>
 
     <div class="form-group">
       <label for="firstName">Primer nombre:</label>
-      <input type="text" id="firstName" name="firstName" required>
+      <input type="text" id="firstName" formControlName="firstName">
     </div>
 
     <div class="form-group">
       <label for="secondName">Segundo nombre:</label>
-      <input type="text" id="secondName" name="secondName">
+      <input type="text" id="secondName" formControlName="secondName">
     </div>
 
     <div class="form-group">
       <label for="firstLastName">Primer apellido:</label>
-      <input type="text" id="firstLastName" name="firstLastName" required>
+      <input type="text" id="firstLastName" formControlName="firstLastName">
     </div>
 
     <div class="form-group">
       <label for="secondLastName">Segundo apellido:</label>
-      <input type="text" id="secondLastName" name="secondLastName">
+      <input type="text" id="secondLastName" formControlName="secondLastName">
     </div>
 
     <div class="form-group">
       <label for="gender">Género:</label>
-      <select id="gender" name="gender" required>
+      <select id="gender" formControlName="gender">
         <option value="">Selecciona un género</option>
         <option value="MASCULINO">Masculino</option>
         <option value="FEMENINO">Femenino</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validation</h2>
+    <h3>Form valid: {{ basicInformationForm.valid }}</h3>
+    <pre>{{ formValidator | async | json }}</pre>
+
+    <h2>Result</h2>
+    <pre>{{ basicInformationForm.value | json }}</pre>
   </form>
 </div>

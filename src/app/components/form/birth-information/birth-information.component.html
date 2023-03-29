@@ -20,5 +20,12 @@
       <label for="birthDate">Fecha de nacimiento:</label>
       <input type="date" id="birthDate" formControlName="birthDate" required>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validation</h2>
+    <h3>Form valid: {{ birthInformationForm.valid }}</h3>
+    <pre>{{ formValidator | async | json }}</pre>
+
+    <h2>Result</h2>
+    <pre>{{ birthInformationForm.value | json }}</pre>
   </form>
 </div>

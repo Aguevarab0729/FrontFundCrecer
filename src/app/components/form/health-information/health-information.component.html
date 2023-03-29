@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="healtInformationForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="healthInformationForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
       <label for="regime">Régimen</label>
@@ -129,5 +129,12 @@
       <label for="ticketNumber">Número de ticket:</label>
       <input type="text" id="ticketNumber" formControlName="ticketNumber">
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validation</h2>
+    <h3>Form valid: {{ healthInformationForm.valid }}</h3>
+    <pre>{{ formValidator | async | json }}</pre>
+
+    <h2>Result</h2>
+    <pre>{{ healthInformationForm.value | json }}</pre>
   </form>
 </div>

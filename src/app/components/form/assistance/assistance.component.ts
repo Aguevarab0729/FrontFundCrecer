@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
-import { FormBuilder, Validators } from '@angular/forms';
+//  Interface de form Assistance
+import { Assistance } from 'src/app/interfaces/form/assistance';
+
+import { createValidator } from '../../validators/validator-creator';
+import { required } from '../../validators/validators';
 
 @Component({
   selector: 'app-assistance',
@@ -9,21 +14,32 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 
 export class AssistanceComponent {
-  assistanceForm = this.formBuilder.group({
-    requiresAssistance: ['', { validators: [Validators.required]}],
-    requiresTechSupport: ['', { validators: [Validators.required]}],
-    hasTechSupport: ['', { validators: [Validators.required]}],
-    requiresTherapy: ['', { validators: [Validators.required]}],
-    receivesTherapy: ['', { validators: [Validators.required]}],
-    hasInterdictionProcess: ['', { validators: [Validators.required]}],
-  });
-  constructor(private formBuilder: FormBuilder){
 
-  }
+  assistanceForm = this.formBuilder.group({
+    requiresAssistance: [''],
+    requiresTechSupport: [''],
+    hasTechSupport: [''],
+    requiresTherapy: [''],
+    receivesTherapy: [''],
+    hasInterdictionProcess: ['']
+  });
+
+  formValidator = createValidator<Assistance>(this.assistanceForm, {
+    requiresAssistance: [ required() ],
+    requiresTechSupport: [ required() ],
+    hasTechSupport: [ required() ],
+    requiresTherapy: [ required() ],
+    receivesTherapy: [ required() ],
+    hasInterdictionProcess: [ required() ]
+  });
+
+  constructor(private formBuilder: FormBuilder){};
+
   onSubmit = () => {
     console.warn(this.assistanceForm.value);
   }
 }
+
 
 /* export class AssistanceComponent implements OnInit {
 

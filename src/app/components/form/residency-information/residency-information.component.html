@@ -68,5 +68,12 @@
         <option value="4">3</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validation</h2>
+    <h3>Form valid: {{ residencyInformationForm.valid }}</h3>
+    <pre>{{ formValidator | async | json }}</pre>
+
+    <h2>Result</h2>
+    <pre>{{ residencyInformationForm.value | json }}</pre>
   </form>
 </div>

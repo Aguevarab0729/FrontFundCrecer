@@ -33,6 +33,11 @@
       <option value="false">No</option>
       <option value="true">Sí</option>
     </select>
-  </div>
-  <button class="submit" type="submit">Siguiente</button>
+  </div><button class="submit" type="submit">Siguiente</button>
+  <h2>Validation</h2>
+  <h3>Form valid: {{ disabilityForm.valid }}</h3>
+  <pre>{{ formValidator | async | json }}</pre>
+
+  <h2>Result</h2>
+  <pre>{{ disabilityForm.value | json }}</pre>
 </form>

@@ -1,42 +1,65 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+//  Interface de form health
+import { Health } from 'src/app/interfaces/form/health';
+
+import { createValidator } from '../../validators/validator-creator';
+import { required } from '../../validators/validators';
 
 @Component({
   selector: 'app-health-information',
   templateUrl: './health-information.component.html',
   styleUrls: ['./health-information.component.scss']
 })
-export class HealthInformationComponent implements OnInit {
+export class HealthInformationComponent {
 
-  healtInformationForm: FormGroup = new FormGroup({});
+  healthInformationForm = this.formBuilder.group({
+    regime: [''],
+    eps: [''],
+    hasVaccinationCard: [''],
+    vaccinationVerificationDate: [''],
+    vaccinationCardUpToDate: [''],
+    hasGrowthAndDevelopmentCard: [''],
+    growthDevelopmentControlsReceived: [''],
+    prematurenessBackground: [''],
+    under40Weeks: [''],
+    cefalicProfile: [''],
+    gestationalAgeAtBirth: [''],
+    weightAtBirth: [''],
+    heightAtBirth: [''],
+    exclusivelyBreastfeeding: [''],
+    exclusiveBreastfeedingDuration: [''],
+    totalBreastfeedingDuration: [''],
+    gestationWeeks: [''],
+    ticketNumber: ['']
+  });
+
+  formValidator = createValidator<Health>(this.healthInformationForm, {
+    regime: [ required() ],
+    eps: [ required() ],
+    hasVaccinationCard: [ required() ],
+    vaccinationVerificationDate: [ required() ],
+    vaccinationCardUpToDate: [ required() ],
+    hasGrowthAndDevelopmentCard: [ required() ],
+    growthDevelopmentControlsReceived: [ required() ],
+    prematurenessBackground: [ required() ],
+    under40Weeks: [ required() ],
+    cefalicProfile: [ required() ],
+    gestationalAgeAtBirth: [ required() ],
+    weightAtBirth: [ required() ],
+    heightAtBirth: [ required() ],
+    exclusivelyBreastfeeding: [ required() ],
+    exclusiveBreastfeedingDuration: [ required() ],
+    totalBreastfeedingDuration: [ required() ],
+    gestationWeeks: [ required() ],
+    ticketNumber: [ required() ]
+  });
 
   constructor(private formBuilder: FormBuilder){};
 
-  ngOnInit(): void {
-    this.healtInformationForm = this.formBuilder.group({
-      regime: ['', Validators.required],
-      eps: ['', Validators.required],
-      hasVaccinationCard: ['', Validators.required],
-      vaccinationVerificationDate: ['', Validators.required],
-      vaccinationCardUpToDate: ['', Validators.required],
-      hasGrowthAndDevelopmentCard: ['', Validators.required],
-      growthDevelopmentControlsReceived: ['', Validators.required],
-      prematurenessBackground: ['', Validators.required],
-      under40Weeks: ['', Validators.required],
-      cefalicProfile: ['', Validators.required],
-      gestationalAgeAtBirth: ['', Validators.required],
-      weightAtBirth: ['', Validators.required],
-      heightAtBirth: ['', Validators.required],
-      exclusivelyBreastfeeding: ['', Validators.required],
-      exclusiveBreastfeedingDuration: ['', Validators.required],
-      totalBreastfeedingDuration: ['', Validators.required],
-      gestationWeeks: ['', Validators.required],
-      ticketNumber: ['', Validators.required]
-    })
-  }
-
   onSubmit = () => {
-    console.warn(this.healtInformationForm.value);
+    console.warn(this.healthInformationForm.value);
   }
 
 }

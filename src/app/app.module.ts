@@ -32,7 +32,6 @@ import { LoginComponent } from './components/pages/login/login.component';
 import { AuthLoginComponent } from './components/auth/auth-login/auth-login.component';
 import { ExportComponent } from './components/navigation/export/export.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

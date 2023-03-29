@@ -1,25 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+//  Interface form birth Information
+import { Birth } from 'src/app/interfaces/form/birth';
+
+import { createValidator } from '../../validators/validator-creator';
+import { required } from '../../validators/validators';
 
 @Component({
   selector: 'app-birth-information',
   templateUrl: './birth-information.component.html',
   styleUrls: ['./birth-information.component.scss']
 })
-export class BirthInformationComponent implements OnInit {
+export class BirthInformationComponent {
 
-  birthInformationForm: FormGroup = new FormGroup({});
+  birthInformationForm = this.formBuilder.group({
+    birthCountry: [''],
+    birthDepartment: [''],
+    birthMunicipality: [''],
+    birthDate: ['']
+  });
 
-  constructor(private formBuilder: FormBuilder){}
+  formValidator = createValidator<Birth>(this.birthInformationForm, {
+    birthCountry: [ required() ],
+    birthDepartment: [ required() ],
+    birthMunicipality: [ required() ],
+    birthDate: [ required() ]
+  });
 
-  ngOnInit(): void {
-    this.birthInformationForm = this.formBuilder.group({
-      birthCountry: ['', Validators.required],
-      birthDepartment: ['', Validators.required],
-      birthMunicipality: ['', Validators.required],
-      birthDate: ['', Validators.required]
-    })
-  }
+  constructor(private formBuilder: FormBuilder){};
 
   onSubmit = () => {
     console.warn(this.birthInformationForm.value);
