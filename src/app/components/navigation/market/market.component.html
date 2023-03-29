@@ -1,0 +1,134 @@
+<app-side-bar></app-side-bar>
+<div>
+  <div class="wrapper ms-5">
+    <div class="header">
+      <h1 class="header__title">MERCADOS</h1>
+      <h2 class="header__subtitle"></h2>
+    </div>
+  
+    <div class="cards">
+  
+      <div class="card [ is-collapsed ]" >
+        <div class="card__inner [ js-expander ] text-white">
+          <span>Mercado 1</span>
+          <!-- <i class="fa"><img src="assets/icons/market.svg" alt="Mercados"></i> -->
+        </div>
+        <div class="card__expander d-flex flex-column">
+          <i class="fa fa-close [ js-collapser ]"></i>
+          <span class="pt-3" id="titleMarket">{{marketInfo[0].type | titlecase}}</span>
+          <div class="container d-flex flex-row">            
+            <table class="table table-primary table-sm table-striped-columns my-3" id="tableStyle">
+              <thead>
+                Alimentos para preparar
+                <tr class="table-active">
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let food of marketInfo[0].foodsToPrepare">
+                <tr>
+                  <td>{{food.name | titlecase}}</td>
+                  <td>{{food.quantity | titlecase}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="table table-primary  table-sm table-striped-columns my-3" id="tableStyle">
+              <thead>
+                <tr class="table-active">
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let food of marketInfo[0].nutritionalFoods">
+                <tr>
+                  <td>{{food.name | titlecase}}</td>
+                  <td>{{food.quantity | titlecase}}</td>
+                </tr>
+              </tbody>
+            </table>
+            
+          </div>        
+        </div>
+      </div>
+  
+      <div class=" card [ is-collapsed ] ">
+        <div class="card__inner [ js-expander ] text-white">
+          <span>{{marketInfo[1].type}}</span>
+          <i class="fa fa-folder-o"></i>
+        </div>
+        <div class="card__expander">
+          <i class="fa fa-close [ js-collapser ]"></i>
+            <div class="container">
+            <table class="table table-primary table-striped-columns my-3">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let food of marketInfo[1].foodsToPrepare">
+                <tr>
+                  <td>{{food.name}}</td>
+                        <td>{{food.quantity}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
+        </div>
+      </div>
+  
+      <div class=" card [ is-collapsed ] ">
+        <div class="card__inner [ js-expander ]">
+          <span>{{marketInfo[2].type}}</span>
+          <i class="fa fa-folder-o"></i>
+        </div>
+        <div class="card__expander">
+          <i class="fa fa-close [ js-collapser ]"></i>
+          <div class="container">
+            <table class="table table-primary table-striped-columns my-3">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let food of marketInfo[2].foodsToPrepare">
+                <tr>
+                  <td>{{food.name}}</td>
+                        <td>{{food.quantity}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
+        </div>
+      </div>
+  
+      <div class=" card [ is-collapsed ] ">
+        <div class="card__inner [ js-expander ]">
+          <span>{{marketInfo[3].type}}</span>
+          <i class="fa fa-folder-o"></i>
+        </div>
+        <div class="card__expander">
+          <i class="fa fa-close [ js-collapser ]"></i>
+          <div class="container">
+            <table class="table table-primary table-striped-columns my-3">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let food of marketInfo[3].foodsToPrepare">
+                <tr>
+                  <td>{{food.name}}</td>
+                        <td>{{food.quantity}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div> 
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

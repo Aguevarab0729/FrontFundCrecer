@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BasicInfomationService } from 'src/app/services/path-services/basic-infomation.service';
+import { HealthInformationService } from 'src/app/services/path-services/health-information.service';
 import { SocialInformationService } from 'src/app/services/path-services/social-information.service';
 
 
@@ -16,12 +17,14 @@ export class ModalWindowComponent implements OnInit {
   editMode = true;
   basicinfoForm: FormGroup;
   socialinfoForm: FormGroup;
+  healthInfoForm: FormGroup;
   
 
   constructor(private fb: FormBuilder,
               private router: Router,
               private basicInformationService: BasicInfomationService,
-              private socialInformationService: SocialInformationService
+              private socialInformationService: SocialInformationService,
+              private healthInformationService: HealthInformationService
              ) {
     this.basicinfoForm = this.fb.group({
       numDoc: [''],
@@ -50,6 +53,28 @@ export class ModalWindowComponent implements OnInit {
       directlyAffectedByArmedConflict: [false],
       focusingCriteria: [''],
       justificationDocumentExists: [false],
+    });
+
+    this.healthInfoForm = this.fb.group({
+      cefalicProfile: [''],
+      eps: [''],
+      exclusiveBreastfeedingDuration: [0],
+      exclusivelyBreastfeeding: [false],
+      gestationWeeks: [0],
+      gestationalAgeAtBirth: [0],
+      growthDevelopmentControlsReceived: [''],
+      hasGrowthAndDevelopmentCard: [false],
+      hasVaccinationCard: [false],
+      heightAtBirth: [0],
+      prematurenessBackground: [false],
+      regime: [''],
+      ticketNumber: [''],
+      totalBreastfeedingDuration: [0],
+      under40Weeks: [''],
+      vaccinationCardUpToDate: [false],
+      vaccinationVerificationDate: [''],
+      weightAtBirth: [0],
+      
     });
 
    
@@ -85,13 +110,37 @@ export class ModalWindowComponent implements OnInit {
       justificationDocumentExists: this.beneficiary.socialInformation.justificationDocumentExists,
     });
 
+    this.healthInfoForm.patchValue({
+      cefalicProfile: this.beneficiary.healthInfo.cefalicProfil,
+      eps: this.beneficiary.healthInfo.eps,
+      exclusiveBreastfeedingDuration: this.beneficiary.healthInfo.exclusiveBreastfeedingDuration,
+      exclusivelyBreastfeeding: this.beneficiary.healthInfo.exclusivelyBreastfeeding,
+      gestationWeeks: this.beneficiary.healthInfo.gestationWeeks,
+      gestationalAgeAtBirth: this.beneficiary.healthInfo.gestationalAgeAtBirth,
+      growthDevelopmentControlsReceived: this.beneficiary.healthInfo.growthDevelopmentControlsReceived,
+      hasGrowthAndDevelopmentCard: this.beneficiary.healthInfo.hasGrowthAndDevelopmentCard,
+      hasVaccinationCard: this.beneficiary.healthInfo.hasVaccinationCard,
+      heightAtBirth: this.beneficiary.healthInfo.heightAtBirth,
+      prematurenessBackground: this.beneficiary.healthInfo.prematurenessBackground,
+      regime: this.beneficiary.healthInfo.regime,
+      ticketNumber: this.beneficiary.healthInfo.ticketNumber,
+      totalBreastfeedingDuration: this.beneficiary.healthInfo.totalBreastfeedingDuration,
+      under40Weeks: this.beneficiary.healthInfo.under40Weeks,
+      vaccinationCardUpToDate: this.beneficiary.healthInfo.vaccinationCardUpToDate,
+      vaccinationVerificationDate: this.beneficiary.healthInfo.vaccinationVerificationDate,
+      weightAtBirth: this.beneficiary.healthInfo.weightAtBirth
+    });
     
-   
 }
 
-  
+calculateAge(birthDate: string): number {
+  const birth = new Date(birthDate);
+  const ageInMs = Date.now() - birth.getTime();
+  const ageInYears = Math.floor(ageInMs / 1000 / 60 / 60 / 24 / 365.25);
+  return ageInYears;
+}
 
-  updateDataBeneficiary() {
+updateDataBeneficiary() {
     const beneficiaryData = this.basicinfoForm.value;
     const numDoc = this.beneficiary.basicinfo.numDoc; // Obtenemos el valor de numDoc del objeto beneficiary
   
@@ -103,7 +152,7 @@ export class ModalWindowComponent implements OnInit {
     );
     console.log(beneficiaryData)
     this.router.navigate(['/main'])
-  }
+}
   
 
   updateDataSocBeneficiary() {
@@ -117,8 +166,20 @@ export class ModalWindowComponent implements OnInit {
     );
     alert('Datos actualizados correctamente')
     console.log(beneficiaryData);
+}
+
+updateHealthDataBeneficiary() {
+  const beneficiaryData = this.healthInfoForm.value;
+  const numDoc = this.beneficiary.basicinfo.numDoc;
+
+  this.healthInformationService.updateBeneficiaryHealth(numDoc, beneficiaryData).subscribe(
     
-  }
+    response => console.log(response),
+    error => console.error(error)
+  );
+  alert('Datos actualizados correctamente')
+  console.log(beneficiaryData);
+}
 
  
   

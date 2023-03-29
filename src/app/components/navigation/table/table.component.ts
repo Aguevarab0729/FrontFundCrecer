@@ -18,7 +18,7 @@ export class TableComponent {
   beneficiariesToShow: any[] = [];
   markets: any[] = [];
   currentPage: number = 1;
-  itemsPerPage: number = 25;
+  itemsPerPage: number = 5;
   showInactive: boolean = false;
   selectedDupla: string = "";
   selectedUnity: string = "";

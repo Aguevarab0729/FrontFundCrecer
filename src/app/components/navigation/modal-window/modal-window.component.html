@@ -85,7 +85,129 @@
       <ngb-accordion>
       <ngb-panel class="panel-default">
             <ng-template ngbPanelTitle>
-              Editar Informacion de Seguridad Social
+              Información sobre Salud
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <form [formGroup]="healthInfoForm">
+                <div class="form-group">
+                  <label for="cefalicProfile">Perfil cefálico:</label>
+                  <input type="text" class="form-control" id="cefalicProfile" formControlName="cefalicProfile" value="{{beneficiary.healthInfo.cefalicProfile}}">
+                </div>
+                <div class="form-group">
+                  <label for="eps">EPS:</label>
+                  <input type="text" class="form-control" id="eps" formControlName="eps" value="{{beneficiary.healthInfo.eps}}">
+                </div>
+                <div class="form-group">
+                  <label for="exclusivelyBreastfeeding:">Se alimenta solo de leche materna:</label>
+                  <select class="form-control" id="exclusivelyBreastfeeding" formControlName="exclusivelyBreastfeeding" value="{{beneficiary.healthInfo.exclusivelyBreastfeeding}}">
+                    <option value="true">Si</option>
+                    <option value="false">No</option>
+                  </select>  
+                </div>
+                <div class="form-group">
+                  <label for="exclusiveBreastfeedingDuration">Duración de lactancia materna exclusiva:</label>
+                  <input type="number" class="form-control" id="exclusiveBreastfeedingDuration" formControlName="exclusiveBreastfeedingDuration" value="{{beneficiary.healthInfo.exclusiveBreastfeedingDuration}}">
+                </div>
+                <div class="form-group">
+                  <label for="gestationWeeks">Semanas de gestación:</label>
+                  <input type="number" class="form-control" id="gestationWeeks" formControlName="gestationWeeks" value="{{beneficiary.healthInfo.gestationWeeks}}">
+                </div>
+                <div class="form-group">
+                  <label for="gestationalAgeAtBirth">Edad gestacional al nacer:</label>
+                  <input type="number" class="form-control" id="gestationalAgeAtBirth" formControlName="gestationalAgeAtBirth" value="{{beneficiary.healthInfo.gestationalAgeAtBirth}}">
+                </div>
+                <div class="form-group">
+                  <label for="growthDevelopmentControlsReceived">Controles de crecimiento y desarrollo recibidos:</label>
+                  <input type="text" class="form-control" id="growthDevelopmentControlsReceived" formControlName="growthDevelopmentControlsReceived" value="{{beneficiary.healthInfo.growthDevelopmentControlsReceived}}">
+                </div>
+                <div class="form-group">
+                  <label for="hasGrowthAndDevelopmentCard">¿Tiene carné de crecimiento y desarrollo?:</label>
+                  <div>
+                    <label><input type="radio" formControlName="hasGrowthAndDevelopmentCard" [value]="true" [checked]="beneficiary.healthInfo.hasGrowthAndDevelopmentCard">
+                      Sí
+                    </label>
+                    <label><input type="radio" formControlName="hasGrowthAndDevelopmentCard" [value]="false" [checked]="!beneficiary.healthInfo.hasGrowthAndDevelopmentCard">
+                      No
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="hasVaccinationCard">¿Tiene carné de vacunación?:</label>
+                  <div>
+                    <label><input type="radio" formControlName="hasVaccinationCard" [value]="true" [checked]="beneficiary.healthInfo.hasVaccinationCard">
+                      Sí
+                    </label>
+                    <label><input type="radio" formControlName="hasVaccinationCard" [value]="false" [checked]="!beneficiary.healthInfo.hasVaccinationCard">
+                      No
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="heightAtBirth">Altura al nacer:</label>
+                  <input type="number" class="form-control" id="heightAtBirth" formControlName="heightAtBirth" value="{{beneficiary.healthInfo.heightAtBirth}}">
+                </div>
+                <div class="form-group">
+                  <label for="prematurenessBackground">Antecedentes de prematuridad:</label>
+                  <div>
+                      <label><input type="radio" formControlName="prematurenessBackground" [value]="true" [checked]="beneficiary.healthInfo.prematurenessBackground">Sí</label>
+                      <label><input type="radio" formControlName="prematurenessBackground" [value]="false" [checked]="!beneficiary.healthInfo.prematurenessBackground">No</label>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="regime">Régimen:</label>
+                <select class="form-control" id="regime" formControlName="regime">
+                  <option value="SUBSIDIADO">SUBSIDIADO</option>
+                  <option value="CONTRIBUTIVO">CONTRIBUTIVO</option>
+                  <option value="ESPECIAL">ESPECIAL</option>
+                  <option value="NO_AFILIADO">NO AFILIADO</option>
+                </select>
+              </div>
+                <div class="form-group">
+                  <label for="ticketNumber">Número de Carné:</label>
+                  <input type="text" class="form-control" id="ticketNumber" formControlName="ticketNumber" value="{{beneficiary.healthInfo.ticketNumber}}">
+                </div>
+                <div class="form-group">
+                  <label for="totalBreastfeedingDuration">Duración total de la lactancia materna:</label>
+                  <input type="number" class="form-control" id="totalBreastfeedingDuration" formControlName="totalBreastfeedingDuration" value="{{beneficiary.healthInfo.totalBreastfeedingDuration}}">
+                </div>
+                <div class="form-group">
+                  <label for="under40Weeks">¿Nació antes de las 40 semanas de gestación?:</label>
+                  <div>
+                      <label><input type="radio" formControlName="under40Weeks" [value]="true" [checked]="beneficiary.healthInfo.under40Weeks">Sí</label>
+                      <label><input type="radio" formControlName="under40Weeks" [value]="false" [checked]="!beneficiary.healthInfo.under40Weeks">No</label>
+                  </div>
+              </div>
+                <div class="form-group">
+                  <label for="vaccinationCardUpToDate">¿Está al día con sus vacunas?:</label>
+                  <div>
+                      <label><input type="radio" formControlName="vaccinationCardUpToDate" [value]="true" [checked]="beneficiary.healthInfo.vaccinationCardUpToDate">Sí</label>
+                      <label><input type="radio" formControlName="vaccinationCardUpToDate" [value]="false" [checked]="!beneficiary.healthInfo.vaccinationCardUpToDate">No</label>
+                  </div>
+              </div>
+                <div class="form-group">
+                  <label for="vaccinationVerificationDate">Fecha de verificación de vacunas:</label>
+                  <div>
+                    <label><input type="radio" formControlName="vaccinationVerificationDate" [value]="true" [checked]="beneficiary.healthInfo.vaccinationVerificationDate">
+                      Sí
+                    </label>
+                    <label><input type="radio" formControlName="vaccinationVerificationDate" [value]="false" [checked]="!beneficiary.healthInfo.vaccinationVerificationDate">
+                      No
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="weightAtBirth">Peso al nacer:</label>
+                  <input type="number" class="form-control" id="weightAtBirth" formControlName="weightAtBirth" value="{{beneficiary.healthInfo.weightAtBirth}}">
+                </div>
+              </form>
+              <button class="btn" (click)="updateHealthDataBeneficiary()" routerLink="/main">Editar</button>
+            </ng-template>
+          </ngb-panel>
+    </ngb-accordion>
+    <ngb-accordion>
+      <ngb-panel class="panel-default">
+            <ng-template ngbPanelTitle>
+              Editar Informacion Social
             </ng-template>
             <ng-template ngbPanelContent>
               <form [formGroup]="socialinfoForm">
@@ -161,8 +283,7 @@
             <p><strong>Razón de Salida :</strong>{{beneficiary.basicinfo.reasonForExit || 'data faltante'}}</p>
             <p><strong>Otra Razón de Salida :</strong>{{beneficiary.basicinfo.otherExitReason || 'data faltante'}}</p>
             <p><strong>Persona que Ingresó :</strong>{{beneficiary.basicinfo.enterBy || 'data faltante'}}</p>
-        
-            </ng-template>
+           </ng-template>
         </ngb-panel>
       </ngb-accordion>
       <ngb-accordion>
@@ -178,215 +299,152 @@
             <p><strong>Existe documento de justificación :</strong>{{ beneficiary.socialInformation.justificationDocumentExists }}</p>
           </ng-template>
         </ngb-panel>
-        </ngb-accordion>
-   
+      </ngb-accordion>
+      <ngb-accordion>
+        <ngb-panel class="panel-default">
+          <ng-template ngbPanelTitle> Informacion de nacimiento </ng-template>
+          <ng-template ngbPanelContent>
+            <p><strong>Pais de Nacimiento :</strong> {{ beneficiary.birthinformation.birthCountry }}</p>
+            <p><strong>Departamento :</strong> {{ beneficiary.birthinformation.birthDepartment }}</p>
+            <p><strong>Munucipio :</strong> {{ beneficiary.birthinformation.birthMunicipality }}</p>
+            <p><strong>Edad :</strong> {{ calculateAge(beneficiary.birthinformation.birthDate) }} Años</p>
+            <p><strong>Fecha de nacimiento :</strong> {{ beneficiary.birthinformation.birthDate }} </p>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <ngb-accordion>
+        <ngb-panel class="panel-default">
+          <ng-template ngbPanelTitle> Información de Salud</ng-template>
+          <ng-template ngbPanelContent>
+            <p><strong>Perimetro Cefálico:</strong> {{ beneficiary.healthInfo.cefalicProfile }}</p>
+            <p><strong>EPS:</strong> {{ beneficiary.healthInfo.eps }}</p>
+            <p><strong>Duración de lactancia materna exclusiva:</strong> {{ beneficiary.healthInfo.exclusiveBreastfeedingDuration }}</p>
+            <p><strong>Semanas de gestación:</strong> {{ beneficiary.healthInfo.gestationWeeks }}</p>
+            <p><strong>Edad gestacional al nacer:</strong> {{ beneficiary.healthInfo.gestationalAgeAtBirth }}</p>
+            <p><strong>Control de crecimiento:</strong> {{ beneficiary.healthInfo.growthDevelopmentControlsReceived }}</p>
+            <p><strong>Carnet de crecimiento y desarrollo:</strong> {{ beneficiary.healthInfo.hasGrowthAndDevelopmentCard }}</p>
+            <p><strong>Carnet de vacunación:</strong> {{ beneficiary.healthInfo.hasVaccinationCard }}</p>
+            <p><strong>Talla al nacer:</strong> {{ beneficiary.healthInfo.heightAtBirth }}</p>
+            <p><strong>Antecedentes de prematurez:</strong> {{ beneficiary.healthInfo.prematurenessBackground }}</p>
+            <p><strong>Regimen:</strong> {{ beneficiary.healthInfo.regime }}</p>
+            <p><strong>Numero de tickete:</strong> {{ beneficiary.healthInfo.ticketNumber }}</p>
+            <p><strong>Duración lactancia materna:</strong> {{ beneficiary.healthInfo.totalBreastfeedingDuration }}</p>
+            <p><strong>Semanas:</strong> {{ beneficiary.healthInfo.under40Weeks }}</p>
+            <p><strong>Actualziacion del carnet de vacunación:</strong> {{ beneficiary.healthInfo.vaccinationCardUpToDate }}</p>
+            <p><strong>Fecha de vacunación:</strong> {{ beneficiary.healthInfo.vaccinationVerificationDate }}</p>
+            <p><strong>Peso al nacer:</strong> {{ beneficiary.healthInfo.weightAtBirth }}</p>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <ngb-accordion>
+        <ngb-panel class="panel-default">
+          <ng-template ngbPanelTitle>
+            Información de Residencia
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <p><strong>País de residencia:</strong> {{beneficiary.residencyInformation.countryOfResidence || 'Dato faltante'}}</p>
+            <p><strong>Departamento de residencia:</strong> {{beneficiary.residencyInformation.residenceDepartment || 'Dato faltante'}}</p>
+            <p><strong>Zona de ubicación:</strong> {{beneficiary.residencyInformation.locationZone || 'Dato faltante'}}</p>
+            <p><strong>Tipo de cabecera:</strong> {{beneficiary.residencyInformation.headerType || 'Dato faltante'}}</p>
+            <p><strong>Nombre de la localidad:</strong> {{beneficiary.residencyInformation.localityName || 'Dato faltante'}}</p>
+            <p><strong>Barrio:</strong> {{beneficiary.residencyInformation.neighborhood || 'Dato faltante'}}</p>
+            <p><strong>Zona foránea:</strong> {{beneficiary.residencyInformation.foreignZoneName || 'Dato faltante'}}</p>
+            <p><strong>Dirección:</strong> {{beneficiary.residencyInformation.address || 'Dato faltante'}}</p>
+            <p><strong>Teléfono primario:</strong> {{beneficiary.residencyInformation.primaryPhone || 'Dato faltante'}}</p>
+            <p><strong>Teléfono secundario:</strong> {{beneficiary.residencyInformation.secondaryPhone || 'Dato faltante'}}</p>
+            <p><strong>Estrato socioeconómico:</strong> {{beneficiary.residencyInformation.householdStratum || 'Dato faltante'}}</p>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <ngb-accordion>
+        <ngb-panel class="panel-default">
+          <ng-template ngbPanelTitle>
+            Información Social
+          </ng-template>
+          <ng-template ngbPanelContent>
+              <p><strong>Etnia :</strong> {{beneficiary.socialInformation.groupEthnicity}} </p>
+              <p><strong>Sisbenizado :</strong> {{beneficiary.socialInformation.beneficiarySisbenized}}</p>
+              <p><strong>Puntaje Sisben :</strong> {{beneficiary.socialInformation.sisbenScore }}</p>
+              <p><strong>Pertenece a Familias en Acción :</strong> {{beneficiary.socialInformation.belongsToFamiliesInAction}}</p>
+              <p><strong>Afectado directamente por conflicto armado :</strong> {{beneficiary.socialInformation.directlyAffectedByArmedConflict}}</p>
+              <p><strong>Criterio de focalización :</strong> {{beneficiary.socialInformation.focusingCriteria }}</p>
+              <p><strong>Existe documento de justificación :</strong> {{beneficiary.socialInformation.justificationDocumentExists}}</p>
+            </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <ngb-accordion>
+      <ngb-panel class="panel-default">
+        <ng-template ngbPanelTitle> Información de asistencia</ng-template>
+        <ng-template ngbPanelContent>
+          <p><strong>Información sobre interdicción:</strong> {{ beneficiary.assistanceInformation.hasInterdictionProcess }}</p>
+          <p><strong>Información sobre interdicción soporte técnico:</strong> {{ beneficiary.assistanceInformation.hasTechSupport }}</p>
+          <p><strong>Información sobre terapia:</strong> {{ beneficiary.assistanceInformation.receivesTherapy }}</p>
+          <p><strong>Información sobre asistencia:</strong> {{ beneficiary.assistanceInformation.requiresAssistance }}</p>
+          <p><strong>Información de soporte ténico:</strong> {{ beneficiary.assistanceInformation.requiresTechSupport }}</p>
+          <p><strong>Requiere terapia:</strong> {{ beneficiary.assistanceInformation.requiresTherapy }}</p>
+       </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <ngb-accordion>
+      <ngb-panel class="panel-default">
+        <ng-template ngbPanelTitle> Información de los padres </ng-template>
+        <ng-template ngbPanelContent>
+          <p><strong>Edad :</strong> {{ beneficiary.parent.ageFather }}</p>
+          <p><strong>Ciudad:</strong> {{ beneficiary.parent.fatherBirthCity }}</p>
+          <p><strong>País :</strong> {{ beneficiary.parent.fatherBirthCountry}}</p>
+          <p><strong>Departamento :</strong> {{ beneficiary.parent.fatherBirthDepartment}}</p>
+          <p><strong>Fecha de Nacimiento :</strong> {{ beneficiary.parent.fatherBirthdate }}</p>
+          <p><strong>Numero de Documento :</strong> {{ beneficiary.parent.fatherDocumentNumber }}</p>
+          <p><strong>Tipo de Documento:</strong> {{ beneficiary.parent.fatherDocumentType }}</p>
+          <p><strong>Primer Nombre :</strong> {{ beneficiary.parent.fatherFirstName }}</p>
+          <p><strong>Segundo Nombre :</strong> {{ beneficiary.parent.fatherSecondName }}</p>
+          <p><strong>Primer Apellido :</strong> {{ beneficiary.parent.fatherFirstLastname }}</p>
+          <p><strong>Segundo Apellido :</strong> {{ beneficiary.parent.fatherSecondLastname }}</p>
+          <p><strong>Edad :</strong> {{ beneficiary.parent.ageMother }}</p>
+          <p><strong>Ciudad :</strong> {{ beneficiary.parent.motherBirthCity }}</p>
+          <p><strong>País :</strong> {{ beneficiary.parent.motherBirthCountry }}</p>
+          <p><strong>Departamento :</strong> {{ beneficiary.parent.motherBirthDepartment }}</p>
+          <p><strong>Fecha de Nacimiento :</strong> {{ beneficiary.parent.motherBirthdate }}</p>
+          <p><strong>Numero de Documento: </strong> {{ beneficiary.parent.motherDocumentNumber}}</p>
+          <p><strong>Tipo de Documento :</strong> {{ beneficiary.parent.motherDocumentType }}</p>
+          <p><strong>Primer Nombre :</strong> {{ beneficiary.parent.motherFirstLastname }}</p>
+          <p><strong>Segundo Nombre:</strong> {{ beneficiary.parent.motherFirstName }}</p>
+          <p><strong>Primer Apellido :</strong> {{ beneficiary.parent.motherSecondLastname }}</p>
+          <p><strong>Segundo Apellido :</strong> {{ beneficiary.parent.motherSecondName }}</p>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <ngb-accordion>
+      <ngb-panel class="panel-default">
+        <ng-template ngbPanelTitle> Información del tutor</ng-template>
+        <ng-template ngbPanelContent>
+          <p><strong>Ciudad:</strong> {{ beneficiary.guardianInfo.guardianBirthCity }}</p>
+          <p><strong>País:</strong> {{ beneficiary.guardianInfo.guardianBirthCountry }}</p>
+          <p><strong>Departamento:</strong> {{ beneficiary.guardianInfo.guardianBirthDepartment }}</p>
+          <p><strong>Numero de documento: </strong> {{ beneficiary.guardianInfo.guardianDocumentNumber }}</p>
+          <p><strong>Tipo de documento:</strong> {{ beneficiary.guardianInfo.guardianDocumentType }}</p>
+          <p><strong>Tipo de tutor:</strong> {{ beneficiary.guardianInfo.guardianPersonType }}</p>
+          <p><strong>Nombre:</strong> {{ beneficiary.guardianInfo.guardianFirstName }}</p>
+          <p><strong>Segundo nombre:</strong> {{ beneficiary.guardianInfo.guardianSecondName }}</p>
+          <p><strong>Apellido:</strong> {{ beneficiary.guardianInfo.guardianFirstLastName }}</p>
+          <p><strong>Segundo apellido:</strong> {{ beneficiary.guardianInfo.guardianSecondLastName }}</p>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+    <ngb-accordion>
+      <ngb-panel class="panel-default">
+        <ng-template ngbPanelTitle> Información Discapacidad </ng-template>
+        <ng-template ngbPanelContent>
+          <p><strong>Certificado de discapacidad:</strong> {{ beneficiary.disabilityInfo.certifiedDisability }}</p>
+          <p><strong>Discapaciad :</strong> {{ beneficiary.disabilityInfo.disability }}</p>
+          <p><strong>Categoria de la discapacidad :</strong> {{ beneficiary.disabilityInfo.disabilityCategory }}</p>
+          <p><strong>Registro de discapacidad :</strong> {{ beneficiary.disabilityInfo.disabilityRegistryEnrollment }}</p>
+          <p><strong>Entidad que cerifica  :</strong> {{ beneficiary.disabilityInfo.entityCertifiesDisability }}</p>
+          <p><strong>Discpacidad especifica:</strong> {{ beneficiary.disabilityInfo.specifiedDisability }}</p>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
   </div>
 </div>
 
 
-<!--<ngb-accordion>
-    <ngb-panel class="panel-default">
-        <ng-template ngbPanelTitle>
-          Datos Básicos
-        </ng-template>
-        <ng-template ngbPanelContent>
-            <p><strong>Documento :</strong>{{beneficiary.basicinfo.numDoc}}</p>
-            <p><strong>Tipo de Documento :</strong>{{beneficiary.basicinfo.documentType}}</p>
-            <p><strong>Nombres :</strong>{{beneficiary.basicinfo.firstName}} {{beneficiary.basicinfo.secondName}}</p>
-            <p><strong>Apellidos :</strong>{{beneficiary.basicinfo.firstLastName}} {{beneficiary.basicinfo.secondLastName}}</p>
-            <p><strong>Género :</strong>{{beneficiary.basicinfo.gender}}</p>
-            <p><strong>Unidad :</strong>{{beneficiary.basicinfo.unityName}}</p>
-            <p><strong>Duo :</strong>{{beneficiary.basicinfo.duoName}}</p>
-            <p><strong>Profesores :</strong></p>
-              <ul>
-                <li *ngFor="let teacher of beneficiary.basicinfo.teachers">{{teacher}}</li>
-              </ul>
-            <p><strong>Fecha de Ingreso :</strong>{{beneficiary.basicinfo.joinDate}}</p>
-            <p><strong>Estado :</strong>{{beneficiary.basicinfo.curState}}</p>
-            <p><strong>Fecha de Salida :</strong>{{beneficiary.basicinfo.exitDate}}</p>
-            <p><strong>Razón de Salida :</strong>{{beneficiary.basicinfo.reasonForExit || 'data faltante'}}</p>
-            <p><strong>Otra Razón de Salida :</strong>{{beneficiary.basicinfo.otherExitReason || 'data faltante'}}</p>
-            <p><strong>Persona que Ingresó :</strong>{{beneficiary.basicinfo.enterBy || 'data faltante'}}</p>
-          </ng-template>
-      </ngb-panel>
-    <ngb-panel class="panel-default">
-      <ng-template ngbPanelTitle>
-        Información de Residencia
-      </ng-template>
-      <ng-template ngbPanelContent>
-        <p><strong>País de residencia:</strong> {{beneficiary.residencyInformation.countryOfResidence || 'Dato faltante'}}</p>
-        <p><strong>Departamento de residencia:</strong> {{beneficiary.residencyInformation.residenceDepartment || 'Dato faltante'}}</p>
-        <p><strong>Zona de ubicación:</strong> {{beneficiary.residencyInformation.locationZone || 'Dato faltante'}}</p>
-        <p><strong>Tipo de cabecera:</strong> {{beneficiary.residencyInformation.headerType || 'Dato faltante'}}</p>
-        <p><strong>Nombre de la localidad:</strong> {{beneficiary.residencyInformation.localityName || 'Dato faltante'}}</p>
-        <p><strong>Barrio:</strong> {{beneficiary.residencyInformation.neighborhood || 'Dato faltante'}}</p>
-        <p><strong>Zona foránea:</strong> {{beneficiary.residencyInformation.foreignZoneName || 'Dato faltante'}}</p>
-        <p><strong>Dirección:</strong> {{beneficiary.residencyInformation.address || 'Dato faltante'}}</p>
-        <p><strong>Teléfono primario:</strong> {{beneficiary.residencyInformation.primaryPhone || 'Dato faltante'}}</p>
-        <p><strong>Teléfono secundario:</strong> {{beneficiary.residencyInformation.secondaryPhone || 'Dato faltante'}}</p>
-        <p><strong>Estrato socioeconómico:</strong> {{beneficiary.residencyInformation.householdStratum || 'Dato faltante'}}</p>
-      </ng-template>
-    </ngb-panel>
-    <ngb-panel class="panel-default">
-        <ng-template ngbPanelTitle>
-          Información Social
-        </ng-template>
-        <ng-template ngbPanelContent>
-            <p><strong>Etnia :</strong> {{beneficiary.socialInformation.groupEthnicity}} </p>
-            <p><strong>Sisbenizado :</strong> {{beneficiary.socialInformation.beneficiarySisbenized}}</p>
-            <p><strong>Puntaje Sisben :</strong> {{beneficiary.socialInformation.sisbenScore }}</p>
-            <p><strong>Pertenece a Familias en Acción :</strong> {{beneficiary.socialInformation.belongsToFamiliesInAction}}</p>
-            <p><strong>Afectado directamente por conflicto armado :</strong> {{beneficiary.socialInformation.directlyAffectedByArmedConflict}}</p>
-            <p><strong>Criterio de focalización :</strong> {{beneficiary.socialInformation.focusingCriteria }}</p>
-            <p><strong>Existe documento de justificación :</strong> {{beneficiary.socialInformation.justificationDocumentExists}}</p>
-          </ng-template>
-      </ngb-panel>
-    <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Datos Básicos </ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Documento :</strong> {{ beneficiary.basicinfo.numDoc }}</p>
-      <p><strong>Estado Actual:</strong> {{ beneficiary.basicinfo.curState ? "Activo" : "Inactivo" }}</p>
-      <p><strong>Tipo de Documento :</strong>{{ beneficiary.basicinfo.documentType }}</p>
-      <p><strong>Nombres :</strong> {{ beneficiary.basicinfo.firstName }}{{ beneficiary.basicinfo.secondName }}</p>
-      <p><strong>Apellidos :</strong> {{ beneficiary.basicinfo.firstLastName }}{{ beneficiary.basicinfo.secondLastName }}</p>
-      <p><strong>Género :</strong> {{ beneficiary.basicinfo.gender }}</p>
-      <p><strong>Unidad :</strong> {{ beneficiary.basicinfo.unityName }}</p>
-      <p><strong>Duo :</strong> {{ beneficiary.basicinfo.duoName }}</p>
-      <p><strong>Profesores :</strong></p>
-      <ul>
-        <li *ngFor="let teacher of beneficiary.basicinfo.teachers">
-          {{ teacher }}
-        </li>
-      </ul>
-      <p><strong>Fecha de Ingreso :</strong> {{ beneficiary.basicinfo.joinDate }}</p>
-      <p><strong>Fecha de Salida :</strong> {{ beneficiary.basicinfo.exitDate }}</p>
-      <p><strong>Razón de Salida :</strong> {{ beneficiary.basicinfo.reasonForExit || "data faltante" }}</p>
-      <p><strong>Otra Razón de Salida :</strong> {{ beneficiary.basicinfo.otherExitReason || "data faltante" }}</p>
-      <p><strong>Persona que Ingresó :</strong> {{ beneficiary.basicinfo.enterBy || "data faltante" }}</p>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Informacion de nacimiento </ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Pais de Nacimiento :</strong> {{ beneficiary.birthinformation.birthCountry }}</p>
-      <p><strong>Departamento :</strong> {{ beneficiary.birthinformation.birthDepartment }}</p>
-      <p><strong>Munucipio :</strong> {{ beneficiary.birthinformation.birthMunicipality }}</p>
-      <p><strong>Edad :</strong> {{ calculateAge(beneficiary.birthinformation.birthDate) }} Años</p>
-      <p><strong>Fecha de nacimiento :</strong> {{ beneficiary.birthinformation.birthDate }} </p>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Información de Residencia </ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>País de residencia:</strong> {{beneficiary.residencyInformation.countryOfResidence || "Dato faltante"}}</p>
-      <p><strong>Departamento de residencia:</strong> {{beneficiary.residencyInformation.residenceDepartment || "Dato faltante"}}</p>
-      <p><strong>Zona de ubicación:</strong> {{ beneficiary.residencyInformation.locationZone || "Dato faltante" }}</p>
-      <p><strong>Tipo de cabecera:</strong> {{ beneficiary.residencyInformation.headerType || "Dato faltante" }}</p>
-      <p><strong>Nombre de la localidad:</strong> {{ beneficiary.residencyInformation.localityName || "Dato faltante" }}</p>
-      <p><strong>Barrio:</strong> {{ beneficiary.residencyInformation.neighborhood || "Dato faltante" }}</p>
-      <p><strong>Zona foránea:</strong> {{beneficiary.residencyInformation.foreignZoneName || "Dato faltante"}}</p>
-      <p><strong>Dirección:</strong> {{ beneficiary.residencyInformation.address || "Dato faltante" }}</p>
-      <p><strong>Teléfono primario:</strong> {{ beneficiary.residencyInformation.primaryPhone || "Dato faltante" }}</p>
-      <p><strong>Teléfono secundario:</strong> {{ beneficiary.residencyInformation.secondaryPhone || "Dato faltante" }}</p>
-      <p><strong>Estrato socioeconómico:</strong> {{ beneficiary.residencyInformation.householdStratum || "Dato faltante" }}</p>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Información Social </ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Etnia :</strong> {{ beneficiary.socialInformation.groupEthnicity }}</p>
-      <p><strong>Sisbenizado :</strong> {{ beneficiary.socialInformation.beneficiarySisbenized }}</p>
-      <p><strong>Puntaje Sisben :</strong> {{ beneficiary.socialInformation.sisbenScore }}</p>
-      <p><strong>Pertenece a Familias en Acción :</strong> {{ beneficiary.socialInformation.belongsToFamiliesInAction }}</p>
-      <p><strong>Afectado directamente por conflicto armado :</strong> {{ beneficiary.socialInformation.directlyAffectedByArmedConflict }}</p>
-      <p><strong>Criterio de focalización :</strong> {{ beneficiary.socialInformation.focusingCriteria }}</p>
-      <p><strong>Existe documento de justificación :</strong>{{ beneficiary.socialInformation.justificationDocumentExists }}</p>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Información de los padres </ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Edad :</strong> {{ beneficiary.parent.ageFather }}</p>
-      <p><strong>Ciudad:</strong> {{ beneficiary.parent.fatherBirthCity }}</p>
-      <p><strong>País :</strong> {{ beneficiary.parent.fatherBirthCountry}}</p>
-      <p><strong>Departamento :</strong> {{ beneficiary.parent.fatherBirthDepartment}}</p>
-      <p><strong>Fecha de Nacimiento :</strong> {{ beneficiary.parent.fatherBirthdate }}</p>
-      <p><strong>Numero de Documento :</strong> {{ beneficiary.parent.fatherDocumentNumber }}</p>
-      <p><strong>Tipo de Documento:</strong> {{ beneficiary.parent.fatherDocumentType }}</p>
-      <p><strong>Primer Nombre :</strong> {{ beneficiary.parent.fatherFirstName }}</p>
-      <p><strong>Segundo Nombre :</strong> {{ beneficiary.parent.fatherSecondName }}</p>
-      <p><strong>Primer Apellido :</strong> {{ beneficiary.parent.fatherFirstLastname }}</p>
-      <p><strong>Segundo Apellido :</strong> {{ beneficiary.parent.fatherSecondLastname }}</p>
-      <p><strong>Edad :</strong> {{ beneficiary.parent.ageMother }}</p>
-      <p><strong>Ciudad :</strong> {{ beneficiary.parent.motherBirthCity }}</p>
-      <p><strong>País :</strong> {{ beneficiary.parent.motherBirthCountry }}</p>
-      <p><strong>Departamento :</strong> {{ beneficiary.parent.motherBirthDepartment }}</p>
-      <p><strong>Fecha de Nacimiento :</strong> {{ beneficiary.parent.motherBirthdate }}</p>
-      <p><strong>Numero de Documento: </strong> {{ beneficiary.parent.motherDocumentNumber}}</p>
-      <p><strong>Tipo de Documento :</strong> {{ beneficiary.parent.motherDocumentType }}</p>
-      <p><strong>Primer Nombre :</strong> {{ beneficiary.parent.motherFirstLastname }}</p>
-      <p><strong>Segundo Nombre:</strong> {{ beneficiary.parent.motherFirstName }}</p>
-      <p><strong>Primer Apellido :</strong> {{ beneficiary.parent.motherSecondLastname }}</p>
-      <p><strong>Segundo Apellido :</strong> {{ beneficiary.parent.motherSecondName }}</p>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Información Discapacidad </ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Certificado de discapacidad:</strong> {{ beneficiary.disabilityInfo.certifiedDisability }}</p>
-      <p><strong>Discapaciad :</strong> {{ beneficiary.disabilityInfo.disability }}</p>
-      <p><strong>Categoria de la discapacidad :</strong> {{ beneficiary.disabilityInfo.disabilityCategory }}</p>
-      <p><strong>Registro de discapacidad :</strong> {{ beneficiary.disabilityInfo.disabilityRegistryEnrollment }}</p>
-      <p><strong>Entidad que cerifica  :</strong> {{ beneficiary.disabilityInfo.entityCertifiesDisability }}</p>
-      <p><strong>Discpacidad especifica:</strong> {{ beneficiary.disabilityInfo.specifiedDisability }}</p>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Información de asistencia</ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Información sobre interdicción:</strong> {{ beneficiary.assistanceInformation.hasInterdictionProcess }}</p>
-      <p><strong>Información sobre interdicción soporte técnico:</strong> {{ beneficiary.assistanceInformation.hasTechSupport }}</p>
-      <p><strong>Información sobre terapia:</strong> {{ beneficiary.assistanceInformation.receivesTherapy }}</p>
-      <p><strong>Información sobre asistencia:</strong> {{ beneficiary.assistanceInformation.requiresAssistance }}</p>
-      <p><strong>Información de soporte ténico:</strong> {{ beneficiary.assistanceInformation.requiresTechSupport }}</p>
-      <p><strong>Requiere terapia:</strong> {{ beneficiary.assistanceInformation.requiresTherapy }}</p>
-   </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Información del tutor</ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Ciudad:</strong> {{ beneficiary.guardianInfo.guardianBirthCity }}</p>
-      <p><strong>País:</strong> {{ beneficiary.guardianInfo.guardianBirthCountry }}</p>
-      <p><strong>Departamento:</strong> {{ beneficiary.guardianInfo.guardianBirthDepartment }}</p>
-      <p><strong>Numero de documento: </strong> {{ beneficiary.guardianInfo.guardianDocumentNumber }}</p>
-      <p><strong>Tipo de documento:</strong> {{ beneficiary.guardianInfo.guardianDocumentType }}</p>
-      <p><strong>Tipo de tutor:</strong> {{ beneficiary.guardianInfo.guardianPersonType }}</p>
-      <p><strong>Nombre:</strong> {{ beneficiary.guardianInfo.guardianFirstName }}</p>
-      <p><strong>Segundo nombre:</strong> {{ beneficiary.guardianInfo.guardianSecondName }}</p>
-      <p><strong>Apellido:</strong> {{ beneficiary.guardianInfo.guardianFirstLastName }}</p>
-      <p><strong>Segundo apellido:</strong> {{ beneficiary.guardianInfo.guardianSecondLastName }}</p>
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel class="panel-default">
-    <ng-template ngbPanelTitle> Información de Salud</ng-template>
-    <ng-template ngbPanelContent>
-      <p><strong>Perimetro Cefálico:</strong> {{ beneficiary.healthInfo.cefalicProfil }}</p>
-      <p><strong>EPS:</strong> {{ beneficiary.healthInfo.eps }}</p>
-      <p><strong>Duración de lactancia materna exclusiva:</strong> {{ beneficiary.healthInfo.exclusiveBreastfeedingDuration }}</p>
-      <p><strong>Semanas de gestación:</strong> {{ beneficiary.healthInfo.gestationWeeks }}</p>
-      <p><strong>Edad gestacional al nacer:</strong> {{ beneficiary.healthInfo.gestationalAgeAtBirth }}</p>
-      <p><strong>Control de crecimiento:</strong> {{ beneficiary.healthInfo.growthDevelopmentControlsReceived }}</p>
-      <p><strong>Carnet de crecimiento y desarrollo:</strong> {{ beneficiary.healthInfo.hasGrowthAndDevelopmentCard }}</p>
-      <p><strong>Carnet de vacunación:</strong> {{ beneficiary.healthInfo.hasVaccinationCard }}</p>
-      <p><strong>Talla al nacer:</strong> {{ beneficiary.healthInfo.heightAtBirth }}</p>
-      <p><strong>Antecedentes de prematurez:</strong> {{ beneficiary.healthInfo.prematurenessBackground }}</p>
-      <p><strong>Regimen:</strong> {{ beneficiary.healthInfo.regime }}</p>
-      <p><strong>Numero de tickete:</strong> {{ beneficiary.healthInfo.ticketNumber }}</p>
-      <p><strong>Duración lactancia materna:</strong> {{ beneficiary.healthInfo.totalBreastfeedingDuration }}</p>
-      <p><strong>Semanas:</strong> {{ beneficiary.healthInfo.under40Weeks }}</p>
-      <p><strong>Actualziacion del carnet de vacunación:</strong> {{ beneficiary.healthInfo.vaccinationCardUpToDate }}</p>
-      <p><strong>Fecha de vacunación:</strong> {{ beneficiary.healthInfo.vaccinationVerificationDate }}</p>
-      <p><strong>Peso al nacer:</strong> {{ beneficiary.healthInfo.weightAtBirth }}</p>
-    </ng-template>
-  </ngb-panel>
-</ngb-accordion>-->
