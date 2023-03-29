@@ -33,6 +33,8 @@ import { ChartsComponent } from './components/navigation/charts/charts.component
 import { LoginComponent } from './components/pages/login/login.component';
 import { AuthLoginComponent } from './components/auth/auth-login/auth-login.component';
 import { ExportComponent } from './components/navigation/export/export.component';
+import { MarketComponent } from './components/navigation/market/market.component';
+import { HomeComponent } from './components/navigation/home/home.component';
 import { SocialEditionComponent } from './components/edit/social-information/social-edition/social-edition.component';
 
 
@@ -60,6 +62,8 @@ import { SocialEditionComponent } from './components/edit/social-information/soc
     LoginComponent,
     AuthLoginComponent,
     ExportComponent,
+    MarketComponent,
+    HomeComponent,
     SocialEditionComponent,
     
   ],
@@ -71,9 +75,7 @@ import { SocialEditionComponent } from './components/edit/social-information/soc
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule,
-    FormsModule
-    
-    
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

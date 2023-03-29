@@ -14,9 +14,14 @@ export class MarketService {
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'api/market/'
-   }
+  }
 
-   getMarketByType(type: string): Observable<any> {
+  getAllMarkets(): Observable<any> {
+    const url = `${this.myAppUrl}${this.myApiUrl}`;
+    return this.http.get<any>(url);
+  }
+
+  getMarketByType(type: string): Observable<any> {
     const url = `${this.myAppUrl}${this.myApiUrl}${type}`;
     console.log(url); // imprime la URL completa en la consola
     return this.http.get<any>(url);
