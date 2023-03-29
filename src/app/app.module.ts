@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
+
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
 import { BenficiariesInscriptionComponent } from './components/form/benficiaries-inscription/benficiaries-inscription.component';
 import { BirthInformationComponent } from './components/form/birth-information/birth-information.component';
@@ -33,6 +35,8 @@ import { AuthLoginComponent } from './components/auth/auth-login/auth-login.comp
 import { ExportComponent } from './components/navigation/export/export.component';
 import { MarketComponent } from './components/navigation/market/market.component';
 import { HomeComponent } from './components/navigation/home/home.component';
+import { SocialEditionComponent } from './components/edit/social-information/social-edition/social-edition.component';
+
 
 @NgModule({
   declarations: [
@@ -60,13 +64,14 @@ import { HomeComponent } from './components/navigation/home/home.component';
     ExportComponent,
     MarketComponent,
     HomeComponent,
+    SocialEditionComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
     NgbModule,
