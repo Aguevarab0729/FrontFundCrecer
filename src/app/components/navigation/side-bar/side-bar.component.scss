@@ -1,189 +1,129 @@
-@import url('https://fonts.cdnfonts.com/css/montserrat');
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
 
-body{
-    background-color: #032c55;
-    font-family: montserrat;
-    font-size: 18px;
-    padding: 0;
-    margin: 0;
-    margin-left: var(--width-collapsed);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+.fa-2x {
+font-size: 2em;
 }
-
-.body-expanded{
-    margin-left: var(--width);
-}
-
-#main-container{
-    color: white;
-}
-
-#sidemenu{
-    background-color: var(--bgcolor);
-    color: white;
-    position: fixed;
-    height: 100%;
-    left: 0;
-    top:0;
-}
-
-#sidemenu a{
-    color: white;
-    text-decoration: none;
-}
-
-/*=====HEADER=======*/
-
-#sidemenu #header{
-    box-sizing: border-box;
-    border-bottom: solid 1px var(--hovercolor);
-}
-
-#sidemenu #header #title{
-    box-sizing: border-box;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-#sidemenu #header #title, #sidemenu #header #menu_btn{
-    vertical-align: middle;
-}
-
-#sidemenu #header #menu-btn{
-    display: inline-block;
-}
-
-#sidemenu #header #menu-btn{
-    cursor: pointer;
-    padding: 10px;
-    width: var(--width-collapsed);
-    box-sizing: border-box;
-}
-
-#sidemenu #header #menu-btn:hover{
-    background-color: var(--hovercolor);
-}
-
-#sidemenu #header #menu-btn .btn-hamburguer{
-    background-color: #fff;
-    width: 100%;
-    height: 2px;
-    margin: 5px 0;
+.fa {
+position: relative;
+display: table-cell;
+width: 60px;
+height: 36px;
+text-align: center;
+vertical-align: middle;
+font-size:20px;
 }
 
 
-/*=====PROFILE=======*/
-
-#sidemenu #profile{
-    border-bottom: solid 1px var(--hovercolor);
-    padding: var(--padding) 0;
-    text-align: center;
+.main-menu:hover,nav.main-menu.expanded {
+width:250px;
+overflow:visible;
 }
 
-#sidemenu #profile #photo{
-    box-sizing: border-box;
-    padding: var(--padding);
-    margin: 0 auto;
+.main-menu {
+background:#212121;
+border-right:1px solid #e5e5e5;
+position:absolute;
+top:0;
+bottom:0;
+height:calc(100% + 20px);
+left:0;
+width:60px;
+overflow:hidden;
+-webkit-transition:width .05s linear;
+transition:width .05s linear;
+-webkit-transform:translateZ(0) scale(1,1);
+z-index:1000;
 }
 
-#sidemenu #profile #photo img{
-    border-radius: 10%;
-    width: 70%;
+.main-menu>ul {
+margin:7px 0;
 }
 
-#sidemenu #profile #photo, #sidemenu #profile .name{
-    font-size: 24px;
-    padding: var(--padding) 0;
-    overflow: hidden;
+.main-menu li {
+position:relative;
+display:block;
+width:250px;
 }
 
-
-/*=====ITEM=======*/
-
-#sidemenu #menu-items{
-    overflow: hidden;
+.main-menu li>a {
+position:relative;
+display:table;
+border-collapse:collapse;
+border-spacing:0;
+color:#999;
+font-family: arial;
+font-size: 14px;
+text-decoration:none;
+-webkit-transform:translateZ(0) scale(1,1);
+-webkit-transition:all .1s linear;
+transition:all .1s linear;
+  
 }
 
-#sidemenu #menu-items .item{
-    width: var(--width);
+.main-menu .nav-icon {
+position:relative;
+display:table-cell;
+width:60px;
+height:36px;
+text-align:center;
+vertical-align:middle;
+font-size:18px;
 }
 
-#sidemenu #menu-items .item .icon,
-#sidemenu #menu-items .item .title {
-    font-size: 14px;
-    vertical-align: middle;
-    overflow: hidden;
-    display: inline-block;
+.main-menu .nav-text {
+position:relative;
+display:table-cell;
+vertical-align:middle;
+width:190px;
+  font-family: 'Titillium Web', sans-serif;
 }
 
-#sidemenu #menu-items .item a{
-    display: block;
+.main-menu>ul.logout {
+position:absolute;
+left:0;
+bottom:0;
 }
 
-#sidemenu #menu-items .item a:hover{
-    background-color: var(--hovercolor);
+.no-touch .scrollable.hover {
+overflow-y:hidden;
 }
 
-#sidemenu #menu-items .item .icon{
-    box-sizing: border-box;
-    padding: var(--padding);
-    width: var(--width-collapsed);
+.no-touch .scrollable.hover:hover {
+overflow-y:auto;
+overflow:visible;
 }
 
-#sidemenu #menu-items .item .icon img{
-    width: 100%;
+a:hover,a:focus {
+text-decoration:none;
 }
 
-
-#sidemenu #menu-items .item .title{
-    padding: var(--padding) 0;
+nav {
+-webkit-user-select:none;
+-moz-user-select:none;
+-ms-user-select:none;
+-o-user-select:none;
+user-select:none;
 }
 
-#sidemenu #menu-items .item .separator{
-    height: 1px;
-    border-bottom: solid 1px var(--hovercolor);
-    margin: 15px 0;
+nav ul,nav li {
+outline:0;
+margin:0;
+padding:0;
 }
-
-
-.menu-expanded{
-    width: var(--width);
-    box-shadow: 0 0 10px rgba(0,0,0,0.5) ;
+.main-menu li:hover>a,nav.main-menu li.active>a,.dropdown-menu>li>a:hover,.dropdown-menu>li>a:focus,.dropdown-menu>.active>a,.dropdown-menu>.active>a:hover,.dropdown-menu>.active>a:focus,.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,.dashboard-page nav.dashboard-menu ul li.active a {
+color:#fff;
+background-color:#000000;
 }
-
-
-.menu-expanded #header #title{
-    display: inline-block;
-    width: calc(100% - 50px);
-    margin-right: -5px;
-    padding: var(--padding);
+.area {
+float: left;
+background: #e2e2e2;
+width: 100%;
+height: 100%;
 }
-
-.menu-expanded #header #title span{
-    width: calc(var(--width) - var(--width-collapsed) - 5px);
-    overflow: hidden;
-    display: inline-block;
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
-
-.menu-expanded #profile #photo{
-    width: 200px;
-}
-
-.menu-expanded #profile #name{
-    width: 100px;
-}
-
-.menu-collapsed{
-    width: var(--width-collapsed);
-}
-
-.menu-collapsed #header #title{
-    width: 0;
-    height: 0;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-collapsed .item{
-    width: 100px;
-}
-

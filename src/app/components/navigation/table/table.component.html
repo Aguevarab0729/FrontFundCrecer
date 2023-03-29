@@ -1,78 +1,80 @@
-<app-side-bar></app-side-bar>
-<div class="container">
-  <div class="form-check form-switch mt-1 mb-3">
-    <input class="form-check-input" type="checkbox" id="showInactive" [(ngModel)]="showInactive" (click)="toggleInactive()"/>
-    <label class="form-check-label" for="showInactive">Mostrar inactivos</label>
-    <label for="exampleFormControlInput1" class="form-label mt-3"></label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Busqueda de beneficiarios"/>    
-  </div>
-  <div class="mb-3 mt-1">
-    <div class="img-container">
-      <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario"/>
-      <!---------------------------------------------------------------->
-      <label class="dupla-filter" for="selectDupla">Filtrar por Dupla: <i class="fas fa-angle-down"></i>
-      </label>
-      <select id="selectDupla" class="form-control filter-select" [(ngModel)]="selectedDupla" (change)="filterByDupla()">
-        <option value="">Todas las duplas</option>
-        <option *ngFor="let dupla of duplas" [value]="dupla"> 
-          {{ dupla }}
+<body>
+  <div class="container">
+    <div class="form-check form-switch mt-1 mb-3">
+      <input class="form-check-input" type="checkbox" id="showInactive" [(ngModel)]="showInactive" (click)="toggleInactive()"/>
+      <label class="form-check-label" for="showInactive">Mostrar inactivos</label>
+      <label for="exampleFormControlInput1" class="form-label mt-3"></label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Busqueda de beneficiarios"/>    
+    </div>
+    <div class="mb-3 mt-1">
+      <div class="img-container">
+        <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario"/>
+        <!---------------------------------------------------------------->
+        <label class="dupla-filter" for="selectDupla">Filtrar por Dupla: <i class="fas fa-angle-down"></i>
+        </label>
+        <select id="selectDupla" class="form-control filter-select" [(ngModel)]="selectedDupla" (change)="filterByDupla()">
+          <option value="">Todas las duplas</option>
+          <option *ngFor="let dupla of duplas" [value]="dupla"> 
+            {{ dupla }}
+          </option>
+        </select>
+        <!---------------------------------------------------------------->
+        <label class="unidad-filter" for="selectUnidad">Filtrar por Unidad: <i class="fas fa-angle-down"></i>
+        </label>
+        <select id="selectUnity" class="form-control filter-select" [(ngModel)]="selectedUnity" (change)="filterByUnity()"> 
+        <option value="">Todas las Unidades</option>
+        <option *ngFor="let unity of unitys" [value]="unity">
+            {{ unity }}
         </option>
       </select>
-      <!---------------------------------------------------------------->
-      <label class="unidad-filter" for="selectUnidad">Filtrar por Unidad: <i class="fas fa-angle-down"></i>
-      </label>
-      <select id="selectUnity" class="form-control filter-select" [(ngModel)]="selectedUnity" (change)="filterByUnity()"> 
-      <option value="">Todas las Unidades</option>
-      <option *ngFor="let unity of unitys" [value]="unity">
-          {{ unity }}
-      </option>
-    </select>
-    <img class="adduser" src="assets/icons/export.svg" alt="AExportar usuarios" (click)="saveSelection()"/>
-   
+      <img class="adduser" src="assets/icons/export.svg" alt="AExportar usuarios" (click)="saveSelection()"/>
+     
+      </div>
+     <!-- -->
     </div>
-   <!-- -->
-  </div>
-  <div class="row">
-    <div class="col-lg-13">
-      <table class="table mx-auto">
-        <thead class="text-center">
-          <tr>
-            <th scope="col" class="col-2">Seleccionar</th>
-            <th scope="col" class="col-2">Documento</th>
-            <th scope="col" class="col-5">Nombre</th>
-            <th scope="col" class="col-3">Dupla</th>
-            <th scope="col" class="col-2">Unidad</th>
-            <th scope="col" class="col-2">Mercado</th>
-          </tr>
-        </thead>
-        <tbody class="data" *ngFor="let beneficiary of beneficiariesToShow" (click)="openModal($event, beneficiary)">
-          <tr>
-            <td class="col-1"><input type="checkbox" [(ngModel)]="beneficiary.isSelected"></td>
-            <td class="col-2">{{ beneficiary.basicinfo.numDoc }}</td>
-            <td class="col-5">{{ beneficiary.basicinfo.fullName }}</td>
-            <td class="col-3">{{ beneficiary.basicinfo.duoName }}</td>
-            <td class="col-2">{{ beneficiary.basicinfo.unityName }}</td>
-            <td class="col-2">{{ beneficiary.marketType }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="d-flex justify-content-between mb-3">
-        <button
-          class="btn btn-primary"
-          [disabled]="currentPage === 1"
-          (click)="prevPage()"
-        >
-          Anterior
-        </button>
-        <span>Mostrando {{ startIndex }} - {{ endIndex }}</span>
-        <button
-          class="btn btn-primary"
-          [disabled]="currentPage === totalPages"
-          (click)="nextPage()"
-        >
-          Siguiente
-        </button>
-       </div>
+    <div class="row">
+      <div class="col-lg-13">
+        <table class="table mx-auto">
+          <thead class="text-center">
+            <tr>
+              <th scope="col" class="col-2">Seleccionar</th>
+              <th scope="col" class="col-2">Documento</th>
+              <th scope="col" class="col-5">Nombre</th>
+              <th scope="col" class="col-3">Dupla</th>
+              <th scope="col" class="col-2">Unidad</th>
+              <th scope="col" class="col-2">Mercado</th>
+            </tr>
+          </thead>
+          <tbody class="data" *ngFor="let beneficiary of beneficiariesToShow" (click)="openModal($event, beneficiary)">
+            <tr>
+              <td class="col-1"><input type="checkbox" [(ngModel)]="beneficiary.isSelected"></td>
+              <td class="col-2">{{ beneficiary.basicinfo.numDoc }}</td>
+              <td class="col-5">{{ beneficiary.basicinfo.fullName }}</td>
+              <td class="col-3">{{ beneficiary.basicinfo.duoName }}</td>
+              <td class="col-2">{{ beneficiary.basicinfo.unityName }}</td>
+              <td class="col-2">{{ beneficiary.marketType }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-around mb-3 mx-5">
+          <button
+            class="btn buttons previous"
+            [disabled]="currentPage === 1"
+            (click)="prevPage()"
+          >
+            Anterior
+          </button>
+          <span>Mostrando {{ startIndex }} - {{ endIndex }}</span>
+          <button
+            class="btn buttons next"
+            [disabled]="currentPage === totalPages"
+            (click)="nextPage()"
+          >
+            Siguiente
+          </button>
+          </div>
+      </div>
     </div>
   </div>
-</div>
+</body>
+

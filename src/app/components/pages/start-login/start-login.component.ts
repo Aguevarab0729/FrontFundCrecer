@@ -1,6 +1,5 @@
-
-import { Component } from '@angular/core';
-import { FormBuilder, AbstractControlOptions, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as anime from 'animejs';
 
@@ -9,7 +8,7 @@ import * as anime from 'animejs';
   templateUrl: './start-login.component.html',
   styleUrls: ['./start-login.component.scss']
 })
-export class StartLoginComponent {
+export class StartLoginComponent implements OnInit{
 
   loginForm = this.formBuilder.group({
       email: ['', { validators: [Validators.required, Validators.email], updateOn: 'blur'}] ,
@@ -17,86 +16,84 @@ export class StartLoginComponent {
     });
 
   constructor(private formBuilder: FormBuilder,
-    private router: Router){
+    private router: Router){}
 
-      let current: anime.AnimeInstance | null = null;
 
-document.querySelector<HTMLInputElement>('#email')?.addEventListener('focus', (e) => {
-  if (current) current.pause();
-  current = anime({
-    targets: 'path',
-    strokeDashoffset: {
+  ngOnInit(): void {
+    let current: anime.AnimeInstance;
+    $('#email').click((e) => {
+      if (current) current.pause();
+      current = anime({
+      targets: 'path',
+      strokeDashoffset: {
       value: 0,
       duration: 700,
       easing: 'easeOutQuart',
-    },
-    strokeDasharray: {
+      },
+      strokeDasharray: {
       value: '240 1386',
       duration: 700,
       easing: 'easeOutQuart',
-    },
-  });
-});
+      },});});
 
-document.querySelector<HTMLInputElement>('#password')?.addEventListener('focus', (e) => {
-  if (current) current.pause();
-  current = anime({
-    targets: 'path',
-    strokeDashoffset: {
+      $('#password').focus((e) => {
+      if (current) current.pause();
+      current = anime({
+      targets: 'path',
+      strokeDashoffset: {
       value: -336,
       duration: 700,
       easing: 'easeOutQuart',
-    },
-    strokeDasharray: {
+      },
+      strokeDasharray: {
       value: '240 1386',
       duration: 700,
       easing: 'easeOutQuart',
-    },
-  });
-});
+      },
+      });
+      });
 
-document.querySelector<HTMLInputElement>('#submit')?.addEventListener('focus', (e) => {
-  if (current) current.pause();
-  current = anime({
-    targets: 'path',
-    strokeDashoffset: {
+      $('#submit').focus((e) => {
+      if (current) current.pause();
+      current = anime({
+      targets: 'path',
+      strokeDashoffset: {
       value: -730,
       duration: 700,
       easing: 'easeOutQuart',
-    },
-    strokeDasharray: {
+      },
+      strokeDasharray: {
       value: '530 1386',
       duration: 700,
       easing: 'easeOutQuart',
-    },
-  });
-});
-    };
-
-  onSubmit() {
-    this.validateForm().then( result => {
-      if (result) {
-        console.log("Login exitosamente");
-      }
-      else{
-        console.log("No puede iniciar sesión, credenciales erroneas");
-      }
-    })
-  }
-
-  validateForm(): Promise<boolean> {
-    return new Promise<boolean>((resolve, reject) => {
-      const email = this.loginForm.get('email')?.value;
-      const password = this.loginForm.get('password')?.value;
-
-    })
-  }
-
-  resetForm(){
-    this.loginForm.reset();
+      },
+      });
+      });
   }
 }
 
+// onSubmit() {
+//   this.validateForm().then( result => {
+//     if (result) {
+//       console.log("Login exitosamente");
+//     }
+//     else{
+//       console.log("No puede iniciar sesión, credenciales erroneas");
+//     }
+//   })
+// }
+
+// validateForm(): Promise<boolean> {
+//   return new Promise<boolean>((resolve, reject) => {
+//     const email = this.loginForm.get('email')?.value;
+//     const password = this.loginForm.get('password')?.value;
+
+//   })
+// }
+
+// resetForm(){
+//   this.loginForm.reset();
+// }
 /* import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 

@@ -58,10 +58,16 @@ body {
     max-height: 270px;
   }
 }
+
+
+#logo{
+  width: 50%;
+  margin: 20px 0px 0px 70px;
+}
 .login {
   font-size: 50px;
   font-weight: 900;
-  margin: 50px 40px 40px;
+  margin: 0px 0px 0px 50px;
 }
 .eula {
   color: #999;
@@ -130,4 +136,3 @@ input::-moz-focus-inner {
 #submit:active {
   color: #d0d0d2;
 }
- 
