@@ -1,4 +1,187 @@
-<ngb-accordion>
+<div class="accordion">
+  <div class="accordion-header" (click)="editMode = !editMode">
+    {{ editMode ? 'Editar' : 'Ver' }} información
+  </div>
+  <div class="accordion-body" *ngIf="!editMode">
+    <ngb-accordion>
+      <ngb-panel class="panel-default">
+          <ng-template ngbPanelTitle>
+             Editar Datos Básicos
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <form [formGroup]="basicinfoForm">
+              <div class="form-group">
+                <label for="numDoc">Documento:</label>
+                <input type="text" class="form-control" id="numDoc" formControlName="numDoc" value="{{beneficiary.basicinfo.numDoc}}">
+               </div>
+              <div class="form-group">
+                <label for="documentType">Tipo de Documento:</label>
+                <input type="text" class="form-control" id="documentType" formControlName="documentType" value="{{beneficiary.basicinfo.documentType}}">
+              </div>
+              <div class="form-group">
+                <label for="firstName">Nombres:</label>
+                <input type="text" class="form-control" id="firstName" formControlName="firstName" value="{{beneficiary.basicinfo.firstName}}">
+              </div>
+              <div class="form-group">
+                <label for="secondName">Segundo Nombre:</label>
+                <input type="text" class="form-control" id="secondName" formControlName="secondName" value="{{beneficiary.basicinfo.secondName}}">
+              </div>
+              <div class="form-group">
+                <label for="firstLastName">Apellidos:</label>
+                <input type="text" class="form-control" id="firstLastName" formControlName="firstLastName" value="{{beneficiary.basicinfo.firstLastName}}">
+              </div>
+              <div class="form-group">
+                <label for="secondLastName">Segundo Apellido:</label>
+                <input type="text" class="form-control" id="secondLastName" formControlName="secondLastName" value="{{beneficiary.basicinfo.secondLastName}}">
+              </div>
+              <div class="form-group">
+                <label for="gender">Género:</label>
+                <select class="form-control" id="gender" formControlName="gender" value="{{beneficiary.basicinfo.gender}}">
+                  <option value="M">Masculino</option>
+                  <option value="F">Femenino</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="unityName">Unidad:</label>
+                <input type="text" class="form-control" id="unityName" formControlName="unityName" value="{{beneficiary.basicinfo.unityName}}">
+              </div>
+              <div class="form-group">
+                <label for="duoName">Duo:</label>
+                <input type="text" class="form-control" id="duoName" formControlName="duoName" value="{{beneficiary.basicinfo.duoName}}">
+              </div>
+              <div class="form-group">
+                <label for="teachers">Profesores:</label>
+                <input type="text" class="form-control" id="teachers" formControlName="teachers" value="{{beneficiary.basicinfo.teachers}}">
+              </div>
+              <div class="form-group">
+                <label for="joinDate">Fecha de Ingreso:</label>
+                <input type="date" class="form-control" id="joinDate" formControlName="joinDate" value="{{beneficiary.basicinfo.joinDate}}">
+              </div>
+              <div class="form-group">
+                <label for="curState">Estado:</label>
+                <input type="text" class="form-control" id="curState" formControlName="curState" value="{{beneficiary.basicinfo.curState}}">
+              </div>
+              <div class="form-group">
+                <label for="exitDate">Fecha de Salida:</label>
+                <input type="date" class="form-control" id="exitDate" formControlName="exitDate" value="{{beneficiary.basicinfo.exitDate}}">
+              </div>
+              <div class="form-group">
+                <label for="reasonForExit">Razón de Salida:</label>
+                <input type="text" class="form-control" id="reasonForExit" formControlName="reasonForExit" value="{{beneficiary.basicinfo.reasonForExit}}">
+              </div>
+              <div class="form-group">
+                <label for="otherExitReason">Otra Razón de Salida:</label>
+                <input type="text" class="form-control" id="otherExitReason" formControlName="otherExitReason" value="{{beneficiary.basicinfo.otherExitReason}}">
+              </div>
+              <div class="form-group">
+                <label for="enterBy">Persona que Ingresó:</label>
+                <input type="text" class="form-control" id="enterBy" formControlName="enterBy" value="{{beneficiary.basicinfo.enterBy}}">
+              </div>
+              <button class="btn" (click)="updateDataBeneficiary()">Editar</button>
+          </form>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <ngb-accordion>
+      <ngb-panel class="panel-default">
+            <ng-template ngbPanelTitle>
+              Editar Informacion de Seguridad Social
+            </ng-template>
+            <ng-template ngbPanelContent>
+              <form [formGroup]="socialinfoForm">
+                <div class="form-group">
+                  <label for="groupEthnicity">Etnia:</label>
+                  <input type="text" class="form-control" id="groupEthnicity" formControlName="groupEthnicity" value="{{beneficiary.socialInformation.groupEthnicity}}">
+                </div>        
+                <div class="form-group">
+                  <label for="beneficiarySisbenized">Afectado por el conflicto armado:</label>
+                  <div>
+                    <label><input type="radio" formControlName="beneficiarySisbenized" [value]="true" [checked]="beneficiary.socialInformation.directlyAffectedByArmedConflict">Sí</label>
+                    <label><input type="radio" formControlName="beneficiarySisbenized" [value]="false" [checked]="!beneficiary.socialInformation.directlyAffectedByArmedConflict">No</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="sisbenScoree">Puntaje del Sisben:</label>
+                  <input type="text" class="form-control" id="sisbenScore" formControlName="sisbenScore" value="{{beneficiary.socialInformation.sisbenScore}}">
+                </div>
+                <div class="form-group">
+                  <label for="belongsToFamiliesInAction">Pertenece a Familias en acción:</label>
+                  <div>
+                    <label><input type="radio" formControlName="belongsToFamiliesInAction" [value]="true" [checked]="beneficiary.socialInformation.belongsToFamiliesInAction">Sí</label>
+                    <label><input type="radio" formControlName="belongsToFamiliesInAction" [value]="false" [checked]="!beneficiary.socialInformation.belongsToFamiliesInAction">No</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="directlyAffectedByArmedConflict">Afectado por el conflicto armado:</label>
+                  <div>
+                    <label><input type="radio" formControlName="directlyAffectedByArmedConflict" [value]="true" [checked]="beneficiary.socialInformation.directlyAffectedByArmedConflict">Sí</label>
+                    <label><input type="radio" formControlName="directlyAffectedByArmedConflict" [value]="false" [checked]="!beneficiary.socialInformation.directlyAffectedByArmedConflict">No</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="focusingCriteria">Criterio de Focalización:</label>
+                  <input type="text" class="form-control" id="focusingCriteria" formControlName="focusingCriteria" value="{{beneficiary.socialInformation.focusingCriteria}}">
+                </div>
+                <div class="form-group">
+                  <label for="justificationDocumentExists">Existe documento de justificación:</label>
+                  <div>
+                    <label><input type="radio" formControlName="justificationDocumentExists" [value]="true" [checked]="beneficiary.socialInformation.justificationDocumentExists">Sí</label>
+                    <label><input type="radio" formControlName="justificationDocumentExists" [value]="false" [checked]="!beneficiary.socialInformation.justificationDocumentExists">No</label>
+                  </div>
+                </div>
+                </form>
+                <button class="btn" (click)="updateDataSocBeneficiary()" routerLink="/main">Editar</button>
+            </ng-template>
+          </ngb-panel>
+    </ngb-accordion>
+    
+   
+  </div>
+  <div class="accordion-body" *ngIf="editMode">
+    <ngb-accordion>
+      <ngb-panel class="panel-default">
+          <ng-template ngbPanelTitle>
+            Datos Básicos
+          </ng-template>
+          <ng-template ngbPanelContent>
+              <p><strong>Documento :</strong>{{beneficiary.basicinfo.numDoc}}</p>
+              <p><strong>Tipo de Documento :</strong>{{beneficiary.basicinfo.documentType}}</p>
+              <p><strong>Nombres :</strong>{{beneficiary.basicinfo.firstName}} {{beneficiary.basicinfo.secondName}}</p>
+              <p><strong>Apellidos :</strong>{{beneficiary.basicinfo.firstLastName}} {{beneficiary.basicinfo.secondLastName}}</p>
+              <p><strong>Género :</strong>{{beneficiary.basicinfo.gender}}</p>
+              <p><strong>Unidad :</strong>{{beneficiary.basicinfo.unityName}}</p>
+              <p><strong>Duo :</strong>{{beneficiary.basicinfo.duoName}}</p>
+              <p><strong>Profesores :</strong></p>
+                <ul>
+                  <li *ngFor="let teacher of beneficiary.basicinfo.teachers">{{teacher}}</li>
+                </ul>
+              <p><strong>Fecha de Ingreso :</strong>{{beneficiary.basicinfo.joinDate}}</p>
+              <p><strong>Estado :</strong>{{beneficiary.basicinfo.curState}}</p>
+              <p><strong>Fecha de Salida :</strong>{{beneficiary.basicinfo.exitDate}}</p>
+              <p><strong>Razón de Salida :</strong>{{beneficiary.basicinfo.reasonForExit || 'data faltante'}}</p>
+              <p><strong>Otra Razón de Salida :</strong>{{beneficiary.basicinfo.otherExitReason || 'data faltante'}}</p>
+              <p><strong>Persona que Ingresó :</strong>{{beneficiary.basicinfo.enterBy || 'data faltante'}}</p>
+            </ng-template>
+        </ngb-panel>
+        <ngb-panel class="panel-default">
+          <ng-template ngbPanelTitle> Información Social </ng-template>
+          <ng-template ngbPanelContent>
+            <p><strong>Etnia :</strong> {{ beneficiary.socialInformation.groupEthnicity }}</p>
+            <p><strong>Sisbenizado :</strong> {{ beneficiary.socialInformation.beneficiarySisbenized }}</p>
+            <p><strong>Puntaje Sisben :</strong> {{ beneficiary.socialInformation.sisbenScore }}</p>
+            <p><strong>Pertenece a Familias en Acción :</strong> {{ beneficiary.socialInformation.belongsToFamiliesInAction }}</p>
+            <p><strong>Afectado directamente por conflicto armado :</strong> {{ beneficiary.socialInformation.directlyAffectedByArmedConflict }}</p>
+            <p><strong>Criterio de focalización :</strong> {{ beneficiary.socialInformation.focusingCriteria }}</p>
+            <p><strong>Existe documento de justificación :</strong>{{ beneficiary.socialInformation.justificationDocumentExists }}</p>
+          </ng-template>
+        </ngb-panel>
+        </ngb-accordion>
+   
+  </div>
+</div>
+
+
+<!--<ngb-accordion>
     <ngb-panel class="panel-default">
         <ng-template ngbPanelTitle>
           Datos Básicos
@@ -203,7 +386,4 @@
       <p><strong>Peso al nacer:</strong> {{ beneficiary.healthInfo.weightAtBirth }}</p>
     </ng-template>
   </ngb-panel>
-<<<<<<< HEAD
- <ngb-accordion>
-=======
->>>>>>> a80c7bfa4f769c664fe891cb85c11a548a384001
+</ngb-accordion>-->
