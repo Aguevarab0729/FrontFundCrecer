@@ -12,7 +12,7 @@ import { SocialInformationService } from 'src/app/services/path-services/social-
 })
 export class ModalWindowComponent implements OnInit {
   @Input() beneficiary: any;
-
+  
   editMode = true;
   basicinfoForm: FormGroup;
   socialinfoForm: FormGroup;
@@ -89,12 +89,7 @@ export class ModalWindowComponent implements OnInit {
    
 }
 
-  calculateAge(birthDate: string): number {
-    const birth = new Date(birthDate);
-    const ageInMs = Date.now() - birth.getTime();
-    const ageInYears = Math.floor(ageInMs / 1000 / 60 / 60 / 24 / 365.25);
-    return ageInYears;
-  }
+  
 
   updateDataBeneficiary() {
     const beneficiaryData = this.basicinfoForm.value;

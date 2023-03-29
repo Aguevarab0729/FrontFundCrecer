@@ -144,25 +144,28 @@
             Datos Básicos
           </ng-template>
           <ng-template ngbPanelContent>
-              <p><strong>Documento :</strong>{{beneficiary.basicinfo.numDoc}}</p>
-              <p><strong>Tipo de Documento :</strong>{{beneficiary.basicinfo.documentType}}</p>
-              <p><strong>Nombres :</strong>{{beneficiary.basicinfo.firstName}} {{beneficiary.basicinfo.secondName}}</p>
-              <p><strong>Apellidos :</strong>{{beneficiary.basicinfo.firstLastName}} {{beneficiary.basicinfo.secondLastName}}</p>
-              <p><strong>Género :</strong>{{beneficiary.basicinfo.gender}}</p>
-              <p><strong>Unidad :</strong>{{beneficiary.basicinfo.unityName}}</p>
-              <p><strong>Duo :</strong>{{beneficiary.basicinfo.duoName}}</p>
-              <p><strong>Profesores :</strong></p>
-                <ul>
-                  <li *ngFor="let teacher of beneficiary.basicinfo.teachers">{{teacher}}</li>
-                </ul>
-              <p><strong>Fecha de Ingreso :</strong>{{beneficiary.basicinfo.joinDate}}</p>
-              <p><strong>Estado :</strong>{{beneficiary.basicinfo.curState}}</p>
-              <p><strong>Fecha de Salida :</strong>{{beneficiary.basicinfo.exitDate}}</p>
-              <p><strong>Razón de Salida :</strong>{{beneficiary.basicinfo.reasonForExit || 'data faltante'}}</p>
-              <p><strong>Otra Razón de Salida :</strong>{{beneficiary.basicinfo.otherExitReason || 'data faltante'}}</p>
-              <p><strong>Persona que Ingresó :</strong>{{beneficiary.basicinfo.enterBy || 'data faltante'}}</p>
+            <p><strong>Documento :</strong>{{beneficiary.basicinfo.numDoc}}</p>
+            <p><strong>Tipo de Documento :</strong>{{beneficiary.basicinfo.documentType}}</p>
+            <p><strong>Nombres :</strong>{{beneficiary.basicinfo.firstName}} {{beneficiary.basicinfo.secondName}}</p>
+            <p><strong>Apellidos :</strong>{{beneficiary.basicinfo.firstLastName}} {{beneficiary.basicinfo.secondLastName}}</p>
+            <p><strong>Género :</strong>{{beneficiary.basicinfo.gender}}</p>
+            <p><strong>Unidad :</strong>{{beneficiary.basicinfo.unityName}}</p>
+            <p><strong>Duo :</strong>{{beneficiary.basicinfo.duoName}}</p>
+            <p><strong>Profesores :</strong></p>
+              <ul>
+                <li *ngFor="let teacher of beneficiary.basicinfo.teachers">{{teacher}}</li>
+              </ul>
+            <p><strong>Fecha de Ingreso :</strong>{{beneficiary.basicinfo.joinDate}}</p>
+            <p><strong>Estado :</strong>{{beneficiary.basicinfo.curState}}</p>
+            <p><strong>Fecha de Salida :</strong>{{beneficiary.basicinfo.exitDate}}</p>
+            <p><strong>Razón de Salida :</strong>{{beneficiary.basicinfo.reasonForExit || 'data faltante'}}</p>
+            <p><strong>Otra Razón de Salida :</strong>{{beneficiary.basicinfo.otherExitReason || 'data faltante'}}</p>
+            <p><strong>Persona que Ingresó :</strong>{{beneficiary.basicinfo.enterBy || 'data faltante'}}</p>
+        
             </ng-template>
         </ngb-panel>
+      </ngb-accordion>
+      <ngb-accordion>
         <ngb-panel class="panel-default">
           <ng-template ngbPanelTitle> Información Social </ng-template>
           <ng-template ngbPanelContent>
