@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: '',
     component: BlankLayoutComponent,
-   
+
     children: [
       { path: 'login', component: StartLoginComponent }
     ]
@@ -42,6 +42,7 @@ const routes: Routes = [
     ],
     ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
+  { path: '**', redirectTo: 'login', pathMatch: 'full'}
 
 ];
 
