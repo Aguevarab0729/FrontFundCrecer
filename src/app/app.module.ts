@@ -25,17 +25,16 @@ import { BasicInformationComponent } from './components/form/basic-information/b
 import { SideBarComponent } from './components/navigation/side-bar/side-bar.component';
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
 import { TableComponent } from './components/navigation/table/table.component';
-import { StartLoginComponent } from './components/pages/start-login/start-login.component';
+import { StartLoginComponent } from './auth/start-login/start-login.component';
 import { ModalWindowComponent } from './components/navigation/modal-window/modal-window.component';
 import { ImportComponent } from './components/navigation/import/import.component';
 import { ModalFormsComponent } from './components/navigation/modal-forms/modal-forms.component';
 import { ChartsComponent } from './components/navigation/charts/charts.component';
-import { LoginComponent } from './components/pages/login/login.component';
-import { AuthLoginComponent } from './components/auth/auth-login/auth-login.component';
 import { ExportComponent } from './components/navigation/export/export.component';
 import { MarketComponent } from './components/navigation/market/market.component';
 import { HomeComponent } from './components/navigation/home/home.component';
 import { SocialEditionComponent } from './components/edit/social-information/social-edition/social-edition.component';
+import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.component';
 
 
 @NgModule({
@@ -59,13 +58,11 @@ import { SocialEditionComponent } from './components/edit/social-information/soc
     ImportComponent,
     ModalFormsComponent,
     ChartsComponent,
-    LoginComponent,
-    AuthLoginComponent,
     ExportComponent,
     MarketComponent,
     HomeComponent,
     SocialEditionComponent,
-    
+    HeadmenuComponent,
   ],
   imports: [
     BrowserModule,
