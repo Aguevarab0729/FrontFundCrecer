@@ -19,15 +19,12 @@ export class StartLoginComponent implements OnInit{
     });
 
   constructor(private formBuilder: FormBuilder,
-    private router: Router){
-      
+    private router: Router){}
 
-      
-    }
+
   ngOnInit(): void {
     let current: anime.AnimeInstance;
     $('#email').click((e) => {
-      console.log('funciona')
       if (current) current.pause();
       current = anime({
       targets: 'path',

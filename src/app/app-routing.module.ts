@@ -1,3 +1,4 @@
+import { MarketComponent } from './components/navigation/market/market.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChartsComponent } from './components/navigation/charts/charts.component';
@@ -7,6 +8,7 @@ import { TableComponent } from './components/navigation/table/table.component';
 import { StartLoginComponent } from './components/pages/start-login/start-login.component';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'main', component: TableComponent},
@@ -14,6 +16,7 @@ const routes: Routes = [
   { path: 'import', component: ImportComponent},
   { path: 'export', component: ExportComponent},
   { path: 'charts', component: ChartsComponent},
+  { path: 'market', component: MarketComponent},
   { path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 

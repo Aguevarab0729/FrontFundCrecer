@@ -1,55 +1,64 @@
-<body>
-    <div id="sidemenu" class="menu-collapsed">
-       <!--HEADER-->
-       <div id="header">
-           <div id="title"><span>Fundación Crecer</span></div>
-           <div id="menu-btn">
-               <div class="btn-hamburguer"></div>
-               <div class="btn-hamburguer"></div>
-               <div class="btn-hamburguer"></div>
-           </div>
-       </div>
-            
-       <!--PROFILE-->
-       <div id="profile">
-           <div id="photo"><img src="assets/icons/logo.svg" alt="Logo"></div>
-       </div>
-   
-       <!--ITEMS-->
-       <div id="menu-items">
-           <div class="item">
-               <a routerLink="/main">
-                   <div class="icon"><img src="assets/icons/table.svg" alt="Tablas de beneifciarios"></div>
-                   <div class="title">Beneficiarios</div>
-               </a>
-           </div>
-           <div class="item separator">
-               
-           </div>
-           <div class="item">
-               <a routerLink="/charts">
-                   <div class="icon"><img src="assets/icons/data.svg" alt="Data y Analitica"></div>
-                   <div class="title">Datos y Analiticas</div>
-               </a>
-           </div>
-           <div class="item separator">
-               
-           </div>
-           <div class="item">
-               <a routerLink="/import">
-                   <div class="icon"><img src="assets/icons/import.svg" alt="Importación"></div>
-                   <div class="title">Importacion</div>
-               </a>
-           </div>
-           <div class="item separator">
-               
-           </div>
-           <div class="item">
-               <a routerLink="/export">
-                   <div class="icon"><img src="assets/icons/export.svg" alt="Exportación"></div>
-                   <div class="title">Exportacion</div>
-               </a>
-           </div>
-       </div>  
-    </div>
-   </body>
+<html>
+  <head>
+ 
+  </head>
+  <body><div class="area"></div>
+    <nav class="main-menu">
+            <ul>
+                <li>
+                    <a routerLink="/main">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                           Inicio
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/main">
+                        <i class="fa fa-regular fa-table"></i>
+                        <span class="nav-text">
+                           Base de datos
+                        </span>
+                    </a>
+                </li>
+                <li class="has-subnav">
+                    <a routerLink="/import">
+                        <i class="fa fa-solid fa-file-import"></i>
+                        <span class="nav-text">
+                            Importar
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a routerLink="/export">
+                        <i class="fa fa-solid fa-download"></i>
+                        <span class="nav-text">
+                            Exportar
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a routerLink="/charts">
+                       <i class="fa fa-solid fa-chart-pie"></i>
+                        <span class="nav-text">
+                            Análisis
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="logout">
+                <li>
+                   <a href="#">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Salir
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+  </body>
+    </html>

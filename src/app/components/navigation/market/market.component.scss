@@ -47,15 +47,15 @@ body {
   padding: 15px;
   display: flex;
   flex-flow: row wrap;
+  border-radius: 10px;
 }
 
 //Cards
 .card {
   margin: 15px; 
-  width: calc((100% / 4) - 30px);
+  width: calc((100% / 3) - 30px);
   transition: all 0.2s ease-in-out;
-  
-
+  border-radius: 10px;
   //media queries for stacking cards
   @media screen and (max-width: 991px) {
     width: calc((100% / 2) - 30px);
@@ -79,9 +79,10 @@ body {
     cursor: pointer;
     background-color: $gray;
     color: $light-gray;
-    font-size: 1.5em;
-    text-transform: uppercase;
+    font-size: 1.2em;
+    text-transform:capitalize;
     text-align: center;
+    border-radius: 10px;
 
     transition: all 0.2s ease-in-out;
     
@@ -92,7 +93,6 @@ body {
     .fa {
       width: 100%;
       margin-top: .25em;
-      
     }
   }
 
@@ -101,17 +101,19 @@ body {
     transition: all 0.2s ease-in-out;
     background-color: $slate;
     width: 100%;
-    position: relative;
+    position:relative;
+    border-radius: 10px;
     
     display: flex;
     justify-content: center;
     align-items: center;
     
-    text-transform: uppercase;
+    text-transform:capitalize;
     color: $light-gray;
-    font-size: 1.5em;
+    font-size: 1.2em;
     opacity: 0.9;
     z-index: 6;
+
     .fa {
       font-size: 0.75em;
       position: absolute;
@@ -124,9 +126,17 @@ body {
       }
     }
   }
+  .container{
+    border-radius: 10px;
+  }
 
-  .table{
+  #tableStyle{
     z-index: 10;
+    text-transform:capitalize;
+    border-radius: 10px;
+    &tr{
+      text-transform:capitalize;
+    }
   }
 
   &.is-collapsed {
@@ -178,7 +188,6 @@ body {
       overflow: visible;
       margin-top: 30px;
       opacity: 1;
-      
     }
 
     &:hover {
@@ -203,7 +212,6 @@ body {
   }
 }
 
-
 //Expander Widths
 
 //when 3 cards in a row
@@ -220,6 +228,7 @@ body {
   }
   .card__expander {
     width: calc(300% + 60px);
+    font-size: 1em;
   }
 
 }
@@ -235,5 +244,34 @@ body {
   }
   .card__expander {
     width: calc(200% + 30px);
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 767px) {
+
+  .card:nth-of-type(n+2) .card__expander {
+    margin-left: calc(-100% - 30px);
+  }
+  .card:nth-of-type(n+3) {
+    clear: left;
+  }
+  .card__expander {
+    width: calc(100%);
+    font-size: calc(75%);
+  }
+}
+
+@media screen and (max-width: 440px) {
+
+  .card:nth-of-type(n/2+2) .card__expander {
+    margin-left: calc(-100% - 30px);
+  }
+  .card:nth-of-type(n/2+3) {
+    clear: left;
+  }
+  .card__expander {
+    width: calc(100%);
+    font-size: calc(55%);
   }
 }
