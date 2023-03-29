@@ -12,7 +12,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AssistanceComponent } from './components/form/assistance/assistance.component';
-import { BenficiariesInscriptionComponent } from './components/form/benficiaries-inscription/benficiaries-inscription.component';
 import { BirthInformationComponent } from './components/form/birth-information/birth-information.component';
 import { DisabilityInformationComponent } from './components/form/disability-information/disability-information.component';
 import { GuardianInformationComponent } from './components/form/guardian-information/guardian-information.component';
@@ -35,11 +34,12 @@ import { AuthLoginComponent } from './components/auth/auth-login/auth-login.comp
 import { ExportComponent } from './components/navigation/export/export.component';
 import { SocialEditionComponent } from './components/edit/social-information/social-edition/social-edition.component';
 
+import { ErrorsPipe } from './pipes/errors.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     AssistanceComponent,
-    BenficiariesInscriptionComponent,
     BirthInformationComponent,
     DisabilityInformationComponent,
     GuardianInformationComponent,
@@ -60,7 +60,8 @@ import { SocialEditionComponent } from './components/edit/social-information/soc
     AuthLoginComponent,
     ExportComponent,
     SocialEditionComponent,
-    
+    ErrorsPipe,
+
   ],
   imports: [
     BrowserModule,
@@ -71,8 +72,8 @@ import { SocialEditionComponent } from './components/edit/social-information/soc
     NgxPaginationModule,
     NgbModule,
     FormsModule
-    
-    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

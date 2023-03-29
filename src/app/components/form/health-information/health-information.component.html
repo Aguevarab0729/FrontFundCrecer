@@ -130,11 +130,10 @@
       <input type="text" id="ticketNumber" formControlName="ticketNumber">
     </div>
     <button class="submit" type="submit">Siguiente</button>
-    <h2>Validation</h2>
-    <h3>Form valid: {{ healthInformationForm.valid }}</h3>
-    <pre>{{ formValidator | async | json }}</pre>
-
-    <h2>Result</h2>
-    <pre>{{ healthInformationForm.value | json }}</pre>
+    <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ healthInformationForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   </form>
 </div>

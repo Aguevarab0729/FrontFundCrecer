@@ -34,10 +34,10 @@
       <option value="true">Sí</option>
     </select>
   </div><button class="submit" type="submit">Siguiente</button>
-  <h2>Validation</h2>
-  <h3>Form valid: {{ disabilityForm.valid }}</h3>
-  <pre>{{ formValidator | async | json }}</pre>
-
-  <h2>Result</h2>
+  <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ disabilityForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   <pre>{{ disabilityForm.value | json }}</pre>
 </form>

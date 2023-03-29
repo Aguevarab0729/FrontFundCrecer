@@ -34,6 +34,25 @@ export class BasicInformationComponent {
     gender: [''],
   });
 
+  labels = {
+    numDoc: 'Número de documento',
+    curState: 'Estado actual',
+    joinDate: 'Fecha de ingreso',
+    exitDate: 'Fecha de salida',
+    enterBy: 'Ingresado por',
+    reasonForExit: 'Motivo de salida',
+    otherExitReason: 'Otro motivo de salida',
+    unityName: 'Nombre de la unidad',
+    duoName: 'Nombre del dúo',
+    teachers: 'Profesores',
+    documentType: 'Tipo de documento',
+    firstName: 'Primer nombre',
+    secondName: 'Segundo nombre',
+    firstLastName: 'Primer apellido',
+    secondLastName: 'Segundo apellido',
+    gender: 'Género'
+  };
+
   formValidator = createValidator<BasicInformation>(this.basicInformationForm, {
     numDoc: [ required() ],
     curState: [ required() ],

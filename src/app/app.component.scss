@@ -1,0 +1,17 @@
+input.ng-invalid {
+  border-color: hsla(0, 100%, 50%, 1);
+  outline: hsla(0, 100%, 50%, 1);
+  background-color: hsla(0, 100%, 50%, 0.1);
+}
+
+input.ng-pending {
+  border-color: hsla(240, 100%, 50%, 1);
+  outline: hsla(240, 100%, 50%, 1);
+  background-color: hsla(240, 100%, 50%, 0.1);
+}
+
+input.ng-valid {
+  border-color: hsla(120, 100%, 25%, 1);
+  outline: hsla(120, 100%, 25%, 1);
+  background-color: hsla(120, 100%, 25%, 0.1);
+}

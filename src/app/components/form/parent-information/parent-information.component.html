@@ -118,12 +118,11 @@
       </div>
     </div>
     <button class="submit" type="submit">Siguiente</button>
-    <h2>Validation</h2>
-    <h3>Form valid: {{ parentInformationForm.valid }}</h3>
-    <pre>{{ formValidator | async | json }}</pre>
-
-    <h2>Result</h2>
-    <pre>{{ parentInformationForm.value | json }}</pre>
+    <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ parentInformationForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   </form>
 </div>
 
