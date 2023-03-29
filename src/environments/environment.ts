@@ -3,6 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  firebase: {
+    projectId: 'fundacion-crecer-login',
+    appId: '1:124068125313:web:f19067ce1ec32a1c060b80',
+    storageBucket: 'fundacion-crecer-login.appspot.com',
+    apiKey: 'AIzaSyAAV3AkdzsKAHRnEGr_JQlSHb3DoEeC9WQ',
+    authDomain: 'fundacion-crecer-login.firebaseapp.com',
+    messagingSenderId: '124068125313',
+  },
     production: false,
     endpoint: 'http://localhost:3000/'
   };

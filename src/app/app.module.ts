@@ -35,6 +35,9 @@ import { MarketComponent } from './components/navigation/market/market.component
 import { HomeComponent } from './components/navigation/home/home.component';
 import { SocialEditionComponent } from './components/edit/social-information/social-edition/social-edition.component';
 import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -73,6 +76,8 @@ import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.com
     NgxPaginationModule,
     NgbModule,
     FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
   providers: [],
   bootstrap: [AppComponent]
