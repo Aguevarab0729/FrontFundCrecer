@@ -1,10 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 // import * as anime from 'animejs';
 import anime from 'animejs/lib/anime.es';
 import * as $ from 'jquery';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-start-login',
@@ -12,14 +13,20 @@ import * as $ from 'jquery';
   styleUrls: ['./start-login.component.scss']
 })
 export class StartLoginComponent implements OnInit{
-
+  formLogin: FormGroup;
   loginForm = this.formBuilder.group({
       email: ['', { validators: [Validators.required, Validators.email], updateOn: 'blur'}] ,
       password: ['', [Validators.required, Validators.minLength(10)]]
     });
 
   constructor(private formBuilder: FormBuilder,
-    private router: Router){}
+    private userService: UserService,
+    private router: Router){
+      this.formLogin = new FormGroup({
+        email: new FormControl(),
+        password: new FormControl()
+      })
+    }
 
 
   ngOnInit(): void {
@@ -38,7 +45,7 @@ export class StartLoginComponent implements OnInit{
       duration: 700,
       easing: 'easeOutQuart',
       },});});
-      
+
       $('#password').focus((e) => {
       if (current) current.pause();
       current = anime({
@@ -55,7 +62,7 @@ export class StartLoginComponent implements OnInit{
       },
       });
       });
-      
+
       $('#submit').focus((e) => {
       if (current) current.pause();
       current = anime({
@@ -72,6 +79,13 @@ export class StartLoginComponent implements OnInit{
       },
       });
       });
+  }
+  onSubmit() {
+    this.userService.login(this.formLogin.value)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => console.log(error));
   }
 }
 

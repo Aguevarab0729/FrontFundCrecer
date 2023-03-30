@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,12 @@ import { MarketComponent } from './components/navigation/market/market.component
 import { HomeComponent } from './components/navigation/home/home.component';
 import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.component';
 import { FormModule } from './form/form.module';
+
+/*Fire Base*/
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+
 
 
 @NgModule({
@@ -49,8 +55,10 @@ import { FormModule } from './form/form.module';
     
     NgbModule,
     FormsModule,
-    
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
