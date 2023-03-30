@@ -33,8 +33,9 @@ import { ChartsComponent } from './components/navigation/charts/charts.component
 import { ExportComponent } from './components/navigation/export/export.component';
 import { MarketComponent } from './components/navigation/market/market.component';
 import { HomeComponent } from './components/navigation/home/home.component';
-import { SocialEditionComponent } from './components/edit/social-information/social-edition/social-edition.component';
 import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.component';
+
+/*Fire Base*/
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
@@ -64,7 +65,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     ExportComponent,
     MarketComponent,
     HomeComponent,
-    SocialEditionComponent,
     HeadmenuComponent,
   ],
   imports: [
