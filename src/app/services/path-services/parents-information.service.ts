@@ -6,7 +6,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class HealthInformationService {
+export class ParentsInformationService {
 
   private myAppUrl: String ;
   private myApiUrl: String;
@@ -14,10 +14,10 @@ export class HealthInformationService {
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
-    this.myApiUrl = 'api/beneficiaries/birthinformation/';
+    this.myApiUrl = 'api/beneficiaries/parent/';
   }
 
-  updateBeneficiaryHealth(numDoc: string, beneficiaryData: any): Observable<any> {
+  updateBeneficiaryParents(numDoc: string, beneficiaryData: any): Observable<any> {
     const url = `${this.myAppUrl}${this.myApiUrl}${numDoc}`;
     return this.http.patch(url, beneficiaryData);
   }
