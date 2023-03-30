@@ -27,8 +27,6 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +50,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     ReactiveFormsModule,
     NgxPaginationModule,
     FormModule,
-    
     NgbModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

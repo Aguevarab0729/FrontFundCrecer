@@ -2,23 +2,29 @@
   <form class="form-modal" [formGroup]="birthInformationForm" (ngSubmit)="onSubmit()">
 
     <div class="form-group">
-      <label for="birthCountry">País de nacimiento:</label>
+      <label for="birthCountry">País de nacimiento *</label>
       <input type="text" id="birthCountry" formControlName="birthCountry" required>
     </div>
 
     <div class="form-group">
-      <label for="birthDepartment">Departamento de nacimiento:</label>
+      <label for="birthDepartment">Departamento de nacimiento *</label>
       <input type="text" id="birthDepartment" formControlName="birthDepartment" required>
     </div>
 
     <div class="form-group">
-      <label for="birthMunicipality">Municipio de nacimiento:</label>
+      <label for="birthMunicipality">Municipio de nacimiento *</label>
       <input type="text" id="birthMunicipality" formControlName="birthMunicipality" required>
     </div>
 
     <div class="form-group">
-      <label for="birthDate">Fecha de nacimiento:</label>
+      <label for="birthDate">Fecha de nacimiento *</label>
       <input type="date" id="birthDate" formControlName="birthDate" required>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ birthInformationForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   </form>
 </div>

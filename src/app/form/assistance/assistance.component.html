@@ -1,54 +1,58 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="assistanceForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="assistanceForm">
     <div class="form-group">
-      <label for="requiresAssistance">¿Requiere asistencia?</label>
-      <select id="requiresAssistance" formControlName="requiresAssistance" required>
+      <label for="requiresAssistance">¿ Requiere asistencia ? * </label>
+      <select id="requiresAssistance" formControlName="requiresAssistance">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
         <option value="false">No</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="requiresTechSupport">¿Requiere ayuda técnica / producto de apoyo?</label>
-      <select id="requiresTechSupport" formControlName="requiresTechSupport" required>
+      <label for="requiresTechSupport">¿ Requiere ayuda técnica / producto de apoyo ?  * </label>
+      <select id="requiresTechSupport" formControlName="requiresTechSupport">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
         <option value="false">No</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="hasTechSupport">¿Cuenta con ayuda técnica / producto de apoyo?</label>
-      <select id="hasTechSupport" formControlName="hasTechSupport" required>
+      <label for="hasTechSupport">¿ Cuenta con ayuda técnica / producto de apoyo ? * </label>
+      <select id="hasTechSupport" formControlName="hasTechSupport">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
         <option value="false">No</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="requiresTherapy">¿Requiere terapia y/o rehabilitación?</label>
-      <select id="requiresTherapy" formControlName="requiresTherapy" required>
+      <label for="requiresTherapy">¿ Requiere terapia y/o rehabilitación ? * </label>
+      <select id="requiresTherapy" formControlName="requiresTherapy">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
         <option value="false">No</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="receivesTherapy">¿Recibe atención en terapia y/o rehabilitación?</label>
-      <select id="receivesTherapy" formControlName="receivesTherapy" required>
+      <label for="receivesTherapy">¿ Recibe atención en terapia y/o rehabilitación ? *</label>
+      <select id="receivesTherapy" formControlName="receivesTherapy">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
         <option value="false">No</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="hasInterdictionProcess">¿Tiene algún proceso de interdicción?</label>
-      <select id="hasInterdictionProcess" formControlName="hasInterdictionProcess" required>
+      <label for="hasInterdictionProcess">¿ Tiene algún proceso de interdicción ? *</label>
+      <select id="hasInterdictionProcess" formControlName="hasInterdictionProcess">
         <option value="">Seleccione una opción</option>
         <option value="true">Sí</option>
         <option value="false">No</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ assistanceForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   </form>
 </div>
-
-
