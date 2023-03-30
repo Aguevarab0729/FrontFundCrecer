@@ -3,11 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { StartLoginComponent } from './start-login/start-login.component';
 import { HomeComponent } from '../components/navigation/home/home.component';
 import { BlankLayoutComponent } from './blank-layout/blank-layout.component';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
-  { path: 'login', component: StartLoginComponent },
-  { path: 'home', component: HomeComponent},
+  { path: 'login', component: StartLoginComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['login'])) },
+  { path: 'home', component: HomeComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['login']))},
   { path: '**', redirectTo: 'login', pathMatch: 'full'}
 ];
 

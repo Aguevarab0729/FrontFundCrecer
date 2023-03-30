@@ -33,8 +33,12 @@ import { ChartsComponent } from './components/navigation/charts/charts.component
 import { ExportComponent } from './components/navigation/export/export.component';
 import { MarketComponent } from './components/navigation/market/market.component';
 import { HomeComponent } from './components/navigation/home/home.component';
-
 import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.component';
+
+/*Fire Base*/
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -72,8 +76,10 @@ import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.com
     NgxPaginationModule,
     NgbModule,
     FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })
