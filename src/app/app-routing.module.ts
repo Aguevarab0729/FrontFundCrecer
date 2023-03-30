@@ -10,6 +10,7 @@ import {AuthRoutingModule} from './auth/auth.module';
 import { BlankLayoutComponent } from './auth/blank-layout/blank-layout.component';
 import { StartLoginComponent } from './auth/start-login/start-login.component';
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
+import { ModalFormsComponent } from './form/modal-forms/modal-forms.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: 'export', component: ExportComponent},
       { path: 'charts', component: ChartsComponent},
       { path: 'market', component: MarketComponent},
+      {path: 'modal-forms', component: ModalFormsComponent},
     ]
   },
   { path: '**', redirectTo: 'login', pathMatch: 'full'}
