@@ -1,5 +1,6 @@
 import { ExportService } from './../../../services/export.service';
 import { Component } from '@angular/core';
+import { BeneficiariesService } from 'src/app/services/beneficiaries.service';
 
 @Component({
   selector: 'app-export',
@@ -7,13 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./export.component.scss']
 })
 export class ExportComponent {
-  
-  private exportObject: {};
-  
-  constructor(private _ExportService: ExportService){
-    this.exportObject = {};
-  }
-
 
   public data: {
     regional_ciudad: string,
@@ -40,7 +34,34 @@ export class ExportComponent {
   };
 
   public beneficiaries: any[] = [];
+  public beneficiariesList: any[]= [];
 
+  constructor(private _ExportService: ExportService, private _BeneficiariesService: BeneficiariesService)
+  {
+    this.refreshBeneficiaries();
+    this.refreshListBeneficiaries();
+  }
+
+  public refreshBeneficiaries(){
+    const beneficiariesJSON = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
+    this.beneficiaries = beneficiariesJSON;
+  }
+
+  async refreshListBeneficiaries() {
+    const numDocs = this.beneficiaries;
+    let beneficiaryInfo: any[] = [];
+    for (const element of numDocs) {
+      let beneficiary = await this._BeneficiariesService.getBasicInfoBeneficiary(element).toPromise();
+      beneficiaryInfo.push(beneficiary[0]);
+    }
+    this.beneficiariesList = beneficiaryInfo;
+  }
+
+  public discard(){
+    this.beneficiariesList = [];
+    localStorage.clear();
+  }
+  
   public onSubmit() {
     const data = {
       regional_ciudad: this.data.regional_ciudad,
@@ -55,44 +76,20 @@ export class ExportComponent {
       codigo_punto_entrega: this.data.codigo_punto_entrega
     };
   
-    // Obtenemos los valores de Beneficiaries almacenados en localStorage
-    const beneficiariesJSON = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
+    this.refreshBeneficiaries()
   
-    // Asignamos los valores de Beneficiaries al array beneficiaries
-    this.beneficiaries = beneficiariesJSON;
-
-    const beneficiaries = this.beneficiaries;
-  
-    // Agregamos el objeto data y el array beneficiaries al objeto newEntry
     const newEntry = {
       data: data,
       beneficiaries: [...this.beneficiaries]
     };
-  
-    // Agregamos el objeto newEntry al array dataArray
-    
-    console.log(this.exportObject)
     
     this._ExportService.downloadExcel(newEntry.data,newEntry.beneficiaries);
-    localStorage.clear();
-    // Limpiamos el objeto data y el array beneficiaries para poder agregar más datos
-    /* this.data = {
-      regional_ciudad: '',
-      centro_zonal: '',
-      municipio: '',
-      modalidad: '',
-      servicio: '',
-      mes_entrega: '',
-      unidad: '',
-      dupla: '',
-      direccion_punto_entrega: '',
-      codigo_punto_entrega: ''
-    };
-    this.beneficiaries = [];
-    console.log(this.beneficiaries)*/
+    this.discard();
+  }
+
+}
+
   
-    // Convertimos newData a una cadena JSON y la mostramos en la consola
-  }}
 
 
 
