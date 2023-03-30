@@ -8,7 +8,7 @@
     </div>
     <div class="mb-3 mt-1">
       <div class="img-container">
-        <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario"/>
+        <img class="adduser" src="assets/icons/adduser.svg" alt="Agregar Usuario" routerLink="/modal-forms"/>
         <!---------------------------------------------------------------->
         <label class="dupla-filter" for="selectDupla">Filtrar por Dupla: <i class="fas fa-angle-down"></i>
         </label>
@@ -49,10 +49,10 @@
             <tr>
               <td class="col-1"><input type="checkbox" [(ngModel)]="beneficiary.isSelected"></td>
               <td class="col-2">{{ beneficiary.basicinfo.numDoc }}</td>
-              <td class="col-5">{{ beneficiary.basicinfo.fullName }}</td>
-              <td class="col-3">{{ beneficiary.basicinfo.duoName }}</td>
-              <td class="col-2">{{ beneficiary.basicinfo.unityName }}</td>
-              <td class="col-2">{{ beneficiary.marketType }}</td>
+              <td class="col-5">{{ beneficiary.basicinfo.fullName|titlecase }}</td>
+              <td class="col-3">{{ beneficiary.basicinfo.duoName|titlecase }}</td>
+              <td class="col-2">{{ beneficiary.basicinfo.unityName|titlecase }}</td>
+              <td class="col-2">{{ beneficiary.typeComplement|titlecase }}</td>
             </tr>
           </tbody>
         </table>

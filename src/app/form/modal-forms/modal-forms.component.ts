@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './modal-forms.component.html',
   styleUrls: ['./modal-forms.component.scss']
 })
-export class ModalFormsComponent {
-
-}
+export class ModalFormsComponent {}

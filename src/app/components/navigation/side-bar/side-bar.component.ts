@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-bar.component.scss']
 })
 export class SideBarComponent implements OnInit {
+  private maxWidth = window.screen.availWidth;
+
+  
 
   ngOnInit(): void {
     this.burguer() 

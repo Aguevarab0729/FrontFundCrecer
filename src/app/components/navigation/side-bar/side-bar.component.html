@@ -1,15 +1,12 @@
-<html>
-  <head>
 
-  </head>
-  <body><div class="area"></div>
-    <nav class="main-menu">
+<body><div class="area"></div>
+    <nav [class.main-menu]="true" class="main-menu min-vh-100">
             <ul>
                 <li>
                     <a routerLink="/home">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
-                           Inicio
+                            Inicio
                         </span>
                     </a>
                 </li>
@@ -49,7 +46,7 @@
                 </li>
                 <li class="has-subnav">
                     <a routerLink="/market">
-                        <i class="fa fa-sharp fa-solid fa-cart-shopping-fast"></i>
+                        <i class="fa fa-solid fa-store"></i>
                         <span class="nav-text">
                             Mercados
                         </span>
@@ -58,4 +55,3 @@
             </ul>
         </nav>
   </body>
-    </html>
