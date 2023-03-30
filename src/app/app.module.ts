@@ -26,6 +26,7 @@ import { FormModule } from './form/form.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { ModalMarketComponent } from './components/modals/modal-market/modal-market.component';
 
 
 
@@ -43,6 +44,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     MarketComponent,
     HomeComponent,
     HeadmenuComponent,
+    ModalMarketComponent,
   ],
   imports: [
     BrowserModule,

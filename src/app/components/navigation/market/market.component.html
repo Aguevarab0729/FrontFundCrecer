@@ -1,5 +1,5 @@
 <div class="container">
-  <a class="card2" href="#" *ngFor="let market of marketInfo; let i=index">
+  <a class="card2" *ngFor="let market of marketInfo; let i=index" (click)="openModal($event)">
     <h3>Mercado {{i+1}}</h3>
     <p class="small">Mercado que correspondé a {{market.type|lowercase}}.</p>
     
@@ -9,6 +9,4 @@
       </div>
     </div>
   </a>
-  
-  
 </div>
