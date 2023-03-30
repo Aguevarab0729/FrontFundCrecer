@@ -227,8 +227,8 @@
                   <label for="weightAtBirth">Peso al nacer:</label>
                   <input type="number" class="form-control" id="weightAtBirth" formControlName="weightAtBirth" value="{{beneficiary.healthInfo.weightAtBirth}}">
                 </div>
+                <button class="btn" (click)="updateHealthDataBeneficiary()">Editar</button>
               </form>
-              <button class="btn" (click)="updateHealthDataBeneficiary()" routerLink="/main">Editar</button>
             </ng-template>
           </ngb-panel>
     </ngb-accordion>
@@ -241,7 +241,7 @@
           <form [formGroup]="residencyInfoForm">
             <div class="form-group">
               <label for="countryOfResidence">País de residencia:</label>
-              <input type="text" class="form-control" id="countryOfResidence" formControlName="countryOfResidence" >
+              <input type="text" class="form-control" id="countryOfResidence" formControlName="countryOfResidence" value="{{beneficiary.residencyInformation.countryOfResidence}}">
             </div>
             <div class="form-group">
               <label for="residenceDepartment">Departamento:</label>
@@ -283,9 +283,9 @@
               <label for="householdStratum">Estrato:</label>
               <input type="number" class="form-control" id="householdStratum" formControlName="householdStratum" value="{{beneficiary.residencyInformation.householdStratum}}" >
             </div>
+            <button class="btn" (click)="updateResidenceDataBeneficiary()">Editar</button>
           </form>
-          <button class="btn" (click)="updateResidenceDataBeneficiary()" routerLink="/main">Editar</button>
-        </ng-template>
+         </ng-template>
       </ngb-panel>
     </ngb-accordion>
     <ngb-accordion>
@@ -335,9 +335,9 @@
                     <label><input type="radio" formControlName="justificationDocumentExists" [value]="false" [checked]="!beneficiary.socialInformation.justificationDocumentExists">No</label>
                   </div>
                 </div>
+                <button class="btn" (click)="updateDataSocBeneficiary()" >Editar</button>
                 </form>
-                <button class="btn" (click)="updateDataSocBeneficiary()" routerLink="/main">Editar</button>
-            </ng-template>
+              </ng-template>
           </ngb-panel>
     </ngb-accordion>
     <ngb-accordion>
@@ -389,9 +389,9 @@
                 <label><input type="radio" formControlName="hasInterdictionProcess" [value]="false" [checked]="!beneficiary.assistanceInformation.hasInterdictionProcess">No</label>
               </div>
             </div>
+            <button class="btn" (click)="updateAssistanceDataBeneficiary()">Editar</button>
           </form>
-          <button class="btn" (click)="updateAssistanceDataBeneficiary()" routerLink="/main">Editar</button>
-        </ng-template>  
+         </ng-template>  
       </ngb-panel>
     </ngb-accordion>
     <ngb-accordion>
@@ -490,9 +490,9 @@
               <label for="motherBirthCity">Ciudad de nacimiento:</label>
               <input type="text" class="form-control" id="motherBirthCity" formControlName="motherBirthCity" value="{{beneficiary.parent.motherbirthCity}}">
             </div>
+            <button class="btn" (click)="updateParentsDataBeneficiary()">Editar</button>
             </form>
-            <button class="btn" (click)="updateParentsDataBeneficiary()" routerLink="/main">Editar</button>
-        </ng-template>
+          </ng-template>
       </ngb-panel>
     </ngb-accordion>
     <ngb-accordion>
@@ -542,9 +542,9 @@
               <label for="guardianBirthCity">Ciudad de nacimiento:</label>
               <input type="text" class="form-control" id="guardianBirthCity" formControlName="guardianBirthCity" value="{{ beneficiary.guardianInfo.guardianBirthCity }}">
             </div>
+            <button class="btn" (click)="updateGuardianDataBeneficiary()" routerLink="/main">Editar</button>
           </form>
-          <button class="btn" (click)="updateGuardianDataBeneficiary()" routerLink="/main">Editar</button>
-        </ng-template>
+         </ng-template>
       </ngb-panel>
     </ngb-accordion>
     <ngb-accordion>
@@ -590,9 +590,9 @@
                 <label><input type="radio" formControlName="disabilityRegistryEnrollment" [value]="false">No</label>
               </div>
             </div>
+            <button class="btn" (click)="updateDisabilityDataBeneficiary()" routerLink="/main">Editar</button>
           </form>
-          <button class="btn" (click)="updateDisabilityDataBeneficiary()" routerLink="/main">Editar</button>
-        </ng-template>
+         </ng-template>
       </ngb-panel>
     </ngb-accordion>
     
@@ -648,6 +648,7 @@
             <p><strong>Afectado directamente por conflicto armado :</strong> {{ beneficiary.socialInformation.directlyAffectedByArmedConflict }}</p>
             <p><strong>Criterio de focalización :</strong> {{ beneficiary.socialInformation.focusingCriteria }}</p>
             <p><strong>Existe documento de justificación :</strong>{{ beneficiary.socialInformation.justificationDocumentExists }}</p>
+            <p><strong>Tipo de complemento :</strong>{{ beneficiary.typeComplement }}</p>
           </ng-template>
         </ngb-panel>
       </ngb-accordion>

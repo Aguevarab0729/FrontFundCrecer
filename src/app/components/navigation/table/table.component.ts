@@ -113,7 +113,7 @@ export class TableComponent {
           // Primer beneficiario seleccionado
           this.selectedDupla = beneficiary.basicinfo.duoName;
           this.selectedUnity = beneficiary.basicinfo.unityName;
-          this.selectedMarket = beneficiary.marketType;
+          this.selectedMarket = beneficiary.typeComplement;
         } else {
           // Verificar si la dupla, unidad y tipo de mercado son iguales para todos los beneficiarios seleccionados
           if (beneficiary.basicinfo.duoName !== this.selectedDupla) {
@@ -122,11 +122,13 @@ export class TableComponent {
           if (beneficiary.basicinfo.unityName !== this.selectedUnity) {
             sameUnity = false;
           }
-          if (beneficiary.marketType !== this.selectedMarket) {
+          if (beneficiary.typeComplement !== this.selectedMarket) {
             sameMarketType = false;
           }
         }
         selectedCount++;
+        console.log('Beneficiary', Beneficiaries)
+        console.log('Typecomplement', beneficiary.typeComplement)
       }
     }
   
