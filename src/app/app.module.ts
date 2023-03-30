@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +33,7 @@ import { ChartsComponent } from './components/navigation/charts/charts.component
 import { ExportComponent } from './components/navigation/export/export.component';
 import { MarketComponent } from './components/navigation/market/market.component';
 import { HomeComponent } from './components/navigation/home/home.component';
-import { SocialEditionComponent } from './components/edit/social-information/social-edition/social-edition.component';
+
 import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.component';
 
 
@@ -61,7 +61,6 @@ import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.com
     ExportComponent,
     MarketComponent,
     HomeComponent,
-    SocialEditionComponent,
     HeadmenuComponent,
   ],
   imports: [
@@ -74,6 +73,7 @@ import { HeadmenuComponent } from './components/navigation/headmenu/headmenu.com
     NgbModule,
     FormsModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })
