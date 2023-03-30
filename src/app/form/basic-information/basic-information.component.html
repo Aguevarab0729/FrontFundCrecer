@@ -1,13 +1,28 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="basicInformationForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="basicInformationForm" ><!-- (ngSubmit)="onSubmit()" -->
 
     <div class="form-group">
-      <label for="numDoc">Número de documento:</label>
+      <label for="documentType">Tipo de documento *</label>
+      <select id="documentType" formControlName="documentType" required>
+        <option value=""></option>
+        <option value="RC">Registro civil</option>
+        <option value="CC">Cédula de Ciudadanía</option>
+        <option value="TI">Tarjeta de identidad</option>
+        <option value="PEP">Permiso especial de permanencia</option>
+        <option value="PASAPORTE">Pasaporte</option>
+        <option value="SINDOCUMENTO">Sin documento</option>
+        <option value="ANM">ANM</option>
+        <option value="PPT">Identificación Venezolanos en territorio Colombiano</option>s
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="numDoc">Número de documento *</label>
       <input type="number" id="numDoc" class="form-control" formControlName="numDoc" required>
     </div>
 
     <div class="form-group">
-      <label for="curState">Estado actual:</label>
+      <label for="curState">Estado actual *</label>
       <select id="curState" formControlName="curState" required>
         <option value="">Selecciona un estado</option>
         <option value="true">Activo</option>
@@ -16,77 +31,84 @@
     </div>
 
     <div class="form-group">
-      <label for="joinDate">Fecha de ingreso:</label>
-      <input type="date" id="joinDate" name="joinDate" required>
+      <label for="joinDate">Fecha de ingreso *</label>
+      <input type="date" id="joinDate" formControlName="joinDate" required>
     </div>
 
     <div class="form-group">
-      <label for="exitDate">Fecha de salida:</label>
-      <input type="date" id="exitDate" name="exitDate">
+      <label for="exitDate">Fecha de salida </label>
+      <input type="date" id="exitDate" formControlName="exitDate">
     </div>
 
     <div class="form-group">
-      <label for="enterBy">Ingresado por:</label>
-      <input type="text" id="enterBy" name="enterBy">
+      <label for="enterBy">Ingresado por *</label>
+      <input type="text" id="enterBy" formControlName="enterBy">
     </div>
 
     <div class="form-group">
-      <label for="reasonForExit">Motivo de salida:</label>
-      <input type="text" id="reasonForExit" name="reasonForExit">
+      <label for="reasonForExit">Motivo de salida </label>
+      <input type="text" id="reasonForExit" formControlName="reasonForExit">
     </div>
 
     <div class="form-group">
-      <label for="otherExitReason">Otro motivo de salida:</label>
-      <input type="text" id="otherExitReason" name="otherExitReason">
+      <label for="otherExitReason">Otro motivo de salida</label>
+      <input type="text" id="otherExitReason" formControlName="otherExitReason">
     </div>
 
     <div class="form-group">
-      <label for="unityName">Unidad:</label>
-      <input type="text" id="unityName" name="unityName" required>
+      <label for="unityName">Unidad *</label>
+      <input type="text" id="unityName" formControlName="unityName">
     </div>
 
     <div class="form-group">
-      <label for="duoName">Dupla:</label>
-      <input type="text" id="duoName" name="duoName" required>
+      <label for="duoName">Dupla *</label>
+      <input type="text" id="duoName" formControlName="duoName">
     </div>
 
     <div class="form-group">
-      <label for="teachers">Docentes:</label>
-      <input type="text" id="teachers" name="teachers">
+      <label for="teachers">Docentes *</label>
+      <ng-container formArrayName="teachers">
+        <div *ngFor="let control of teachers.controls; index as i">
+          <input type="text" id="teachers" [formControlName]="i" />
+          <button (click)="removeMember(i)">Remove teacher {{ i + 1 }}</button>
+        </div>
+        <button (click)="addMember()">Add teacher</button>
+      </ng-container>
     </div>
 
     <div class="form-group">
-      <label for="documentType">Tipo de documento:</label>
-      <input type="text" id="documentType" name="documentType" required>
+      <label for="firstName">Primer nombre *</label>
+      <input type="text" id="firstName" formControlName="firstName">
     </div>
 
     <div class="form-group">
-      <label for="firstName">Primer nombre:</label>
-      <input type="text" id="firstName" name="firstName" required>
+      <label for="secondName">Segundo nombre</label>
+      <input type="text" id="secondName" formControlName="secondName">
     </div>
 
     <div class="form-group">
-      <label for="secondName">Segundo nombre:</label>
-      <input type="text" id="secondName" name="secondName">
+      <label for="firstLastName">Primer apellido *</label>
+      <input type="text" id="firstLastName" formControlName="firstLastName">
     </div>
 
     <div class="form-group">
-      <label for="firstLastName">Primer apellido:</label>
-      <input type="text" id="firstLastName" name="firstLastName" required>
+      <label for="secondLastName">Segundo apellido *</label>
+      <input type="text" id="secondLastName" formControlName="secondLastName">
     </div>
 
     <div class="form-group">
-      <label for="secondLastName">Segundo apellido:</label>
-      <input type="text" id="secondLastName" name="secondLastName">
-    </div>
-
-    <div class="form-group">
-      <label for="gender">Género:</label>
-      <select id="gender" name="gender" required>
+      <label for="gender">Género * </label>
+      <select id="gender" formControlName="gender">
         <option value="">Selecciona un género</option>
         <option value="MASCULINO">Masculino</option>
         <option value="FEMENINO">Femenino</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ basicInformationForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   </form>
 </div>

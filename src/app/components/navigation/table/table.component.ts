@@ -27,10 +27,6 @@ export class TableComponent {
   unitys: string [] = [];
   filteredBeneficiaries: any[] = [];
   Beneficiaries: any[] = [];
-  
-  
-  
-
 
   constructor(
     private _BeneficiariesService: BeneficiariesService,
@@ -48,10 +44,9 @@ export class TableComponent {
           this.markets.push(...response);
         });
         console.log(this.markets);
-        
+
       });
   }
-
 
   getListBeneficiaries() {
     this._BeneficiariesService.getBeneficiaries().subscribe((data: any[]) => {
@@ -62,7 +57,7 @@ export class TableComponent {
         // Si el checkbox está desactivado, mostrar solo los beneficiarios activos
         this.listBeneficiaries = data.filter(beneficiary => beneficiary.basicinfo.curState);
       }
-  
+
       // Recorre cada beneficiario y determina el tipo de mercado correspondiente utilizando su edad
       this.listBeneficiaries.forEach(beneficiary => {
         const age = this.calculateAge(beneficiary.birthinformation.birthDate);
@@ -80,7 +75,7 @@ export class TableComponent {
         console.log(`foodsToPrepare - Beneficiary ${beneficiary.basicinfo.fullName}:`, market.foodsToPrepare);
         console.log(`nutritionalFoods - Beneficiary ${beneficiary.basicinfo.fullName}:`, market.nutritionalFoods);
       });
-  
+
       // Recorre cada beneficiario y agrega un objeto al array Beneficiaries con numDoc y isChecked
       this.Beneficiaries = [];
       this.listBeneficiaries.forEach(beneficiary => {
@@ -89,7 +84,7 @@ export class TableComponent {
           isChecked: false
         });
       });
-  
+
       this.filteredBeneficiaries = this.listBeneficiaries.slice(); // Inicializa el arreglo de beneficiarios filtrados
       this.getDuplas();
       this.getUnitys();
@@ -104,7 +99,7 @@ export class TableComponent {
     let sameDupla = true;
     let sameUnity = true;
     let sameMarketType = true;
-  
+
     // Obtener los beneficiarios seleccionados
     for (const beneficiary of this.listBeneficiaries) {
       if (beneficiary.isSelected) {
@@ -129,7 +124,7 @@ export class TableComponent {
         selectedCount++;
       }
     }
-  
+
     // Si se seleccionaron menos de 17 beneficiarios, mostrar alerta y no guardar selección
     if (selectedCount < 1) {
       alert('Debe seleccionar al menos un beneficiario');
@@ -139,20 +134,20 @@ export class TableComponent {
       alert('Solo puede seleccionar hasta 17 beneficiarios');
       return;
     }
-  
+
     // Si los beneficiarios seleccionados no tienen la misma dupla, unidad y tipo de mercado, mostrar alerta y no guardar selección
     if (!sameDupla || !sameUnity || !sameMarketType) {
       alert('Solo puede seleccionar beneficiarios con la misma dupla, unidad y tipo de mercado');
       return;
     }
-  
+
     // Obtener los números de documento de los beneficiarios seleccionados
     const selectedBeneficiaries = Beneficiaries.map(beneficiary => beneficiary.basicinfo.numDoc);
-  
+
     // Guardar el array de números de documento de beneficiarios seleccionados en el LocalStorage
     localStorage.setItem('Beneficiaries', JSON.stringify(selectedBeneficiaries));
   }
-   
+
 
   // exportToExcel(modalService: NgbModal, ExportComponent: any, beneficiariesToExport: any[]) {
   //   const modalRef = modalService.open(ExportComponent);
@@ -165,7 +160,7 @@ export class TableComponent {
     const ageInYears = Math.floor(ageInMs / 1000 / 60 / 60 / 24 / 365.25);
     return ageInYears;
   }
-  
+
   getDuplas() {
     const duplasSet = new Set(this.listBeneficiaries.map(beneficiary => beneficiary.basicinfo.duoName));
     this.duplas = Array.from(duplasSet);
@@ -176,7 +171,7 @@ export class TableComponent {
     this.unitys = Array.from(unitysSet);
   }
 
-  
+
 
   filterByDupla() {
     if (this.selectedDupla && this.selectedDupla.trim() !== "") {
@@ -205,7 +200,7 @@ export class TableComponent {
     if (this.selectedUnity && this.selectedUnity.trim() !== "") {
       this.filteredBeneficiaries = this.listBeneficiaries.filter(beneficiary => beneficiary.basicinfo.unityName === this.selectedUnity);
     } else {
-      this.filteredBeneficiaries = this.showInactive ? 
+      this.filteredBeneficiaries = this.showInactive ?
         this.listBeneficiaries.filter(beneficiary => !beneficiary.basicinfo.curState) :
         this.listBeneficiaries.filter(beneficiary => beneficiary.basicinfo.curState);
     }
@@ -213,7 +208,7 @@ export class TableComponent {
     this.updateBeneficiariesToShow();
   }
 
- 
+
 
   updateBeneficiariesToShow() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -232,13 +227,13 @@ export class TableComponent {
       const nextPage = this.currentPage + 1;
       const startIndex = (nextPage - 1) * this.itemsPerPage;
       const nextPageBeneficiaries = this.filteredBeneficiaries.slice(startIndex, startIndex + this.itemsPerPage);
-    
+
       if (nextPage <= this.totalPages && nextPageBeneficiaries.length > 0) {
         this.currentPage = nextPage;
         this.updateBeneficiariesToShow();
       } else {
         // Si la lista de beneficiarios filtrados está vacía, no hacer nada.
-        
+
       }
     }
 
@@ -260,12 +255,12 @@ export class TableComponent {
     const endIndex = this.startIndex + this.itemsPerPage - 1;
     return endIndex > this.totalBeneficiaries ? this.totalBeneficiaries : endIndex;
   }
-  
+
   get totalPages() {
     return Math.ceil(this.totalBeneficiaries / this.itemsPerPage);
   }
 
-  
+
   openModal(event: any, beneficiary: any) {
     if (event.target.tagName !== 'INPUT') {
       const modalRef = this.modalService.open(ModalWindowComponent);

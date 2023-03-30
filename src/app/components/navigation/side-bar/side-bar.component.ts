@@ -8,10 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class SideBarComponent implements OnInit {
   private maxWidth = window.screen.availWidth;
 
-  
-
   ngOnInit(): void {
-    this.burguer() 
+    this.burguer()
   }
 
   burguer(){
@@ -22,10 +20,10 @@ export class SideBarComponent implements OnInit {
     menu?.classList.toggle("menu-collapsed")
 
     document.querySelector('body')?.classList.toggle('body-collapsed');
-    
+
   });
   }
-  
+
 }
 
 
