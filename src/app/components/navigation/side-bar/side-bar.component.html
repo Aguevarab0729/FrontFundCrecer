@@ -1,57 +1,57 @@
+<body>
+  <div class="area"></div>
+  <nav [class.main-menu]="true" class="main-menu min-vh-100">
+    <ul>
+        <li>
+            <a routerLink="/home">
+                <i class="fa fa-home fa-2x"></i>
+                <span class="nav-text">
+                    Inicio
+                </span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/main">
+                <i class="fa fa-regular fa-table"></i>
+                <span class="nav-text">
+                    Base de datos
+                </span>
+            </a>
+        </li>
+        <li class="has-subnav">
+            <a routerLink="/import">
+                <i class="fa fa-solid fa-file-import"></i>
+                <span class="nav-text">
+                    Importar
+                </span>
+            </a>
 
-<body><div class="area"></div>
-    <nav [class.main-menu]="true" class="main-menu min-vh-100">
-            <ul>
-                <li>
-                    <a routerLink="/home">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                            Inicio
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a routerLink="/main">
-                        <i class="fa fa-regular fa-table"></i>
-                        <span class="nav-text">
-                           Base de datos
-                        </span>
-                    </a>
-                </li>
-                <li class="has-subnav">
-                    <a routerLink="/import">
-                        <i class="fa fa-solid fa-file-import"></i>
-                        <span class="nav-text">
-                            Importar
-                        </span>
-                    </a>
+        </li>
+        <li class="has-subnav">
+            <a routerLink="/export">
+                <i class="fa fa-solid fa-download"></i>
+                <span class="nav-text">
+                    Exportar
+                </span>
+            </a>
 
-                </li>
-                <li class="has-subnav">
-                    <a routerLink="/export">
-                        <i class="fa fa-solid fa-download"></i>
-                        <span class="nav-text">
-                            Exportar
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a routerLink="/charts">
-                       <i class="fa fa-solid fa-chart-pie"></i>
-                        <span class="nav-text">
-                            Análisis
-                        </span>
-                    </a>
-                </li>
-                <li class="has-subnav">
-                    <a routerLink="/market">
-                        <i class="fa fa-solid fa-store"></i>
-                        <span class="nav-text">
-                            Mercados
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-  </body>
+        </li>
+        <li class="has-subnav">
+            <a routerLink="/charts">
+                <i class="fa fa-solid fa-chart-pie"></i>
+                <span class="nav-text">
+                    Análisis
+                </span>
+            </a>
+        </li>
+        <li class="has-subnav">
+            <a routerLink="/market">
+                <i class="fa fa-solid fa-store"></i>
+                <span class="nav-text">
+                    Mercados
+                </span>
+            </a>
+        </li>
+    </ul>
+  </nav>
+</body>

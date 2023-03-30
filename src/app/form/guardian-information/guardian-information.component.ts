@@ -1,34 +1,51 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+import { Guardian } from 'src/app/interfaces/form/guardian';
+import { createValidator, minLength, required } from '../validators';
+
+
+/* import { createValidator } from '../../validators/validator-creator';
+import { required, minLength } from '../../validators/validators'; */
 
 @Component({
   selector: 'app-guardian-information',
   templateUrl: './guardian-information.component.html',
   styleUrls: ['./guardian-information.component.scss']
 })
-export class GuardianInformationComponent implements OnInit {
+export class GuardianInformationComponent {
 
-  guardianForm: FormGroup = new FormGroup({});
+  guardianInformationForm = this.formBuilder.group({
+    guardianPersonType: [''],
+    guardianDocumentType: [''],
+    guardianDocumentNumber: [''],
+    guardianFirstName: [''],
+    guardianSecondName: [''],
+    guardianFirstLastName: [''],
+    guardianSecondLastName: [''],
+    guardianBirthdate: [''],
+    guardianBirthCountry: [''],
+    guardianBirthDepartment: [''],
+    guardianBirthCity: ['']
+  })
 
-  constructor(private formBuilder: FormBuilder){}
+  formValidator = createValidator<Guardian>(this.guardianInformationForm, {
+    guardianPersonType: [ required() ],
+    guardianDocumentType: [ required() ],
+    guardianDocumentNumber: [ required() ],
+    guardianFirstName: [ required(), minLength(3)],
+    guardianSecondName: [],
+    guardianFirstLastName: [ required(), minLength(3) ],
+    guardianSecondLastName: [ required(), minLength(3)],
+    guardianBirthDate: [ required() ],
+    guardianBirthCountry: [ required() ],
+    guardianBirthDepartment: [ required() ],
+    guardianBirthCity: [ required() ],
+  });
 
-  ngOnInit(): void {
-    this.guardianForm = this.formBuilder.group({
-      guardianPersonType: ['', Validators.required],
-      guardianDocumentType: ['', Validators.required],
-      guardianDocumentNumber: ['', Validators.required],
-      guardianFirstName: ['', Validators.required],
-      guardianSecondName: [''],
-      guardianFirstLastName: ['', Validators.required],
-      guardianSecondLastName: ['', Validators.required],
-      guardianBirthdate: ['', Validators.required],
-      guardianBirthCountry: ['', Validators.required],
-      guardianBirthDepartment: ['', Validators.required],
-      guardianBirthCity: ['', Validators.required]
-    })
-  }
+  constructor(private formBuilder: FormBuilder){};
 
   onSubmit = () => {
-    console.warn(this.guardianForm.value);
+    console.warn(this.guardianInformationForm.value);
   }
 }

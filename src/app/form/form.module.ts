@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {BenficiariesInscriptionComponent} from './benficiaries-inscription/benficiaries-inscription.component'
 import { BirthInformationComponent } from './birth-information/birth-information.component';
 import { DisabilityInformationComponent } from './disability-information/disability-information.component';
 import { GuardianInformationComponent } from './guardian-information/guardian-information.component';
@@ -15,12 +14,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AssistanceComponent } from './assistance/assistance.component';
 import { FormRoutingModule } from './form-routing.module';
+import { ErrorsPipe } from '../pipes/errors.pipe';
 
 
 @NgModule({
   declarations: [
     AssistanceComponent,
-    BenficiariesInscriptionComponent,
     BirthInformationComponent,
     DisabilityInformationComponent,
     GuardianInformationComponent,
@@ -29,7 +28,8 @@ import { FormRoutingModule } from './form-routing.module';
     ResidencyInformationComponent,
     SocialInformationComponent,
     BasicInformationComponent,
-    ModalFormsComponent
+    ModalFormsComponent,
+    ErrorsPipe
   ],
   imports: [
     CommonModule,

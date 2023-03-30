@@ -68,5 +68,11 @@
         <option value="4">3</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ residencyInformationForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   </form>
 </div>

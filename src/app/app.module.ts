@@ -28,8 +28,6 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { ModalMarketComponent } from './components/modals/modal-market/modal-market.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +52,6 @@ import { ModalMarketComponent } from './components/modals/modal-market/modal-mar
     ReactiveFormsModule,
     NgxPaginationModule,
     FormModule,
-    
     NgbModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
