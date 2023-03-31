@@ -1,5 +1,7 @@
 import { ExportService } from './../../../services/export.service';
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-export',
@@ -10,7 +12,9 @@ export class ExportComponent {
   
   private exportObject: {};
   
-  constructor(private _ExportService: ExportService){
+  constructor(private _ExportService: ExportService,
+               private toastr: ToastrService
+    ){
     this.exportObject = {};
   }
 
@@ -54,6 +58,7 @@ export class ExportComponent {
       direccion_punto_entrega: this.data.direccion_punto_entrega,
       codigo_punto_entrega: this.data.codigo_punto_entrega
     };
+    this.toastr.success('Exportación en proceso, estara lista en unos segundos', 'Exportación exitosa');
   
     // Obtenemos los valores de Beneficiaries almacenados en localStorage
     const beneficiariesJSON = JSON.parse(localStorage.getItem('Beneficiaries') ?? '[]');
@@ -68,7 +73,7 @@ export class ExportComponent {
       data: data,
       beneficiaries: [...this.beneficiaries]
     };
-  
+    
     // Agregamos el objeto newEntry al array dataArray
     
     console.log(this.exportObject)
@@ -92,7 +97,9 @@ export class ExportComponent {
     console.log(this.beneficiaries)*/
   
     // Convertimos newData a una cadena JSON y la mostramos en la consola
-  }}
+  }
+  
+}
 
 
 
