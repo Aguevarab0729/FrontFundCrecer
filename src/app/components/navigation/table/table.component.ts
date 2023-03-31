@@ -152,10 +152,6 @@ export class TableComponent {
     this.toastr.success('Los beneficiarios estan listos para el export', 'Información Guardada');
 
 
-    // Obtener los números de documento de los beneficiarios seleccionados
-    const selectedBeneficiaries = Beneficiaries.map(beneficiary => beneficiary.basicinfo.numDoc);
-
-
     // Guardar el array de números de documento de beneficiarios seleccionados en el LocalStorage
     localStorage.setItem('Beneficiaries', JSON.stringify(selectedBeneficiaries));
   }
