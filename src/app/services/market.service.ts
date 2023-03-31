@@ -26,4 +26,13 @@ export class MarketService {
     console.log(url); // imprime la URL completa en la consola
     return this.http.get<any>(url);
   }
+
+  updateFoodQuantity(marketType: string, name: string, quantity: string) {
+    const url = `${this.myAppUrl}${this.myApiUrl}${marketType}`;
+    const body = { name, quantity };
+    return this.http.patch(url, body);
+  }
+  
 }
+
+
