@@ -26,4 +26,7 @@ export class BeneficiariesService {
     return this.http.get<any>(`${this.myAppUrl}${this.myApiUrlBasicInfo}${numDoc}`)
   }
 
+  postBeneficiary(beneficiary: any): Observable<any> {
+    return this.http.post<any>(`${this.myAppUrl}${this.myApiUrlBasicInfo}`, beneficiary);
+  }
 }

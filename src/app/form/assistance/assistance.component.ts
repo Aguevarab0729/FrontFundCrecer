@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 
 //  Interface de form Assistance
 import { Assistance } from 'src/app/interfaces/form/assistance';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { FormService } from '../form.service';
 
 import { createValidator, required } from '../validators';
 
@@ -33,9 +35,19 @@ export class AssistanceComponent {
     hasInterdictionProcess: [ required() ]
   });
 
-  constructor(private formBuilder: FormBuilder){};
-
-  onSubmit = () => {
-    console.warn(this.assistanceForm.value);
+  constructor(private formBuilder: FormBuilder, private formService: FormService , private localStorageService: LocalstorageService){
+    const assistanceInformation = this.localStorageService.getItem('assistanceInformation');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (assistanceInformation) {
+      this.assistanceForm.patchValue(assistanceInformation);
+    }
   }
+  
+  onSubmit = () => {
+    const assistanceInformation = this.assistanceForm.value;
+    this.localStorageService.setItem('assistanceInformation',assistanceInformation);
+    this.formService.addProperty('assistanceInformation',this.localStorageService.getItem('assistanceInformation'));
+  }
+
 }

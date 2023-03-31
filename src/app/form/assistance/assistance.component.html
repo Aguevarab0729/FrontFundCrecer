@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="assistanceForm">
+  <form class="form-modal" [formGroup]="assistanceForm" (click)="onSubmit()">
     <div class="form-group">
       <label for="requiresAssistance">¿ Requiere asistencia ? * </label>
       <select id="requiresAssistance" formControlName="requiresAssistance">
@@ -48,11 +48,11 @@
         <option value="false">No</option>
       </select>
     </div>
-    <button class="submit" type="submit">Siguiente</button>
-    <h2>Validación Formulario</h2>
+    <button class="submit" type="submit">Guardar</button>
+    <!-- <h2>Validación Formulario</h2>
     <h5>Formulario valido = {{ assistanceForm.valid }}</h5>
     <ul>
       <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
-    </ul>
+    </ul> -->
   </form>
 </div>

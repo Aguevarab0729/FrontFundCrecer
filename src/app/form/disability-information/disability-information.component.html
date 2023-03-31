@@ -1,4 +1,4 @@
-<form class="form-modal" [formGroup]="disabilityForm">
+<form class="form-modal" [formGroup]="disabilityForm" (click)="onSubmit()">
   <div class="form-group">
     <label for="disability">¿Tiene alguna discapacidad?</label>
     <select id="disability" formControlName="disability">
@@ -33,11 +33,11 @@
       <option value="false">No</option>
       <option value="true">Sí</option>
     </select>
-  </div><button class="submit" type="submit">Siguiente</button>
-  <h2>Validación Formulario</h2>
+  </div><button class="submit" type="submit">Guardar</button>
+  <!-- <h2>Validación Formulario</h2>
     <h5>Formulario valido = {{ disabilityForm.valid }}</h5>
     <ul>
       <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
     </ul>
-  <pre>{{ disabilityForm.value | json }}</pre>
+  <pre>{{ disabilityForm.value | json }}</pre> -->
 </form>

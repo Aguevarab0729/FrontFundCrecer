@@ -1,3 +1,4 @@
+import { FormService } from './../form.service';
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl } from '@angular/forms';
 
@@ -5,6 +6,7 @@ import { FormArray, FormBuilder, FormControl } from '@angular/forms';
 import { BasicInformation } from 'src/app/interfaces/form/basic-information';
 
 import { createValidator, required, minLength } from '../validators';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 
 
 /* import { createValidator } from '../../validators/validator-creator';
@@ -88,7 +90,17 @@ export class BasicInformationComponent {
     gender: [ required() ]
   });
 
-  constructor(private formBuilder: FormBuilder){};
+
+  constructor(private formBuilder: FormBuilder, private formService: FormService, private localStorageService: LocalstorageService){
+    
+    const basicinfo = this.localStorageService.getItem('basicinfo');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (basicinfo) {
+      this.basicInformationForm.patchValue(basicinfo);
+    }
+
+  };
 
   get teachers() {
     return this.basicInformationForm.get("teachers") as FormArray;
@@ -103,6 +115,8 @@ export class BasicInformationComponent {
   }
 
   onSubmit = () => {
-    console.warn(this.basicInformationForm.value);
+    const basicinfo = this.basicInformationForm.value;
+    this.localStorageService.setItem('basicinfo',basicinfo);
+    this.formService.addProperty('basicinfo',this.localStorageService.getItem('basicinfo'));
   }
 }

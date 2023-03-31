@@ -40,6 +40,8 @@ const routes: Routes = [
       ...canActivate(() => redirectUnauthorizedTo(['login']))},
       { path: 'market', component: MarketComponent,
       ...canActivate(() => redirectUnauthorizedTo(['login']))},
+      { path: 'modal-forms', component: ModalFormsComponent,
+      ...canActivate(() => redirectUnauthorizedTo(['login']))},
     ],
     ...canActivate(() => redirectUnauthorizedTo(['login']))
   },

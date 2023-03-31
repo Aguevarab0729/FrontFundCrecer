@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 
 //  interface residency form
 import { Residency } from 'src/app/interfaces/form/residency';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { FormService } from '../form.service';
 
 import { createValidator, minLength, required } from '../validators';
 
@@ -41,10 +43,19 @@ export class ResidencyInformationComponent {
     householdStratum: [ required() ]
   })
 
-  constructor(private formBuilder: FormBuilder){};
+  constructor(private formBuilder: FormBuilder, private formService: FormService , private localStorageService: LocalstorageService){
+    const residencyInformation = this.localStorageService.getItem('residencyInformation');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (residencyInformation) {
+      this.residencyInformationForm.patchValue(residencyInformation);
+    }
+  }
 
   onSubmit = () => {
-    console.warn(this.residencyInformationForm.value);
+    const residencyInformation = this.residencyInformationForm.value;
+    this.localStorageService.setItem('residencyInformation',residencyInformation);
+    this.formService.addProperty('residencyInformation',this.localStorageService.getItem('residencyInformation'));
   }
 
 }

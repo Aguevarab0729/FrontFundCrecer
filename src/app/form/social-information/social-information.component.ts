@@ -4,6 +4,8 @@ import { FormBuilder } from '@angular/forms';
 //   interface form social
 
 import { Social } from 'src/app/interfaces/form/social';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { FormService } from '../form.service';
 
 
 import { createValidator, maxLength, required } from '../validators';
@@ -35,10 +37,19 @@ export class SocialInformationComponent {
     justificationDocumentExists: [ required() ]
   })
 
-  constructor(private formBuilder: FormBuilder){};
+  constructor(private formBuilder: FormBuilder, private formService: FormService , private localStorageService: LocalstorageService){
+    const socialInformation = this.localStorageService.getItem('socialInformation');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (socialInformation) {
+      this.socialInformationForm.patchValue(socialInformation);
+    }
+  }
 
   onSubmit = () => {
-    console.warn(this.socialInformationForm.value);
+    const socialInformation = this.socialInformationForm.value;
+    this.localStorageService.setItem('socialInformation',socialInformation);
+    this.formService.addProperty('socialInformation',this.localStorageService.getItem('socialInformation'));
   }
 
 }

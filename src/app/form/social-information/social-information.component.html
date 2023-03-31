@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="socialInformationForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="socialInformationForm" (click)="onSubmit()" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="groupEthnicity">Pertenece a un grupo étnico</label>
       <select id="groupEthnicity" formControlName="groupEthnicity">
@@ -54,6 +54,15 @@
       <label for="justificationDocumentExists">¿ Si no cumple con ningun criterio, cuenta con acta de justificación que justifique la atención ?</label>
       <select id="justificationDocumentExists" formControlName="justificationDocumentExists">
         <option value="">Seleccione una opción</option>
+        <option value="true">Sí</option>
+        <option value="false">No</option>
+      </select>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="justificationDocumentExists">¿ Si no cumple con ningun criterio, cuenta con acta de justificación que justifique la atención ?</label>
+      <select id="justificationDocumentExists" formControlName="justificationDocumentExists">
+        <option value="">Seleccione una opción</option>
         <option value="a. Pertenecientes a hogares con puntaje SISBEN">Pertenecientes a hogares con puntaje SISBEN</option>
         <option value="b. Pertenecientes a familias identificadas a través de la Estrategia para la Superación de la Pobreza Extrema  Red UNIDOS.">Pertenecientes a familias identificadas a través de la Estrategia para la Superación de la Pobreza Extrema  Red UNIDOS.</option>
         <option value="c. Niñas, niños y mujeres gestantes pertenecientes al programa Familias en Acción de Prosperidad Social.">Niñas, niños y mujeres gestantes pertenecientes al programa Familias en Acción de Prosperidad Social.</option>
@@ -70,12 +79,12 @@
         <option value="n. Para el servicio de Hogar Infantil se atenderá prioritariamente niños y niñas hijos de trabajadores que evidencien vinculación laboral y demás requisitos establecidos en la resolución 1740 de 2010.">Para el servicio de Hogar Infantil se atenderá prioritariamente niños y niñas hijos de trabajadores que evidencien vinculación laboral y demás requisitos establecidos en la resolución 1740 de 2010.</option>
         <option value="o. Ingresos iguales o inferiores a 1.5 Smlv">Ingresos iguales o inferiores a 1.5 Smlv</option>
       </select>
-    </div>
-    <button class="submit" type="submit">Siguiente</button>
-    <h2>Validación Formulario</h2>
+    </div> -->
+    <button class="submit" type="submit">Guardar</button>
+    <!-- <h2>Validación Formulario</h2>
     <h5>Formulario valido = {{ socialInformationForm.valid }}</h5>
     <ul>
       <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
-    </ul>
+    </ul> -->
   </form>
 </div>

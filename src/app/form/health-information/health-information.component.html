@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="healthInformationForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="healthInformationForm" (click)="onSubmit()" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="regime">Régimen *</label>
       <select id="regime" formControlName="regime" required>
@@ -128,11 +128,11 @@
       <label for="ticketNumber">Número de ticket *</label>
       <input type="text" id="ticketNumber" formControlName="ticketNumber">
     </div>
-    <button class="submit" type="submit">Siguiente</button>
-    <h2>Validación Formulario</h2>
+    <button class="submit" type="submit">Guardar</button>
+    <!-- <h2>Validación Formulario</h2>
     <h5>Formulario valido = {{ healthInformationForm.valid }}</h5>
     <ul>
       <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
-    </ul>
+    </ul> -->
   </form>
 </div>
