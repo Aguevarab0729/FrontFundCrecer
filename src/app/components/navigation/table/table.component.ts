@@ -5,6 +5,7 @@ import { ModalWindowComponent } from '../modal-window/modal-window.component';
 import { MarketService } from 'src/app/services/market.service';
 import { forkJoin } from 'rxjs';
 import { ExportComponent } from '../export/export.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -35,7 +36,8 @@ export class TableComponent {
   constructor(
     private _BeneficiariesService: BeneficiariesService,
     private _marketService: MarketService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastr: ToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -122,7 +124,7 @@ export class TableComponent {
           if (beneficiary.basicinfo.unityName !== this.selectedUnity) {
             sameUnity = false;
           }
-          if (beneficiary.socialInformation.typeComplement !== this.selectedMarket) {
+          if (beneficiary.typeComplement !== this.selectedMarket) {
             sameMarketType = false;
           }
         }
@@ -130,27 +132,28 @@ export class TableComponent {
         console.log('Beneficiary', Beneficiaries)
         console.log('Typecomplement', beneficiary.typeComplement)
       }
+      
     }
   
     // Si se seleccionaron menos de 17 beneficiarios, mostrar alerta y no guardar selección
     if (selectedCount < 1) {
-      alert('Debe seleccionar al menos un beneficiario');
+      this.toastr.error('Debe seleccionar al menos un beneficiario', 'Error');
       return;
     }
     if (selectedCount > 17) {
-      alert('Solo puede seleccionar hasta 17 beneficiarios');
+      this.toastr.error('Solo puede seleccionar hasta 17 beneficiarios', 'Error');
       return;
     }
   
     // Si los beneficiarios seleccionados no tienen la misma dupla, unidad y tipo de mercado, mostrar alerta y no guardar selección
     if (!sameDupla || !sameUnity || !sameMarketType) {
-      alert('Solo puede seleccionar beneficiarios con la misma dupla, unidad y tipo de mercado');
+      this.toastr.error('Solo puede seleccionar beneficiarios con la misma dupla, unidad y tipo de mercado', 'Error');
       return;
     }
-  
+    
     // Obtener los números de documento de los beneficiarios seleccionados
     const selectedBeneficiaries = Beneficiaries.map(beneficiary => beneficiary.basicinfo.numDoc);
-  
+    this.toastr.success('Los beneficiarios estan listos para el export', 'Información Guardada');
     // Guardar el array de números de documento de beneficiarios seleccionados en el LocalStorage
     localStorage.setItem('Beneficiaries', JSON.stringify(selectedBeneficiaries));
   }
