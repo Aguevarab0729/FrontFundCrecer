@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { LoadingService } from './loading.service';
 @Injectable({
   providedIn: 'root'
 })
 export class importService {
 
+  isLoading: boolean = false;
+
   private myAppUrl: String;
   private myApiUrl: String;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, private loadingService: LoadingService) { 
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'import';
   }
@@ -22,10 +25,19 @@ export class importService {
     console.log(formData.get('archivo'))
     const url = `${this.myAppUrl}${this.myApiUrl}`;
     const body = formData ;
+    this.isLoading = true;
+    this.loadingService.showLoading();
 
-    this.http.post(url, body).subscribe((response) => {
-  console.log(response);
-});
+    return this.http.post<any>(url, formData).pipe(
+      tap(() => this.loadingService.hideLoading()),
+      catchError((error) => {
+        this.loadingService.hideLoading();
+        throw error;
+      })
+      );
+  };
+
+
     // return this.http.post<any>('http://localhost:3000/import', formData);
   }
-}
+
