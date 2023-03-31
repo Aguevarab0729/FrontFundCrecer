@@ -55,9 +55,10 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     NgxPaginationModule,
     FormModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
-      positionClass: 'toast-bottom-right',
+      timeOut: 4000,
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
+      newestOnTop: true,
     }),      
     NgbModule,
     FormsModule,

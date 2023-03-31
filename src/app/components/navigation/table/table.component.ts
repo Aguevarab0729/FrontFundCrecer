@@ -122,7 +122,7 @@ export class TableComponent {
           if (beneficiary.basicinfo.unityName !== this.selectedUnity) {
             sameUnity = false;
           }
-          if (beneficiary.typeComplement !== this.selectedMarket) {
+          if (beneficiary.socialInformation.typeComplement !== this.selectedMarket) {
             sameMarketType = false;
           }
         }

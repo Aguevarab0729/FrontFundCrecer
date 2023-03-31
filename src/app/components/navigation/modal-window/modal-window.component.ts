@@ -334,7 +334,7 @@ updateDataBeneficiary() {
       error => console.error(error)
       
     );
-    console.log(beneficiaryData)
+    this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
     this.router.navigate(['/main'])
 }
 
@@ -347,7 +347,7 @@ updateBirthDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -362,7 +362,7 @@ updateBirthDataBeneficiary() {
       response => console.log(response),
       error => console.error(error)
     );
-    alert('Datos actualizados correctamente')
+    this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
     console.log(beneficiaryData);
 }
 
@@ -375,7 +375,7 @@ updateHealthDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -388,7 +388,7 @@ updateResidenceDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -401,7 +401,7 @@ updateAssistanceDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -414,7 +414,7 @@ updateParentsDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -427,7 +427,7 @@ updateGuardianDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -440,8 +440,8 @@ updateDisabilityDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  this.toastr.success(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
-  console.log(beneficiaryData);
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
+  
 }
 
 
