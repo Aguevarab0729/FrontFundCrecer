@@ -1,1 +1,28 @@
-<p>modal-market works!</p>
+<div class="modal-header">
+    <h4 class="modal-title">{{ editing ? 'Editar información del mercado' : 'Información del mercado' }} {{marketInfo.type}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ng-container *ngIf="!editing">
+      <p>Alimentos a preparar:</p>
+      <ul>
+        <li *ngFor="let food of marketInfo.foodsToPrepare">
+          {{ food.name }} - {{ food.quantity }}
+        </li>
+      </ul>
+      <button class="btn btn-primary" (click)="editing = true">Editar información del mercado</button>
+    </ng-container>
+  
+    <ng-container *ngIf="editing">
+      <form>
+        <div *ngFor="let food of marketInfo.foodsToPrepare" class="form-group">
+          <label for="{{food.name}}">{{food.name}}:</label>
+          <input type="text" class="form-control" id="{{food.name}}" name="{{food.name}}" [(ngModel)]="food.quantity" required>
+        </div>
+        <button class="btn btn-primary m-2" (click)="saveFood()">Guardar cambios</button>
+        <button class="btn btn-secondary" (click)="editing = false">Cancelar</button>
+      </form>
+    </ng-container>
+  </div>

@@ -29,10 +29,11 @@ export class MarketComponent implements OnInit {
     );
   };
 
-  openModal(event: any) {
+  openModal(event: any, market: any) {
     if (event.target.tagName !== 'INPUT') {
       const modalRef = this.modalService.open(ModalMarketComponent);
-      
+      modalRef.componentInstance.marketInfo = market;
     }
   }
+  
 };
