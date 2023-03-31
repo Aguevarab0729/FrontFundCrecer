@@ -1,53 +1,81 @@
 <div class="container mt-3">
-    <form >
-      <div class="row">
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Regional/Ciudad:</label>
-            <input type="text" [(ngModel)]="data.regional_ciudad" name="regional_ciudad" class="form-control">
+  <div class="d-flex flex-row">
+    <div class="mx-3">
+      <form >
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Regional/Ciudad:</label>
+              <input type="text" [(ngModel)]="data.regional_ciudad" name="regional_ciudad" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Centro Zonal:</label>
+              <input type="text" [(ngModel)]="data.centro_zonal" name="centro_zonal" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Municipio:</label>
+              <input type="text" [(ngModel)]="data.municipio" name="municipio" class="form-control">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Centro Zonal:</label>
-            <input type="text" [(ngModel)]="data.centro_zonal" name="centro_zonal" class="form-control">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Modalidad:</label>
+              <input type="text" [(ngModel)]="data.modalidad" name="modalidad" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Servicio:</label>
+              <input type="text" [(ngModel)]="data.servicio" name="servicio" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Mes de entrega:</label>
+              <input type="text" [(ngModel)]="data.mes_entrega" name="mes_entrega" class="form-control">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Municipio:</label>
-            <input type="text" [(ngModel)]="data.municipio" name="municipio" class="form-control">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Unidad:</label>
+              <input type="text" [(ngModel)]="data.unidad" name="unidad" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Dupla:</label>
+              <input type="text" [(ngModel)]="data.dupla" name="dupla" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Dirección de punto de entrega:</label>
+              <input type="text" [(ngModel)]="data.direccion_punto_entrega" name="direccion_punto_entrega" class="form-control">
+            </div>
+            <div class="form-group">
+              <label>Código de punto de entrega:</label>
+              <input type="text" [(ngModel)]="data.codigo_punto_entrega" name="codigo_punto_entrega" class="form-control">
+            </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Modalidad:</label>
-            <input type="text" [(ngModel)]="data.modalidad" name="modalidad" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Servicio:</label>
-            <input type="text" [(ngModel)]="data.servicio" name="servicio" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Mes de entrega:</label>
-            <input type="text" [(ngModel)]="data.mes_entrega" name="mes_entrega" class="form-control">
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="form-group">
-            <label>Unidad:</label>
-            <input type="text" [(ngModel)]="data.unidad" name="unidad" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Dupla:</label>
-            <input type="text" [(ngModel)]="data.dupla" name="dupla" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Dirección de punto de entrega:</label>
-            <input type="text" [(ngModel)]="data.direccion_punto_entrega" name="direccion_punto_entrega" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Código de punto de entrega:</label>
-            <input type="text" [(ngModel)]="data.codigo_punto_entrega" name="codigo_punto_entrega" class="form-control">
-          </div>
-        </div>
-      </div>
-      <button (click)="onSubmit()" class="btn btn-primary mb-3">Exportar</button>
-    </form>
+      </form>
+    </div>
+    <div class="mx-3">
+      <table class="table mx-auto">
+        <thead class="text-center">
+          <tr>
+            <!-- <th scope="col" class="col-2">Seleccionar</th> -->
+            <th scope="col" class="col-2">Documento</th>
+            <th scope="col" class="col-5">Nombre</th>
+            <th scope="col" class="col-2">Mercado</th>
+          </tr>
+        </thead>
+        <tbody class="data" *ngFor="let beneficiary of beneficiariesList; let i=index" >
+          <tr>
+            <!-- <td class="col-1"><input type="checkbox" [(ngModel)]="beneficiary.isSelected"></td> -->
+            <td class="col-2">{{ beneficiary.basicinfo.numDoc }}</td>
+            <td class="col-5">{{ beneficiary.basicinfo.fullName | titlecase }}</td>
+            <td class="col-2">{{ beneficiary.typeComplement | titlecase }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+  <div class="d-flex justify-content-evenly my-3">
+    <button (click)="onSubmit()" class="btn btn-primary mb-3">Exportar</button>
+    <button (click)="discard()" class="btn btn-primary mb-3">Descartar</button>
+  </div>
   </div>

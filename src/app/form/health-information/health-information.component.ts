@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 
 //  Interface de form health
 import { Health } from 'src/app/interfaces/form/health';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { FormService } from '../form.service';
 import { createValidator, required } from '../validators';
 
 @Component({
@@ -33,31 +35,40 @@ export class HealthInformationComponent {
     ticketNumber: ['']
   });
 
-  formValidator = createValidator<Health>(this.healthInformationForm, {
-    regime: [ required() ],
-    eps: [ required() ],
-    hasVaccinationCard: [ required() ],
-    vaccinationVerificationDate: [ required() ],
-    vaccinationCardUpToDate: [ required() ],
-    hasGrowthAndDevelopmentCard: [ required() ],
-    growthDevelopmentControlsReceived: [ required() ],
-    prematurenessBackground: [ required() ],
-    under40Weeks: [ required() ],
-    cefalicProfile: [ required() ],
-    gestationalAgeAtBirth: [ required() ],
-    weightAtBirth: [ required() ],
-    heightAtBirth: [ required() ],
-    exclusivelyBreastfeeding: [ required() ],
-    exclusiveBreastfeedingDuration: [ required() ],
-    totalBreastfeedingDuration: [ required() ],
-    gestationWeeks: [ required() ],
-    ticketNumber: [ required() ]
-  });
+  // formValidator = createValidator<Health>(this.healthInformationForm, {
+  //   regime: [ required() ],
+  //   eps: [ required() ],
+  //   hasVaccinationCard: [ required() ],
+  //   vaccinationVerificationDate: [ required() ],
+  //   vaccinationCardUpToDate: [ required() ],
+  //   hasGrowthAndDevelopmentCard: [ required() ],
+  //   growthDevelopmentControlsReceived: [ required() ],
+  //   prematurenessBackground: [ required() ],
+  //   under40Weeks: [ required() ],
+  //   cefalicProfile: [ required() ],
+  //   gestationalAgeAtBirth: [ required() ],
+  //   weightAtBirth: [ required() ],
+  //   heightAtBirth: [ required() ],
+  //   exclusivelyBreastfeeding: [ required() ],
+  //   exclusiveBreastfeedingDuration: [ required() ],
+  //   totalBreastfeedingDuration: [ required() ],
+  //   gestationWeeks: [ required() ],
+  //   ticketNumber: [ required() ]
+  // });
 
-  constructor(private formBuilder: FormBuilder){};
+  constructor(private formBuilder: FormBuilder, private formService: FormService , private localStorageService: LocalstorageService){
+    const healthInfo = this.localStorageService.getItem('healthInfo');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (healthInfo) {
+      this.healthInformationForm.patchValue(healthInfo);
+    }
+  }
 
   onSubmit = () => {
-    console.warn(this.healthInformationForm.value);
+    const healthInfo = this.healthInformationForm.value;
+    this.localStorageService.setItem('healthInfo',healthInfo);
+    this.formService.addProperty('healthInfo',this.localStorageService.getItem('healthInfo'));
   }
 
 }

@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="birthInformationForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="birthInformationForm" (click)="onSubmit()" >
 
     <div class="form-group">
       <label for="birthCountry">País de nacimiento *</label>
@@ -20,11 +20,11 @@
       <label for="birthDate">Fecha de nacimiento *</label>
       <input type="date" id="birthDate" formControlName="birthDate" required>
     </div>
-    <button class="submit" type="submit">Siguiente</button>
-    <h2>Validación Formulario</h2>
+    <button class="submit" type="submit">Guardar</button>
+    <!-- <h2>Validación Formulario</h2>
     <h5>Formulario valido = {{ birthInformationForm.valid }}</h5>
     <ul>
       <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
-    </ul>
+    </ul> -->
   </form>
 </div>

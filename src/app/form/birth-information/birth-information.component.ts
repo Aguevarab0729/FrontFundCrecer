@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 //  Interface form birth Information
 import { Birth } from 'src/app/interfaces/form/birth';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { FormService } from '../form.service';
 import { createValidator, required } from '../validators';
 
 @Component({
@@ -25,10 +27,21 @@ export class BirthInformationComponent {
     birthDate: [ required() ]
   });
 
-  constructor(private formBuilder: FormBuilder){};
+  constructor(private formBuilder: FormBuilder,private formService: FormService, private localStorageService: LocalstorageService){
+    const birthinformation = this.localStorageService.getItem('birthinformation');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (birthinformation) {
+      this.birthInformationForm.patchValue(birthinformation);
+    }
+  };
 
   onSubmit = () => {
-    console.warn(this.birthInformationForm.value);
+    const birthinformation = this.birthInformationForm.value;
+    this.localStorageService.setItem('birthinformation',birthinformation);
+    this.formService.addProperty('birthinformation',this.localStorageService.getItem('birthinformation'));
   }
+
+  
 
 }

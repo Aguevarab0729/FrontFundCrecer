@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 
 //  Interface de form parents
 import { Parents } from 'src/app/interfaces/form/parents';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { FormService } from '../form.service';
 
 import { createValidator, minLength, required } from '../validators';
 
@@ -61,9 +63,19 @@ export class ParentInformationComponent {
     motherBirthCity: [ required() ]
   });
 
-  constructor(private formBuilder: FormBuilder){};
+  constructor(private formBuilder: FormBuilder, private formService: FormService , private localStorageService: LocalstorageService){
+    const parent = this.localStorageService.getItem('parent');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (parent) {
+      this.parentInformationForm.patchValue(parent);
+    }
+  }
 
   onSubmit = () => {
-    console.warn(this.parentInformationForm.value);
+    const parent = this.parentInformationForm.value;
+    this.localStorageService.setItem('parent',parent);
+    this.formService.addProperty('parent',this.localStorageService.getItem('parent'));
   }
+
 }

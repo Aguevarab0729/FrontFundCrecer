@@ -13,7 +13,6 @@ import { MainViewComponent } from './components/pages/main-view/main-view.compon
 import { ModalFormsComponent } from './form/modal-forms/modal-forms.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   {
@@ -39,6 +38,8 @@ const routes: Routes = [
       { path: 'charts', component: ChartsComponent,
       ...canActivate(() => redirectUnauthorizedTo(['login']))},
       { path: 'market', component: MarketComponent,
+      ...canActivate(() => redirectUnauthorizedTo(['login']))},
+      { path: 'modal-forms', component: ModalFormsComponent,
       ...canActivate(() => redirectUnauthorizedTo(['login']))},
     ],
     ...canActivate(() => redirectUnauthorizedTo(['login']))
