@@ -24,7 +24,7 @@
 
     <div class="form-group">
       <label for="sisbenScore">Puntaje Sisbén</label>
-      <input type="number" id="sisbenScore" formControlName="sisbenScore">
+      <input type="text" id="sisbenScore" formControlName="sisbenScore">
     </div>
 
     <div class="form-group">
@@ -54,9 +54,28 @@
       <label for="justificationDocumentExists">¿ Si no cumple con ningun criterio, cuenta con acta de justificación que justifique la atención ?</label>
       <select id="justificationDocumentExists" formControlName="justificationDocumentExists">
         <option value="">Seleccione una opción</option>
-        <option value="true">Sí</option>
-        <option value="false">No</option>
+        <option value="a. Pertenecientes a hogares con puntaje SISBEN">Pertenecientes a hogares con puntaje SISBEN</option>
+        <option value="b. Pertenecientes a familias identificadas a través de la Estrategia para la Superación de la Pobreza Extrema  Red UNIDOS.">Pertenecientes a familias identificadas a través de la Estrategia para la Superación de la Pobreza Extrema  Red UNIDOS.</option>
+        <option value="c. Niñas, niños y mujeres gestantes pertenecientes al programa Familias en Acción de Prosperidad Social.">Niñas, niños y mujeres gestantes pertenecientes al programa Familias en Acción de Prosperidad Social.</option>
+        <option value="d. Niñas y niños egresados de la estrategia de atención y prevención de la desnutrición aguda (Centros de Recuperación Nutricional -CRN- y 1000 días para cambiar el mundo y unidades de búsqueda activa)">Niñas y niños egresados de la estrategia de atención y prevención de la desnutrición aguda (Centros de Recuperación Nutricional -CRN- y 1000 días para cambiar el mundo y unidades de búsqueda activa)</option>
+        <option value="e. Remitidos por las entidades del Sistema Nacional de Bienestar Familiar -SNBF- que se encuentren en situación de vulnerabilidad, riesgo de vulneración de derechos o programas de protección del ICBF">Remitidos por las entidades del Sistema Nacional de Bienestar Familiar -SNBF- que se encuentren en situación de vulnerabilidad, riesgo de vulneración de derechos o programas de protección del ICBF</option>
+        <option value="f. Víctimas de hechos violentos asociados al conflicto armado, de acuerdo con las directrices establecidas en la Ley 1448 de 2011 y los Decretos ley 4633, 4634 y 4635 de 2011, así como la Sentencia T-025 de 2004 proferida por la Corte Constitucional y demás desarrollos jurisprudenciales en torno a la existencia de un estado de cosas inconstitucional; para lo cual se considerarán aquellos cuyo estado se encuentre incluido dentro del RUV.">Víctimas de hechos violentos asociados al conflicto armado, de acuerdo con las directrices establecidas en la Ley 1448 de 2011 y los Decretos ley 4633, 4634 y 4635 de 2011, así como la Sentencia T-025 de 2004 proferida por la Corte Constitucional y demás desarrollos jurisprudenciales en torno a la existencia de un estado de cosas inconstitucional; para lo cual se considerarán aquellos cuyo estado se encuentre incluido dentro del RUV.</option>
+        <option value="g. Pertenecientes a comunidades étnicas (indígenas, comunidades negras, afrocolombianas, Palenqueros, Raizales y Rrom), que demanden el servicio.">Pertenecientes a comunidades étnicas (indígenas, comunidades negras, afrocolombianas, Palenqueros, Raizales y Rrom), que demanden el servicio.</option>
+        <option value="h. Niños y niñas con discapacidad que requieren diversos tipos de apoyo para su participación efectiva y que demandan acompañamiento en las actividades de cuidado; así como los que sean remitidos por las entidades del SNBF con base en el registro para la localización y caracterización de personas con discapacidad del Ministerio de Salud y Protección Social, como de los comités territoriales y locales de discapacidad y las entidades territoriales en salud.">Niños y niñas con discapacidad que requieren diversos tipos de apoyo para su participación efectiva y que demandan acompañamiento en las actividades de cuidado; así como los que sean remitidos por las entidades del SNBF con base en el registro para la localización y caracterización de personas con discapacidad del Ministerio de Salud y Protección Social, como de los comités territoriales y locales de discapacidad y las entidades territoriales en salud.</option>
+        <option value="i. Usuarios del subsidio en especie para población vulnerable, del que trata el artículo 12 de la Ley 1537 de 2012 (Vivienda de Interés Social y Vivienda de Interés Prioritario), y el Decreto 1921 de 2012 o el que reglamente la materia.">Usuarios del subsidio en especie para población vulnerable, del que trata el artículo 12 de la Ley 1537 de 2012 (Vivienda de Interés Social y Vivienda de Interés Prioritario), y el Decreto 1921 de 2012 o el que reglamente la materia.</option>
+        <option value="j. Niñas y niños cuyos padres estén en establecimientos de reclusión.">Niñas y niños cuyos padres estén en establecimientos de reclusión.</option>
+        <option value="k. Población migrante, refugiada o apátrida que cumpla con alguna de las siguientes características: ausencia de vivienda o condiciones de hacinamiento, que no cuenten con acceso a servicios públicos domiciliarios o que no cuenten con ningún tipo de afiliación al Sistema General de Seguridad Social en Salud.">Población migrante, refugiada o apátrida que cumpla con alguna de las siguientes características: ausencia de vivienda o condiciones de hacinamiento, que no cuenten con acceso a servicios públicos domiciliarios o que no cuenten con ningún tipo de afiliación al Sistema General de Seguridad Social en Salud.</option>
+        <option value="l. Niñas y niños remitidos del servicio HCB FAMI y DIMF que al cumplir los dos (2) años deben transitar a otros servicios de educación inicial de atención permanente.">Niñas y niños remitidos del servicio HCB FAMI y DIMF que al cumplir los dos (2) años deben transitar a otros servicios de educación inicial de atención permanente.</option>
+        <option value="m. Niñas y niños cuyos padres estén activos en la ruta de reincorporación e identificados en las bases de datos remitidas de forma oficial al ICBF por la Agencia para la Reincorporación y la Normalización – ARN.">Niñas y niños cuyos padres estén activos en la ruta de reincorporación e identificados en las bases de datos remitidas de forma oficial al ICBF por la Agencia para la Reincorporación y la Normalización – ARN.</option>
+        <option value="n. Para el servicio de Hogar Infantil se atenderá prioritariamente niños y niñas hijos de trabajadores que evidencien vinculación laboral y demás requisitos establecidos en la resolución 1740 de 2010.">Para el servicio de Hogar Infantil se atenderá prioritariamente niños y niñas hijos de trabajadores que evidencien vinculación laboral y demás requisitos establecidos en la resolución 1740 de 2010.</option>
+        <option value="o. Ingresos iguales o inferiores a 1.5 Smlv">Ingresos iguales o inferiores a 1.5 Smlv</option>
       </select>
     </div>
+    <button class="submit" type="submit">Siguiente</button>
+    <h2>Validación Formulario</h2>
+    <h5>Formulario valido = {{ socialInformationForm.valid }}</h5>
+    <ul>
+      <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
+    </ul>
   </form>
 </div>

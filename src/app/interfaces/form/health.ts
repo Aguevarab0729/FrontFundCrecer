@@ -1,0 +1,20 @@
+export interface Health {
+  regime: string,
+  eps: string,
+  hasVaccinationCard: boolean,
+  vaccinationVerificationDate: boolean,
+  vaccinationCardUpToDate: boolean,
+  hasGrowthAndDevelopmentCard: boolean,
+  growthDevelopmentControlsReceived: string,
+  prematurenessBackground: boolean,
+  under40Weeks: boolean,
+  cefalicProfile: string,
+  gestationalAgeAtBirth: number,
+  weightAtBirth: number,
+  heightAtBirth: number,
+  exclusivelyBreastfeeding: boolean,
+  exclusiveBreastfeedingDuration: number,
+  totalBreastfeedingDuration: number,
+  gestationWeeks: number,
+  ticketNumber: string
+}

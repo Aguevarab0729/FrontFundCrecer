@@ -29,8 +29,6 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,12 +52,14 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     ReactiveFormsModule,
     NgxPaginationModule,
     FormModule,
+
     ToastrModule.forRoot({
       timeOut: 4000,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
       newestOnTop: true,
     }),      
+
     NgbModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),

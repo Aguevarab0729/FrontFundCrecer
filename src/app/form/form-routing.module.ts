@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AssistanceComponent } from './assistance/assistance.component';
-import { BenficiariesInscriptionComponent } from './benficiaries-inscription/benficiaries-inscription.component';
 import { BirthInformationComponent } from './birth-information/birth-information.component';
 import { DisabilityInformationComponent } from './disability-information/disability-information.component';
 import { GuardianInformationComponent } from './guardian-information/guardian-information.component';
@@ -15,7 +14,6 @@ import { ModalFormsComponent } from './modal-forms/modal-forms.component';
 
 const routes: Routes = [
   { path: 'assistance', component: AssistanceComponent },
-  { path: 'benficiaries-inscription', component: BenficiariesInscriptionComponent },
   { path: 'birth-information', component: BirthInformationComponent },
   { path: 'disability-information', component: DisabilityInformationComponent },
   { path: 'guardian-information', component: GuardianInformationComponent },
@@ -29,6 +27,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule,
+  ]
 })
 export class FormRoutingModule { }
