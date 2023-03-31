@@ -82,8 +82,8 @@ export class ExportComponent {
       direccion_punto_entrega: this.data.direccion_punto_entrega,
       codigo_punto_entrega: this.data.codigo_punto_entrega
     };
+
     this.toastr.info('La exportación estará lista en unos segundos', '¡Exportación en progreso!');
-  
     this.refreshBeneficiaries()
   
     const newEntry = {
