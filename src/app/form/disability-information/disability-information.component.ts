@@ -3,6 +3,8 @@ import { FormBuilder } from '@angular/forms';
 
 //  Interface de form disability
 import { Disability } from 'src/app/interfaces/form/disability';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { FormService } from '../form.service';
 import { createValidator, required } from '../validators';
 
 @Component({
@@ -17,7 +19,7 @@ export class DisabilityInformationComponent {
     entityCertifiesDisability: [''],
     disabilityCategory: [''],
     specifiedDisability: [''],
-    disabilityRegistryEnrollment: ['']
+    disabilityRegistryEnrollment: ['false']
   })
 
   formValidator = createValidator<Disability>(this.disabilityForm, {
@@ -29,9 +31,20 @@ export class DisabilityInformationComponent {
     disabilityRegistryEnrollment: []
   })
 
-  constructor(private formBuilder: FormBuilder){}
+  constructor(private formBuilder: FormBuilder, private formService: FormService , private localStorageService: LocalstorageService){
+    const disabilityInfo = this.localStorageService.getItem('disabilityInfo');
+  
+  // Verificar si existe un valor en el local storage y llenar el formulario
+    if (disabilityInfo) {
+      this.disabilityForm.patchValue(disabilityInfo);
+    }
+  }
 
   onSubmit = () => {
-    console.warn(this.disabilityForm.value);
+    const disabilityInfo = this.disabilityForm.value;
+    this.localStorageService.setItem('disabilityInfo',disabilityInfo);
+    this.formService.addProperty('disabilityInfo',this.localStorageService.getItem('disabilityInfo'));
   }
+
+  
 }

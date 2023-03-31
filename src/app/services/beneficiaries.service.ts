@@ -8,17 +8,25 @@ import { environment } from 'src/environments/environment';
 })
 export class BeneficiariesService {
 
-  private myAppUrl: String ;
+  private myAppUrl: String;
   private myApiUrl: String;
+  private myApiUrlBasicInfo: String;
 
   constructor(private http: HttpClient) {
     this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'api/beneficiaries'
-   }
+    this.myApiUrlBasicInfo = 'api/beneficiaries/'
+  }
 
-   getBeneficiaries(): Observable<any>{
+  getBeneficiaries(): Observable<any>{
     return this.http.get<any>(`${this.myAppUrl}${this.myApiUrl}`)
-   }
+  }
 
-   
+  getBasicInfoBeneficiary(numDoc:String): Observable<any>{
+    return this.http.get<any>(`${this.myAppUrl}${this.myApiUrlBasicInfo}${numDoc}`)
+  }
+
+  postBeneficiary(beneficiary: any): Observable<any> {
+    return this.http.post<any>(`${this.myAppUrl}${this.myApiUrlBasicInfo}`, beneficiary);
+  }
 }

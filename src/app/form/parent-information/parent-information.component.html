@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form class="form-modal" [formGroup]="parentInformationForm" (ngSubmit)="onSubmit()">
+  <form class="form-modal" [formGroup]="parentInformationForm" (click)="onSubmit()" (ngSubmit)="onSubmit()">
     <!-- Father Information -->
     <div class="parent-info-section">
       <h2>Información del Padre</h2>
@@ -117,11 +117,11 @@
         <input type="text" id="motherBirthCity" formControlName="motherBirthCity" required>
       </div>
     </div>
-    <button class="submit" type="submit">Siguiente</button>
-    <h2>Validación Formulario</h2>
+    <button class="submit" type="submit">Guardar</button>
+    <!-- <h2>Validación Formulario</h2>
     <h5>Formulario valido = {{ parentInformationForm.valid }}</h5>
     <ul>
       <li *ngFor="let error of formValidator | async | errors">{{ error }}</li>
-    </ul>
+    </ul> -->
   </form>
 </div>
