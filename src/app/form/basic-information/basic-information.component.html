@@ -70,9 +70,9 @@
       <ng-container formArrayName="teachers">
         <div *ngFor="let control of teachers.controls; index as i">
           <input type="text" id="teachers" [formControlName]="i" />
-          <button (click)="removeMember(i)">Remove teacher {{ i + 1 }}</button>
+          <button class="btn btn-outline-secondary btn-sm my-2" (click)="removeMember(i)">Remove teacher {{ i + 1 }}</button>
         </div>
-        <button (click)="addMember()">Add teacher</button>
+        <button class="btn btn-outline-primary btn-sm" (click)="addMember()">Add teacher</button>
       </ng-container>
     </div>
 
@@ -104,7 +104,7 @@
         <option value="FEMENINO">Femenino</option>
       </select>
     </div>
-    <button class="submit" type="submit" >Guardar</button>
+    <button  class="submit btn btn-outline-primary btn-sm" type="submit" >Guardar</button>
     <!-- <h2>Validación Formulario</h2>
     <h5>Formulario valido = {{ basicInformationForm.valid }}</h5>
     <ul>
