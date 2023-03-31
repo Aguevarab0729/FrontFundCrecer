@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
 
 import { SideBarComponent } from './components/navigation/side-bar/side-bar.component';
 import { MainViewComponent } from './components/pages/main-view/main-view.component';
@@ -27,6 +28,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { ModalMarketComponent } from './components/modals/modal-market/modal-market.component';
+
 
 @NgModule({
   declarations: [
@@ -52,10 +54,19 @@ import { ModalMarketComponent } from './components/modals/modal-market/modal-mar
     ReactiveFormsModule,
     NgxPaginationModule,
     FormModule,
+
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      newestOnTop: true,
+    }),      
+
     NgbModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+    
   ],
 
   providers: [],

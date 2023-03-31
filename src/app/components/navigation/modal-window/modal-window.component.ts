@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 import { AssistanceInformationService } from 'src/app/services/path-services/assistance-information.service';
 import { BasicInfomationService } from 'src/app/services/path-services/basic-infomation.service';
 import { BirthInformationService } from 'src/app/services/path-services/birth-information.service';
@@ -33,6 +35,7 @@ export class ModalWindowComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private router: Router,
+              private toastr: ToastrService,
               private basicInformationService: BasicInfomationService,
               private socialInformationService: SocialInformationService,
               private healthInformationService: HealthInformationService,
@@ -71,16 +74,6 @@ export class ModalWindowComponent implements OnInit {
       birthDate: [''],
     });
 
-    this.socialinfoForm = this.fb.group({
-      groupEthnicity: [''],
-      beneficiarySisbenized: [false],
-      sisbenScore: [''],
-      belongsToFamiliesInAction: [false],
-      directlyAffectedByArmedConflict: [false],
-      focusingCriteria: [''],
-      justificationDocumentExists: [false],
-    });
-
     this.healthInfoForm = this.fb.group({
       cefalicProfile: [''],
       eps: [''],
@@ -103,6 +96,7 @@ export class ModalWindowComponent implements OnInit {
       
     });
 
+
     this.residencyInfoForm = this.fb.group({
       countryOfResidence: [''],
       residenceDepartment: [''],
@@ -117,6 +111,18 @@ export class ModalWindowComponent implements OnInit {
       householdStratum: [0],
     });
 
+
+    this.socialinfoForm = this.fb.group({
+      groupEthnicity: [''],
+      beneficiarySisbenized: [false],
+      sisbenScore: [''],
+      belongsToFamiliesInAction: [false],
+      directlyAffectedByArmedConflict: [false],
+      focusingCriteria: [''],
+      justificationDocumentExists: [false],
+    });
+
+    
     this.assistanceForm = this.fb.group({
       requiresAssistance: [false],
       requiresTechSupport: [false],
@@ -231,20 +237,27 @@ export class ModalWindowComponent implements OnInit {
       vaccinationVerificationDate: this.beneficiary.healthInfo.vaccinationVerificationDate,
       weightAtBirth: this.beneficiary.healthInfo.weightAtBirth
     });
-
-    this.residencyInfoForm.patchValue({
-      countryOfResidence: this.beneficiary.residencyInformation.countryOfResidence,
-      residenceDepartment: this.beneficiary.residencyInformation.residenceDepartment,
-      locationZone: this.beneficiary.residencyInformaion.locationZone,
-      headerType: this.beneficiary.residencyInformation.headerType,
-      localityName: this.beneficiary.residencyInformation.localityName,
-      neighborhood: this.beneficiary.residencyInformation.neighborhood,
-      foreignZoneName: this.beneficiary.residencyInformation.foreignZoneName,
-      address: this.beneficiary.residencyInformation.address,
-      primaryPhone: this.beneficiary.residencyInformation.primaryPhone,
-      secondaryPhone: this.beneficiary.residencyInformation.secondaryPhone,
-      householdStratum: this.beneficiary.residencyInformation.householdStratum
-    });
+    console.log('Beneficiary:', this.beneficiary);
+    
+    
+    if (this.beneficiary.residencyInformation) {
+      this.residencyInfoForm.patchValue({
+        countryOfResidence: this.beneficiary.residencyInformation.countryOfResidence,
+        residenceDepartment: this.beneficiary.residencyInformation.residenceDepartment,
+        locationZone: this.beneficiary.residencyInformation.locationZone,
+        headerType: this.beneficiary.residencyInformation.headerType,
+        localityName: this.beneficiary.residencyInformation.localityName,
+        neighborhood: this.beneficiary.residencyInformation.neighborhood,
+        foreignZoneName: this.beneficiary.residencyInformation.foreignZoneName,
+        address: this.beneficiary.residencyInformation.address,
+        primaryPhone: this.beneficiary.residencyInformation.primaryPhone,
+        secondaryPhone: this.beneficiary.residencyInformation.secondaryPhone,
+        householdStratum: this.beneficiary.residencyInformation.householdStratum
+      });
+    } else {
+      console.log("El objeto 'residencyInformation' no está definido.");
+      console.log('Location Zone:', this.beneficiary.residencyInformaion.locationZone);
+    }
 
     this.assistanceForm.patchValue({
       requiresAssistance: this.beneficiary.assistanceInformation.requiresAssistance,
@@ -290,6 +303,7 @@ export class ModalWindowComponent implements OnInit {
       guardianBirthDepartment: this.beneficiary.guardianInfo.guardianBirthDepartment,
       guardianBirthCity: this.beneficiary.guardianInfo.guardianBirthCity
     });
+    console.log(this.beneficiary.guardianInfo.guardianPersonType);
 
     this.disabilityForm.patchValue({
       disability: this.beneficiary.disabilityInfo.disability,
@@ -320,7 +334,7 @@ updateDataBeneficiary() {
       error => console.error(error)
       
     );
-    console.log(beneficiaryData)
+    this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
     this.router.navigate(['/main'])
 }
 
@@ -333,7 +347,7 @@ updateBirthDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -348,7 +362,7 @@ updateBirthDataBeneficiary() {
       response => console.log(response),
       error => console.error(error)
     );
-    alert('Datos actualizados correctamente')
+    this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
     console.log(beneficiaryData);
 }
 
@@ -361,7 +375,7 @@ updateHealthDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -374,7 +388,7 @@ updateResidenceDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -387,7 +401,7 @@ updateAssistanceDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -400,7 +414,7 @@ updateParentsDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -413,7 +427,7 @@ updateGuardianDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
   console.log(beneficiaryData);
 }
 
@@ -426,8 +440,8 @@ updateDisabilityDataBeneficiary() {
     response => console.log(response),
     error => console.error(error)
   );
-  alert('Datos actualizados correctamente')
-  console.log(beneficiaryData);
+  this.toastr.info(`Los datos fueron actualizados con exito`, 'Datos Actualziados');
+  
 }
 
 

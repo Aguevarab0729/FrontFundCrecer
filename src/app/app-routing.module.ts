@@ -13,7 +13,6 @@ import { MainViewComponent } from './components/pages/main-view/main-view.compon
 import { ModalFormsComponent } from './form/modal-forms/modal-forms.component';
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   {

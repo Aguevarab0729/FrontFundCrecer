@@ -1,5 +1,7 @@
 import { ExportService } from './../../../services/export.service';
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+
 import { BeneficiariesService } from 'src/app/services/beneficiaries.service';
 
 @Component({
@@ -8,6 +10,8 @@ import { BeneficiariesService } from 'src/app/services/beneficiaries.service';
   styleUrls: ['./export.component.scss']
 })
 export class ExportComponent {
+  
+  private exportObject: {};
 
   public data: {
     regional_ciudad: string,
@@ -36,10 +40,11 @@ export class ExportComponent {
   public beneficiaries: any[] = [];
   public beneficiariesList: any[]= [];
 
-  constructor(private _ExportService: ExportService, private _BeneficiariesService: BeneficiariesService)
+  constructor(private _ExportService: ExportService, private _BeneficiariesService: BeneficiariesService, private toastr: ToastrService)
   {
     this.refreshBeneficiaries();
     this.refreshListBeneficiaries();
+    this.exportObject = {};
   }
 
   public refreshBeneficiaries(){
@@ -75,6 +80,7 @@ export class ExportComponent {
       direccion_punto_entrega: this.data.direccion_punto_entrega,
       codigo_punto_entrega: this.data.codigo_punto_entrega
     };
+    this.toastr.success('Exportación en proceso, estara lista en unos segundos', 'Exportación exitosa');
   
     this.refreshBeneficiaries()
   
@@ -83,13 +89,15 @@ export class ExportComponent {
       beneficiaries: [...this.beneficiaries]
     };
     
+    // Agregamos el objeto newEntry al array dataArray
+    
+    console.log(this.exportObject)
+    
     this._ExportService.downloadExcel(newEntry.data,newEntry.beneficiaries);
     this.discard();
   }
 
 }
-
-  
 
 
 
