@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 import { BeneficiariesService } from 'src/app/services/beneficiaries.service';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-export',
@@ -10,7 +11,8 @@ import { BeneficiariesService } from 'src/app/services/beneficiaries.service';
   styleUrls: ['./export.component.scss']
 })
 export class ExportComponent {
-  
+  isLoading$ = this.loadingService.isLoading$;
+
   private exportObject: {};
 
   public data: {
@@ -40,7 +42,7 @@ export class ExportComponent {
   public beneficiaries: any[] = [];
   public beneficiariesList: any[]= [];
 
-  constructor(private _ExportService: ExportService, private _BeneficiariesService: BeneficiariesService, private toastr: ToastrService)
+  constructor(private _ExportService: ExportService, private _BeneficiariesService: BeneficiariesService, private toastr: ToastrService, private loadingService: LoadingService)
   {
     this.refreshBeneficiaries();
     this.refreshListBeneficiaries();
@@ -80,7 +82,7 @@ export class ExportComponent {
       direccion_punto_entrega: this.data.direccion_punto_entrega,
       codigo_punto_entrega: this.data.codigo_punto_entrega
     };
-    this.toastr.success('Exportación en proceso, estara lista en unos segundos', 'Exportación exitosa');
+    this.toastr.info('La exportación estará lista en unos segundos', '¡Exportación en progreso!');
   
     this.refreshBeneficiaries()
   

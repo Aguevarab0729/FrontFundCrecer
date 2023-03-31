@@ -74,6 +74,9 @@
     </div>
   </div>
   <hr>
+  <div class="d-flex justify-content-center" *ngIf="isLoading$ | async">
+    <h1 data-text="Exportando">Exportando</h1>
+  </div>
   <div class="d-flex justify-content-evenly my-3">
     <button (click)="onSubmit()" class="btn btn-primary mb-3">Exportar</button>
     <button (click)="discard()" class="btn btn-primary mb-3">Descartar</button>
